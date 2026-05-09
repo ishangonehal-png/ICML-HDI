@@ -1,0 +1,160 @@
+{
+  "contract_name": "tcga_luad_tri_modal_case_contract",
+  "contract_version": "1.0.0",
+  "project_id": "TCGA-LUAD",
+  "description": "Canonical case-keyed contract for TCGA-LUAD tri-modal matching, deterministic MVP subset locking, and provenance manifests.",
+  "join_keys": [
+    {
+      "name": "case_id",
+      "level": "case",
+      "type": "string",
+      "required": true,
+      "description": "GDC case UUID used as the primary cross-modality join key."
+    },
+    {
+      "name": "patient_id",
+      "level": "patient",
+      "type": "string",
+      "required": true,
+      "description": "TCGA submitter id (e.g. TCGA-05-4244)."
+    },
+    {
+      "name": "sample_id",
+      "level": "sample",
+      "type": "string",
+      "required": false,
+      "description": "TCGA sample barcode when derivable from file naming metadata."
+    },
+    {
+      "name": "slide_id",
+      "level": "slide",
+      "type": "string",
+      "required": false,
+      "description": "TCGA slide barcode for WSI assets when derivable from file naming metadata."
+    },
+    {
+      "name": "gdc_file_id",
+      "level": "file",
+      "type": "string",
+      "required": true,
+      "description": "GDC file UUID for exact file reproducibility."
+    }
+  ],
+  "core_metadata_fields": [
+    {
+      "name": "modality",
+      "type": "string",
+      "required": true,
+      "enum": [
+        "rna",
+        "he_slide",
+        "clinical_supplement",
+        "clinical_xml",
+        "pathology_report"
+      ]
+    },
+    {
+      "name": "source_path",
+      "type": "string",
+      "required": true,
+      "description": "Expected relative gdc-client output path: files/<gdc_file_id>/<filename>."
+    },
+    {
+      "name": "filename",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "checksum",
+      "type": "string",
+      "required": true,
+      "description": "Expected GDC md5 checksum from manifest."
+    },
+    {
+      "name": "size_bytes",
+      "type": "integer",
+      "required": false
+    },
+    {
+      "name": "state",
+      "type": "string",
+      "required": false
+    }
+  ],
+  "cohort_required_columns": [
+    "project_id",
+    "case_id",
+    "patient_id",
+    "selected_rna_file_id",
+    "selected_rna_file_name",
+    "selected_slide_file_id",
+    "selected_slide_file_name",
+    "selected_clinical_supplement_file_id",
+    "selected_clinical_supplement_file_name",
+    "selected_clinical_xml_file_id",
+    "selected_clinical_xml_file_name",
+    "selected_pathology_report_file_id",
+    "selected_pathology_report_file_name"
+  ],
+  "modality_requirements": {
+    "rna": {
+      "required": true,
+      "file_id_column": "selected_rna_file_id",
+      "filename_column": "selected_rna_file_name",
+      "expected_suffixes": [
+        ".tsv"
+      ]
+    },
+    "he_slide": {
+      "required": true,
+      "file_id_column": "selected_slide_file_id",
+      "filename_column": "selected_slide_file_name",
+      "expected_suffixes": [
+        ".svs"
+      ]
+    },
+    "clinical_supplement": {
+      "required": true,
+      "file_id_column": "selected_clinical_supplement_file_id",
+      "filename_column": "selected_clinical_supplement_file_name",
+      "expected_suffixes": [
+        ".txt"
+      ]
+    },
+    "clinical_xml": {
+      "required": true,
+      "file_id_column": "selected_clinical_xml_file_id",
+      "filename_column": "selected_clinical_xml_file_name",
+      "expected_suffixes": [
+        ".xml"
+      ]
+    },
+    "pathology_report": {
+      "required": true,
+      "file_id_column": "selected_pathology_report_file_id",
+      "filename_column": "selected_pathology_report_file_name",
+      "expected_suffixes": [
+        ".pdf"
+      ]
+    }
+  },
+  "required_modalities": [
+    "rna",
+    "he_slide",
+    "clinical_supplement",
+    "clinical_xml",
+    "pathology_report"
+  ],
+  "asset_record_required_fields": [
+    "contract_version",
+    "case_id",
+    "patient_id",
+    "sample_id",
+    "slide_id",
+    "gdc_file_id",
+    "modality",
+    "filename",
+    "source_path",
+    "checksum"
+  ]
+}

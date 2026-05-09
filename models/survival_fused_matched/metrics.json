@@ -1,0 +1,13 @@
+{
+  "n_samples": 23,
+  "n_pathology_dims": 384,
+  "n_rna_dims": 643,
+  "n_meta_dims": 7,
+  "n_features": 15,
+  "target": "survived_2yr",
+  "horizon_years": 2,
+  "cv_accuracy_mean": 0.72,
+  "cv_accuracy_std": 0.2502,
+  "train_accuracy": 1.0,
+  "pca_components": 15
+}

@@ -1,0 +1,174 @@
+% figure_architecture.tex
+% Standalone TikZ figure for the Structural Faithfulness paper.
+%
+% Compile:  pdflatex figure_architecture.tex   -> figure_architecture.pdf
+% Insert in paper_draft.tex:
+%   \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=\columnwidth]{figure_architecture.pdf}
+%     \caption{System architecture. All LLM-visible values flow through
+%     the closed evidence bundle; modality ablation is applied at the
+%     bundle, not at the prompt. PubMed retrieval (red dashed) is gated
+%     by an explicit keyword-intent check and suppressed otherwise.}
+%     \label{fig:architecture}
+%   \end{figure}
+
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{tikz}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,fit,calc}
+
+\begin{document}
+
+% Descriptor style: slightly smaller than main label but still readable.
+% We deliberately do not use \scriptsize here — it renders too small
+% when the figure is scaled to column width.
+\newcommand{\descfont}{\fontsize{7.5pt}{8.8pt}\selectfont}
+
+\begin{tikzpicture}[
+  font=\footnotesize,
+  >={Latex[length=4.5pt,width=3.2pt]},
+  line width=0.55pt,
+  node distance=6mm,
+  % ── node styles ────────────────────────────────────────────────────────
+  input/.style={
+    rectangle, rounded corners=2pt, draw=black!55, fill=black!6,
+    minimum width=23mm, minimum height=8mm, align=center, inner sep=3pt,
+  },
+  modality/.style={
+    rectangle, rounded corners=2pt, draw=black!70, fill=blue!6,
+    minimum width=29mm, minimum height=10mm, align=center, inner sep=3pt,
+  },
+  fusion/.style={
+    rectangle, rounded corners=2.5pt, draw=black!80, fill=orange!15,
+    minimum width=72mm, minimum height=14mm, align=center, inner sep=3.5pt,
+    line width=0.75pt,
+  },
+  bundle/.style={
+    rectangle, rounded corners=2.5pt, draw=black!85, fill=yellow!18,
+    minimum width=72mm, minimum height=15mm, align=center, inner sep=3.5pt,
+    line width=0.85pt,
+  },
+  gate/.style={
+    diamond, draw=black!75, fill=red!8, aspect=2.4,
+    inner sep=1.5pt, align=center, minimum height=10mm, minimum width=32mm,
+  },
+  retrieve/.style={
+    rectangle, rounded corners=2pt, draw=black!75, fill=red!6,
+    minimum width=36mm, minimum height=13mm, align=center, inner sep=3pt,
+  },
+  llm/.style={
+    rectangle, rounded corners=2.5pt, draw=black!85, fill=green!12,
+    minimum width=72mm, minimum height=15mm, align=center, inner sep=3.5pt,
+    line width=0.85pt,
+  },
+  out/.style={
+    rectangle, rounded corners=2pt, draw=black!70, fill=black!3,
+    minimum width=72mm, minimum height=9mm, align=center, inner sep=3pt,
+  },
+  eval/.style={
+    rectangle, rounded corners=2pt, draw=black!70, dashed, fill=black!2,
+    minimum width=72mm, minimum height=8mm, align=center, inner sep=3pt,
+  },
+  % ── edge styles ────────────────────────────────────────────────────────
+  flow/.style={->, draw=black!75, line width=0.55pt},
+  flowthick/.style={->, draw=black!85, line width=0.75pt},
+  gated/.style={->, draw=red!65, line width=0.6pt, dashed},
+  thin/.style={->, draw=black!45, line width=0.4pt},
+  note/.style={font=\scriptsize\itshape, text=black!55},
+  gatedlabel/.style={font=\scriptsize\itshape, text=red!65},
+]
+
+% ── Row 1: patient inputs ─────────────────────────────────────────────────
+\node[input] (wsi)                          {WSI\\{\scriptsize(pathology tiles)}};
+\node[input, right=6mm of wsi]  (rna)       {RNA-seq\\{\scriptsize(counts)}};
+\node[input, right=6mm of rna]  (clin)      {TCGA clinical\\{\scriptsize(BCR XML)}};
+
+\node[note, above=0.5mm of wsi.north west, anchor=south west]
+  {patient inputs (TCGA-LUAD)};
+
+% ── Row 2: per-modality extractors ────────────────────────────────────────
+\node[modality, below=7mm of wsi]  (path) {Tile scoring +\\tissue fractions};
+\node[modality, below=7mm of rna]  (txo)  {CYT / GEP / TIDE\\scores};
+\node[modality, below=7mm of clin] (cx)   {Stage, ECOG,\\smoking, survival};
+
+\draw[flow] (wsi)  -- (path);
+\draw[flow] (rna)  -- (txo);
+\draw[flow] (clin) -- (cx);
+
+% ── Row 3: fusion scorer ──────────────────────────────────────────────────
+\node[fusion, below=9mm of txo] (fus)
+  {\textbf{Fusion scorer}\\
+   {\descfont provisional + refined IO score\\
+   per-modality contribution \% \,$\cdot$\, IO tier}};
+
+\draw[flow] (path.south) -- ($(fus.north) + (-24mm,0)$);
+\draw[flow] (txo.south)  -- (fus.north);
+\draw[flow] (cx.south)   -- ($(fus.north) + (24mm,0)$);
+
+% ── Row 4: closed evidence bundle ─────────────────────────────────────────
+\node[bundle, below=6mm of fus] (bundle)
+  {\textbf{Closed Evidence Bundle\,(JSON)}\\
+   {\descfont all LLM-visible values\\
+   \texttt{data\_source} + \texttt{proxy\_estimate} provenance}};
+
+\draw[flowthick] (fus) -- (bundle);
+
+% ablation annotation
+\node[note, right=3mm of bundle.east, anchor=west, align=left] (ab) {data-layer\\ablation};
+\draw[thin] (ab.west) -- (bundle.east);
+
+% ── Row 5: keyword gate + conditional retrieval ───────────────────────────
+\node[gate, below=9mm of bundle, xshift=-18mm] (gate)
+  {keyword gate\\
+   {\scriptsize``literature / paper /\\study / trial / \ldots''}};
+
+\node[retrieve, right=12mm of gate] (pub)
+  {\textbf{PubMed 2-stage retrieval}\\
+   {\descfont query plan\,$\to$\\
+   abstract extract}};
+
+\draw[flowthick] (bundle.south) -- (gate.north);
+
+% gated edges (curved, so they don't overlap each other).
+% Labels are stacked on two lines and placed outside the arcs so they do
+% not collide with the PubMed box.
+\draw[gated] (gate.east) to[bend left=24]
+  node[gatedlabel, above=1.2mm, align=center, pos=0.5] {if\\triggered} (pub.west);
+\draw[gated] (pub.west) to[bend left=24]
+  node[gatedlabel, below=1.2mm, align=center, pos=0.5] {literature\\evidence} (gate.east);
+
+% ── Row 6: LLM reasoner ───────────────────────────────────────────────────
+\node[llm, below=11mm of gate] (llm)
+  {\textbf{LLM reasoner}\\
+   {\descfont system prompt: reason over bundle only\\
+   disclose missing modalities}};
+
+\draw[flowthick] (gate.south) -- (llm.north -| gate.south);
+
+% ── Row 7: grounded summary ───────────────────────────────────────────────
+\node[out, below=5mm of llm] (sum) {Grounded patient summary};
+\draw[flowthick] (llm) -- (sum);
+
+% ── Row 8: evaluation harness ─────────────────────────────────────────────
+\node[eval, below=5mm of sum] (judge)
+  {Claim extractor \,$\to$\, LLM-as-judge \;(T\,=\,0,\; 2-pass)};
+\draw[flow] (sum) -- (judge);
+
+\node[note, right=3mm of judge.east, anchor=west, align=left] (ev) {evaluation\\(offline)};
+\draw[thin] (ev.west) -- (judge.east);
+
+% ── Legend ────────────────────────────────────────────────────────────────
+\node[below=7mm of judge.south west, anchor=north west, inner sep=0pt] (legendanchor) {};
+\node[font=\scriptsize\bfseries, right=0mm of legendanchor, anchor=west] (legtitle) {Legend};
+\draw[->, draw=black!75, line width=0.55pt]
+  ([xshift=0mm,yshift=-3mm]legtitle.south west) -- ++(8mm,0)
+  node[right, font=\scriptsize] {solid flow};
+\draw[->, draw=red!65, line width=0.6pt, dashed]
+  ([xshift=35mm,yshift=-3mm]legtitle.south west) -- ++(8mm,0)
+  node[right, font=\scriptsize] {conditional (gated)};
+
+\end{tikzpicture}
+
+\end{document}

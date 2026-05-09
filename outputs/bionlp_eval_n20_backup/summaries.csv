@@ -1,0 +1,728 @@
+case_id,config,prompt_type,summary_text,io_tier_expected,literature_requested,literature_used,num_sentences,num_chars
+TCGA-44-6147,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.683)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III lung adenocarcinoma; patient is a never smoker, age 46. Clinical minimum signal contributed 40.3%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The fusion score remains provisional due to this lack of transcriptomic input.",Hot,False,False,6,650
+TCGA-44-6147,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.683)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected.
+- **Clinical Context:** Stage III lung adenocarcinoma, never smoker, age 46; clinical minimum signal contributed 40.3%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the immune readiness assessment. The fusion score remains provisional due to this lack of transcriptomic input.",Hot,False,False,5,628
+TCGA-44-6147,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.683)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III lung adenocarcinoma; patient is a never smoker, age 46. Clinical minimum signal contributed 40.3%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the absence of transcriptomics data, limiting the robustness of the immune readiness assessment.",Hot,False,False,5,630
+TCGA-44-6147,full_multimodal,literature,"**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.683, indicating a favorable immunotherapy readiness based on the available metrics. The largest contribution to this score comes from pathology (59.7%), with a tumor composition of 61% and a top tile score of 0.87, reflecting a dense tumor-infiltrating lymphocyte cluster. Clinical factors also support readiness, with the patient being a never smoker, aged 46, and at stage III. However, transcriptomic data is unavailable, which limits the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients demonstrated a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel. Additionally, the 5-year progression-free survival rate for nivolumab was reported at 8.0%, with a significant chance of remaining progression-free at 5 years (59.6% to 78.3%). These findings highlight the potential benefits of immunotherapy in similar patient populations.",Hot,True,True,7,1019
+TCGA-55-7994,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.675837)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III lung adenocarcinoma; age 45; smoking status unknown. Clinical minimum signal contributed 39.6%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the lack of transcriptomics data, limiting comprehensive assessment. The largest contribution to the score came from pathology (60.4%).",Hot,False,False,6,669
+TCGA-55-7994,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.675837)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage III lung adenocarcinoma; age 45; smoker status unknown; clinical minimum signal contributed 39.6%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The largest contribution to the score came from pathology (60.4%).",Hot,False,False,5,600
+TCGA-55-7994,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (Fusion score: 0.675837)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (No transcriptomics input detected for this case).
+- **Clinical Context:** Stage III lung adenocarcinoma; age 45; smoker status unknown. Clinical minimum signal contributed 39.6%.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the fusion score. The largest contribution to the score is from pathology (60.4%).",Hot,False,False,6,614
+TCGA-55-7994,full_multimodal,literature,"**Patient-Specific Evidence:**
+The patient's immunotherapy readiness is indicated by a provisional fusion score of 0.675837, which suggests a favorable condition for immunotherapy. The largest contribution to this score comes from pathology (60.4%), showing a tumor composition of 61% and a notable presence of dense tumor-infiltrating lymphocytes (top tile score of 0.87). Clinical factors include stage III cancer, with a clinical minimum signal contributing 39.6%. However, transcriptomic data is unavailable, which limits the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients exhibited a five-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel. Additionally, the same cohort had an 82.0% chance of survival at two years for those without disease progression, and a 59.6% chance of remaining progression-free at five years. This context underscores the potential benefits of immunotherapy in similar patient populations.",Hot,True,True,7,1029
+TCGA-55-7281,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.67431)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III lung adenocarcinoma; age 46; smoking status unknown. Clinical minimum signal contributed 39.5%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the absence of transcriptomics data, limiting the robustness of the immune readiness assessment. The largest contribution to the score came from pathology evidence (60.5%).",Hot,False,False,6,705
+TCGA-55-7281,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III lung adenocarcinoma; age 46; smoking status unknown; clinical minimum signal contributed 39.5%.
+- **Uncertainty/Limitations:** The fusion score is provisional due to the lack of transcriptomics data, limiting the robustness of the immune assessment. The largest contribution to the score came from pathology (60.5%).",Hot,False,False,5,644
+TCGA-55-7281,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.67431)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage III, age 46; clinical minimum signal contributed 39.5%.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the fusion score. The largest contribution to the score came from pathology (60.5%).",Hot,False,False,5,558
+TCGA-55-7281,full_multimodal,literature,"**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.67431, indicating a favorable readiness for immunotherapy. The largest contribution to this score comes from pathology (60.5%), with a tumor composition of 61% and a top tile score of 0.87, reflecting a dense tumor-infiltrating lymphocyte cluster. Clinical factors show the patient is at stage III, with a clinical minimum signal contributing 39.5%. However, transcriptomics data is unavailable, which limits the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients exhibited a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel, and a progression-free survival rate of 8.0% versus 0%. Additionally, treatment-related adverse events were reported in 25.8% of nivolumab-treated patients over 3-5 years. This suggests that patients with favorable pathology profiles may benefit from immunotherapy, although the absence of transcriptomic data in this case may limit predictive accuracy.",Hot,True,True,7,1067
+TCGA-55-6712,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.669728)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III lung adenocarcinoma; age 49; smoking status unknown; clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the lack of transcriptomic data, limiting comprehensive assessment. The largest contribution to the score is from pathology (60.9%).",Hot,False,False,5,666
+TCGA-55-6712,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.669728)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III lung adenocarcinoma; patient is a former smoker, age 49. Clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the absence of transcriptomic data, limiting the overall assessment of immunotherapy readiness. The largest contribution to the score came from pathology (60.9%).",Hot,False,False,6,690
+TCGA-55-6712,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.669728)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage III lung adenocarcinoma; age 49; former smoker; clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the immune readiness assessment. The fusion score remains provisional, indicating uncertainty in the overall immune response evaluation.",Hot,False,False,5,644
+TCGA-55-6712,full_multimodal,literature,"**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.669728, indicating a moderate readiness for immunotherapy. The largest contribution to this score comes from pathology (60.9%), with a tumor composition of 61% and a top tile score of 0.87, reflecting a dense tumor-infiltrating lymphocyte cluster. Clinical factors include stage III disease, with a clinical minimum signal contributing 39.1%. However, transcriptomics data is unavailable, which limits the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients exhibited a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel, and a 5-year progression-free survival rate of 8.0% versus 0%. Additionally, 25.8% of nivolumab-treated patients experienced treatment-related adverse events. This suggests that patients with favorable tumor characteristics may benefit from immunotherapy, although individual responses can vary significantly.",Hot,True,True,7,1016
+TCGA-05-5420,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.669575)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IV lung adenocarcinoma, never smoker, age 48; clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the fusion score. The largest contribution to the score came from pathology (60.9%).",Hot,False,False,5,592
+TCGA-05-5420,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.670)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage IV lung adenocarcinoma; patient is a never smoker, age 48. Clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the absence of transcriptomic data, limiting comprehensive assessment. The largest contribution to the score is from pathology (60.9%).",Hot,False,False,6,658
+TCGA-05-5420,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.670)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IV lung adenocarcinoma; age 48, never smoker; clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The largest contribution to the score is from pathology (60.9%).",Hot,False,False,5,585
+TCGA-05-5420,full_multimodal,literature,"**Patient-Specific Evidence:**
+The patient's immunotherapy readiness is assessed through a provisional fusion score of 0.669575, indicating a moderate level of favorability for immunotherapy response. The largest contribution to this score comes from pathology (60.9%), with a tumor composition of 61% and a top tile score of 0.87, reflecting a dense tumor-infiltrating lymphocyte cluster. Clinical factors include stage IV cancer, a never smoker status, and an age of 48. However, transcriptomics data is unavailable, which limits the robustness of the assessment.
+
+**Literature-Derived Context:**
+In a study (PMID: 29019177), the median overall survival for patients receiving BCG/placebo was reported as 38.6 months, with a 5-year overall survival rate of 44.9%. This context suggests that while the patient has a favorable pathology score, the overall survival metrics from the literature indicate a significant variability in outcomes, emphasizing the need for comprehensive evaluation in immunotherapy readiness.",Hot,True,True,6,1018
+TCGA-55-8203,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.669575)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IV lung adenocarcinoma; patient is a never smoker, age 48. Clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The fusion remains provisional due to the lack of transcriptomic input.",Hot,False,False,6,620
+TCGA-55-8203,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage IV lung adenocarcinoma; patient is a never smoker, age 48. Clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the absence of transcriptomics data, limiting the robustness of the immune assessment. The largest contribution to the score came from pathology (60.9%).",Hot,False,False,6,664
+TCGA-55-8203,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.669575)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Unavailable; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage IV lung adenocarcinoma; patient is a never smoker, age 48. Clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the lack of transcriptomics data, limiting the robustness of the immune assessment. The largest contribution to the fusion score is from pathology (60.9%).",Hot,False,False,6,679
+TCGA-55-8203,full_multimodal,literature,"**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.669575, indicating a moderate readiness for immunotherapy, primarily supported by pathology evidence (60.9% contribution). The tumor composition is 61% tumor and 24% stroma, with a notable top tile score of 0.87, reflecting a dense tumor-infiltrating lymphocyte cluster. Clinical factors include stage IV cancer, a non-smoker status, and an age of 48. However, transcriptomics data is unavailable, which limits the robustness of the immunotherapy readiness assessment.
+
+**Literature-Derived Context:**
+In the context of immunotherapy, nivolumab has shown a five-year overall survival rate of 13.4% and a progression-free survival rate of 8.0% compared to docetaxel. Additionally, prolonged overall and progression-free survival has been observed in PD-1 mAb-treated patients with high expression of SGLT2, suggesting that specific biomarkers may enhance treatment outcomes. However, treatment-related adverse events occurred in 25.8% of nivolumab-treated patients over 3-5 years. 
+
+Overall, while the patient shows some favorable pathology characteristics, the lack of transcriptomic data and the advanced stage of cancer may impact the overall immunotherapy readiness.",Hot,True,True,8,1248
+TCGA-55-8510,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (Fusion score: 0.670)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); Top tile score: 0.87 (Dense tumor-infiltrating lymphocyte cluster)
+- **RNA Evidence:** Not available (No transcriptomics input detected)
+- **Clinical Context:** Stage III lung adenocarcinoma, current smoker, age 45; Clinical minimum signal contributed 39.1%
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the fusion score. The fusion score remains provisional due to lack of transcriptomic data. 
+
+Largest contribution to the fusion score came from pathology (60.9%).",Hot,False,False,3,668
+TCGA-55-8510,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.670)
+- **Key Pathology Evidence:** 
+  - Tumor: 61%
+  - Stroma: 24%
+  - Necrosis: 8%
+  - Top tile score: 0.87 (Dense tumor-infiltrating lymphocyte cluster)
+- **RNA Evidence:** Not available (no transcriptomics input detected)
+- **Clinical Context:** 
+  - Stage: III
+  - Current smoker
+  - Age: 45
+  - Clinical minimum signal contributed 39.1%
+- **Uncertainty/Limitations:** 
+  - Fusion score remains provisional due to lack of transcriptomics data. Largest contribution to the score came from pathology evidence (60.9%).",Hot,False,False,2,608
+TCGA-55-8510,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.669537)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage III lung adenocarcinoma; current smoker, age 45. Clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to lack of transcriptomics data; largest contribution from pathology (60.9%).",Hot,False,False,5,559
+TCGA-55-8510,full_multimodal,literature,"**Patient-Specific Evidence:**
+The patient's immunotherapy readiness is indicated by a provisional fusion score of 0.669537, which suggests a favorable profile for immunotherapy. The largest contribution to this score comes from pathology (60.9%), showing a tumor composition of 61% and a dense tumor-infiltrating lymphocyte cluster (top tile score of 0.87). Clinical factors include stage III lung adenocarcinoma, current smoking status, and age of 45. However, transcriptomics data is unavailable, which limits the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients exhibited a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel. Additionally, the 5-year progression-free survival rate for nivolumab was reported at 8.0%, with a significant chance of remaining progression-free at 5 years (59.6% to 78.3%). These findings highlight the potential benefits of immunotherapy in similar patient populations.",Hot,True,True,7,1012
+TCGA-86-7954,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.628)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage II lung bronchioloalveolar carcinoma, age 64, former smoker; clinical contribution to fusion score: 35.0%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The fusion score remains provisional due to this lack of transcriptomic evidence.",Warm,False,False,5,620
+TCGA-86-7954,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.628)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage II, age 64, former smoker; clinical minimum signal contributed 35.0%.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the fusion score. The largest contribution to the score came from pathology (65.0%).",Warm,False,False,5,570
+TCGA-86-7954,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage II lung bronchioloalveolar carcinoma, former smoker, age 64. Clinical minimum signal contributed 35.0% to the fusion score.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the absence of transcriptomics data, limiting the assessment of immune response potential. The largest contribution to the score came from pathology (65.0%).",Warm,False,False,6,690
+TCGA-86-7954,full_multimodal,literature,"**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.628, indicating a moderate readiness for immunotherapy, primarily driven by pathology evidence (65.0% contribution). The pathology shows a tumor composition of 61% and a dense tumor-infiltrating lymphocyte cluster (top tile score of 0.87), which is favorable for immunotherapy response. However, transcriptomics data is unavailable, limiting the robustness of the fusion score. The clinical profile indicates stage II lung bronchioloalveolar carcinoma, with the patient being a former smoker and aged 64.
+
+**Literature-Derived Context:**
+In a study of nivolumab-treated patients, the 5-year overall survival rate was reported at 13.4%, compared to 2.6% for those treated with docetaxel. Additionally, the 5-year progression-free survival rate for nivolumab was 8.0%, with a notable 82.0% chance of survival at 2 years for patients without disease progression. These findings suggest that patients with favorable pathology and clinical profiles may benefit from immunotherapy, aligning with the patient's current metrics.",Warm,True,True,7,1099
+TCGA-75-6212,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.629)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIB lung adenocarcinoma; patient is a current smoker, age 47. Clinical minimum signal contributed 35.1%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The largest contribution to the score is from pathology (64.9%).",Warm,False,False,6,601
+TCGA-75-6212,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.629)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIB lung adenocarcinoma; patient is a current smoker, age 47.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the assessment of immune response potential. The fusion score remains provisional due to this lack of transcriptomic data. 
+
+**Largest Contribution:** Pathology (64.9%).",Warm,False,False,6,629
+TCGA-75-6212,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.629)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIB lung adenocarcinoma; current smoker, age 47; clinical minimum signal contributed 35.1%.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to lack of transcriptomics data; largest contribution to the score is from pathology (64.9%). 
+
+This case is based on research-only metrics and is not for clinical use.",Warm,False,False,5,647
+TCGA-75-6212,full_multimodal,literature,"**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.628683, indicating a favorable readiness for immunotherapy, although the score is based on limited data due to the absence of transcriptomics input. The largest contribution to this score comes from pathology (64.9%), with a tumor composition of 61% and a notable dense tumor-infiltrating lymphocyte cluster (top tile score of 0.87). Clinical factors include stage IIB lung adenocarcinoma, a current smoker, and age 47. The clinical contribution to the fusion score is 35.1%. 
+
+**Literature Context:**
+In a study (PMID: 33449799), nivolumab-treated patients demonstrated a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel, and a 5-year progression-free survival rate of 8.0% versus 0% for docetaxel. Additionally, patients without disease progression at 2 years had an 82.0% chance of survival, increasing to 93.0% at 3 years. These findings suggest that immunotherapy may significantly improve survival outcomes in similar patient populations.",Warm,True,True,7,1062
+TCGA-05-4244,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster), contributing 64.8% to the fusion score.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage I lung adenocarcinoma; former smoker, age 52; clinical minimum signal contributed 35.2%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the lack of transcriptomics data, limiting the robustness of the immune assessment.",Warm,False,False,4,619
+TCGA-05-4244,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.629866)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Transcriptomics signal unavailable; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage I, former smoker, age 52; clinical minimum signal contributed 35.2%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the lack of transcriptomics input, limiting the robustness of the immune assessment. The largest contribution to the score came from pathology (64.8%).",Warm,False,False,5,663
+TCGA-05-4244,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87 (Dense tumor-infiltrating lymphocyte cluster), contributing 64.8% to the fusion score.
+- **RNA Evidence:** Unavailable; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage I lung adenocarcinoma, former smoker, age 52; clinical minimum signal contributed 35.2%.
+- **Uncertainty/Limitations:** Lack of transcriptomics data limits the robustness of the fusion score; reliance on pathology evidence primarily.",Warm,False,False,4,615
+TCGA-05-4244,full_multimodal,literature,"**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.629866, indicating a moderate readiness for immunotherapy. The largest contribution to this score comes from pathology (64.8%), with a tumor composition of 61% and a top tile score of 0.87, reflecting a dense tumor-infiltrating lymphocyte cluster. Clinical factors include stage I lung adenocarcinoma, a former smoker, and age 52. However, transcriptomics data is unavailable, which limits the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients exhibited a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel, and a 5-year progression-free survival rate of 8.0% versus 0% for docetaxel. Additionally, treatment-related adverse events were reported in 25.8% of nivolumab-treated patients. This suggests that while immunotherapy can improve survival outcomes, it also carries a risk of adverse events.",Warm,True,True,7,984
+TCGA-55-6985,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III lung adenocarcinoma; age 75; former smoker; clinical minimum signal contributed 35.2%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the lack of transcriptomic data, limiting the assessment of immune response potential. The largest contribution to the score is from pathology (64.8%).",Warm,False,False,5,663
+TCGA-55-6985,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III lung adenocarcinoma; age 75; former smoker; clinical minimum signal contributed 35.2%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the lack of transcriptomics data, limiting the robustness of the immune readiness assessment. The largest contribution to the score came from pathology (64.8%).",Warm,False,False,5,672
+TCGA-55-6985,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%), Necrosis (8%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage III, age 75, smoker status unknown; clinical minimum signal contributed 35.2%.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the fusion score. The largest contribution to the score is from pathology (64.8%). 
+
+This case is based on research-only metrics and is not for clinical use.",Warm,False,False,6,667
+TCGA-38-4631,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IV lung adenocarcinoma; age 68; former smoker. Clinical minimum signal contributed 35.3%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The largest contribution to the score came from pathology (64.7%).",Warm,False,False,6,602
+TCGA-38-4631,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score = 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage IV lung adenocarcinoma; age 68; former smoker; clinical minimum signal contributed 35.3%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the absence of transcriptomics data, limiting the robustness of the immune assessment. The largest contribution to the score came from pathology (64.7%).",Warm,False,False,5,675
+TCGA-38-4631,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score = 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score = 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IV lung adenocarcinoma; age 68; former smoker.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the fusion score. The largest contribution to the score comes from pathology (64.7%).",Warm,False,False,5,551
+TCGA-75-6206,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%), Necrosis (8%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IB lung adenocarcinoma; former smoker, age 46; clinical minimum signal contributed 35.3%.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to lack of transcriptomics data; largest contribution from pathology (64.7%). 
+
+This case is based on research-only metrics and is not for clinical use.",Warm,False,False,5,644
+TCGA-75-6206,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score: 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage I lung adenocarcinoma; former smoker, age 46; clinical minimum signal contributed 35.3%.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the immune assessment. The fusion score remains provisional due to this lack of transcriptomic data. 
+
+Overall, the largest contribution to the immune readiness assessment comes from pathology evidence (64.7%).",Warm,False,False,6,716
+TCGA-75-6206,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage I, current smoker, age 46; clinical minimum signal contributed 35.3%.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to lack of transcriptomics data; largest contribution from pathology (64.7%).",Warm,False,False,4,534
+TCGA-44-7672,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage II lung adenocarcinoma; former smoker, age 64; clinical minimum signal contributed 35.3%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the immune assessment. The fusion score remains provisional due to this lack of transcriptomic input. 
+
+**Largest Contribution:** Pathology (64.7%).",Warm,False,False,6,689
+TCGA-44-7672,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected.
+- **Clinical Context:** Stage II lung adenocarcinoma; former smoker, age 64. Clinical minimum signal contributed 35.3%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the immune assessment. The fusion score remains provisional without transcriptomic input. 
+
+**Largest Contribution:** Pathology (64.7%).",Warm,False,False,7,663
+TCGA-44-7672,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (Fusion Score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); Top tile score: 0.87 (Dense tumor-infiltrating lymphocyte cluster)
+- **RNA Evidence:** Not available (No transcriptomics input detected)
+- **Clinical Context:** Stage II, former smoker, age 64; Clinical minimum signal contributed 35.3%
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the fusion score. The largest contribution to the score is from pathology (64.7%).",Warm,False,False,2,566
+TCGA-55-6983,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.586)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%), Necrosis (8%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage IIB, former smoker, age at diagnosis 81. Largest contribution to fusion score from pathology (69.6%).
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. 
+
+This case is based on research-only metrics and is not for clinical use.",Cold,False,False,6,650
+TCGA-55-6983,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.586)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIB, former smoker, age at diagnosis 81. Largest contribution to fusion score from pathology (69.6%).
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score.",Cold,False,False,5,533
+TCGA-55-6983,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.586)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIB, former smoker, age at diagnosis 81.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to lack of transcriptomics data; largest contribution to score from pathology (69.6%). 
+
+This case reflects a moderate potential for immunotherapy based on pathology, but the absence of transcriptomic data limits definitive conclusions.",Cold,False,False,5,664
+TCGA-55-8513,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.594)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIB, age 77, never smoker; clinical minimum signal contributed 31.3%.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to lack of transcriptomics data; largest contribution to score from pathology (68.7%). 
+
+This case is based on research-only metrics and is not for clinical use.",Cold,False,False,5,618
+TCGA-55-8513,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.593555)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage IIB, age 77, never smoker; clinical minimum signal contributed 31.3%.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to the absence of transcriptomics data, limiting comprehensive evaluation of immune response potential.",Cold,False,False,4,590
+TCGA-55-8513,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available; no transcriptomics input detected.
+- **Clinical Context:** Stage IIB, age 77, never smoker; clinical minimum signal contributed 31.3%.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to lack of transcriptomics data; largest contribution to the score came from pathology (68.7%).",Cold,False,False,4,529
+TCGA-44-7669,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.595)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIA lung adenocarcinoma; current smoker, age 69. Clinical minimum signal contributed 31.4%.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to the absence of transcriptomics data, limiting the robustness of the immune assessment. The largest contribution to the score is from pathology (68.6%).",Cold,False,False,6,647
+TCGA-44-7669,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.595)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIA lung adenocarcinoma; current smoker, age 59. Clinical minimum signal contributed 31.4%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the absence of transcriptomic data, limiting comprehensive assessment. The largest contribution to the score is from pathology (68.6%).",Cold,False,False,6,632
+TCGA-44-7669,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score = 0.595)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Unavailable; no transcriptomics input detected.
+- **Clinical Context:** Stage IIA lung adenocarcinoma; current smoker, age 69. Clinical minimum signal contributed 31.4%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the lack of transcriptomic data, limiting comprehensive assessment. The largest contribution to the score is from pathology (68.6%).",Cold,False,False,6,640
+TCGA-55-6642,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage I, current smoker, age 72; clinical minimum signal contributed 31.6%.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to the absence of transcriptomics data; largest contribution to the score came from pathology (68.4%).",Cold,False,False,4,574
+TCGA-55-6642,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage I, current smoker, age 72; clinical minimum signal contributed 31.6%.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the assessment of immune readiness. The fusion score remains provisional with no increase from transcriptomics. 
+
+**Overall Contribution:** Largest contribution from pathology (68.4%).",Cold,False,False,6,646
+TCGA-55-6642,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage I, current smoker, age 72; clinical minimum signal contributed 31.6%.
+- **Uncertainty/Limitations:** Fusion scores are provisional with no transcriptomics data, limiting the robustness of the immune assessment. The largest contribution to the score came from pathology (68.4%).",Cold,False,False,5,599
+TCGA-44-2665,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage IIB lung adenocarcinoma; patient is a former smoker, age 55 at diagnosis.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the absence of transcriptomics data, which limits the robustness of the immune readiness assessment. The largest contribution to the score is from pathology (68.3%).",Cold,False,False,5,648
+TCGA-44-2665,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.598)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIB lung adenocarcinoma; age 55, never smoker. Clinical minimum signal contributed 31.7%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the immune assessment. The fusion score remains provisional due to this lack of transcriptomic input.",Cold,False,False,6,617
+TCGA-44-2665,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.598)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIB, former smoker, age 55 at diagnosis.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the assessment. The fusion score remains provisional, indicating uncertainty in the immune tier classification.",Cold,False,False,5,568
+TCGA-55-7914,pathology_only,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.598)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%), Necrosis (8%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIA lung adenocarcinoma; former smoker, age 73.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the immunotherapy readiness assessment. The largest contribution to the fusion score is from pathology (68.3%).",Cold,False,False,5,590
+TCGA-55-7914,pathology_rna,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.598)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) score: 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage IIA lung adenocarcinoma; former smoker, age 73.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to lack of transcriptomics data; largest contribution to score is from pathology (68.3%). 
+
+This summary reflects the current state of evidence and does not imply clinical applicability.",Cold,False,False,5,633
+TCGA-55-7914,full_multimodal,standard,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.598)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%), Necrosis (8%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected.
+- **Clinical Context:** Stage IIA lung adenocarcinoma; former smoker, age 73. Clinical minimum signal contributed 31.7%.
+- **Uncertainty/Limitations:** The fusion score remains provisional due to the lack of transcriptomics data, which limits the robustness of the immune readiness assessment. The largest contribution to the score is from pathology (68.3%).",Cold,False,False,6,675
+TCGA-44-6147,baseline,standard,"**Patient Case Summary: TCGA-44-6147**
+
+- **IO Immune Tier:** Not specified in the provided information.
+  
+- **Key Pathology Evidence:** The patient is diagnosed with lung adenocarcinoma (LUAD). Specific histological features, tumor grade, and presence of immune cell infiltration (e.g., PD-L1 expression, tumor mutational burden) would typically be assessed to determine immunotherapy readiness, but these details are not provided.
+
+- **RNA Evidence:** No specific RNA expression data or genomic alterations (e.g., mutations in KRAS, EGFR, or ALK) are mentioned, which are critical for evaluating potential response to immunotherapy.
+
+- **Clinical Context:** The patient's clinical history, performance status, and prior treatments are not detailed, which are important for assessing overall immunotherapy eligibility.
+
+- **Uncertainty/Limitations:** The lack of specific immune tier classification, detailed pathology, and RNA evidence limits the ability to fully assess the patient's readiness for immunotherapy. Further information on PD-L1 status, tumor mutational burden, and clinical history would be necessary for a comprehensive evaluation.",Hot,False,False,7,1150
+TCGA-55-7994,baseline,standard,"**Patient Case Summary: TCGA-55-7994**
+
+- **IO Immune Tier:** Not specified in the provided information.
+  
+- **Key Pathology Evidence:** The patient is diagnosed with lung adenocarcinoma (LUAD). Specific histological features, tumor grade, and presence of tumor-infiltrating lymphocytes (TILs) would typically be assessed to determine immune readiness, but these details are not provided.
+
+- **RNA Evidence:** No specific RNA expression data or biomarkers (such as PD-L1 expression levels or mutation burden) are mentioned, which are critical for assessing immunotherapy eligibility.
+
+- **Clinical Context:** The overall clinical context, including prior treatments, performance status, and comorbidities, is not detailed, which limits the assessment of immunotherapy readiness.
+
+- **Uncertainty/Limitations:** The absence of specific immune tier classification, detailed pathology, and RNA evidence creates uncertainty regarding the patient's suitability for immunotherapy. Further information on PD-L1 status, tumor mutational burden, and TIL presence would be necessary for a comprehensive evaluation.",Hot,False,False,7,1105
+TCGA-55-7281,baseline,standard,"**Patient Case Summary: TCGA-55-7281 (Lung Adenocarcinoma)**
+
+- **IO Immune Tier:** Not specified in the provided information.
+  
+- **Key Pathology Evidence:** The tumor exhibits characteristics typical of lung adenocarcinoma, but specific biomarkers (e.g., PD-L1 expression, tumor mutational burden) are not detailed.
+
+- **RNA Evidence:** No RNA sequencing data or specific gene expression profiles provided.
+
+- **Clinical Context:** No additional clinical context or treatment history is available to assess the patient's overall health status or prior therapies.
+
+- **Uncertainty/Limitations:** Lack of detailed biomarker analysis limits the ability to definitively assess immunotherapy readiness. No information on PD-L1 status, TMB, or other relevant immunogenic markers is provided, which are critical for evaluating potential response to immunotherapy.
+
+This summary reflects the structured evidence available and highlights the need for further data to make a comprehensive assessment of immunotherapy readiness.",Hot,False,False,7,1020
+TCGA-55-6712,baseline,standard,"**Immunotherapy Readiness Summary for Case ID: TCGA-55-6712**
+
+- **IO Immune Tier:** Not specified in the provided information.
+  
+- **Key Pathology Evidence:** The patient is diagnosed with lung adenocarcinoma (LUAD). Specific histological features, such as tumor grade, presence of necrosis, or lymphocytic infiltration, are not detailed.
+
+- **RNA Evidence:** No RNA sequencing data or specific gene expression profiles are provided to assess PD-L1 expression or other relevant biomarkers.
+
+- **Clinical Context:** No additional clinical context, such as prior treatments, performance status, or comorbidities, is mentioned that could influence immunotherapy eligibility.
+
+- **Uncertainty/Limitations:** The absence of detailed pathology and RNA evidence limits the ability to assess the patient's immunotherapy readiness comprehensively. Further information on PD-L1 status, tumor mutational burden, and microsatellite instability would be necessary for a conclusive evaluation.",Hot,False,False,7,981
+TCGA-05-5420,baseline,standard,"**Patient Case Summary: TCGA-05-5420**
+
+- **Cohort:** TCGA-LUAD (lung adenocarcinoma)
+  
+- **IO Immune Tier:** Not specified in the provided data.
+
+- **Key Pathology Evidence:** 
+  - Histological diagnosis of lung adenocarcinoma.
+  - Potential presence of PD-L1 expression (specific levels not provided).
+
+- **RNA Evidence:** 
+  - Gene expression profiling may indicate immune-related signatures (specific RNA data not provided).
+
+- **Clinical Context:** 
+  - Patient's clinical history and treatment response not detailed, limiting assessment of overall immunotherapy readiness.
+
+- **Uncertainty/Limitations:** 
+  - Lack of specific PD-L1 expression levels and tumor mutational burden (TMB) data.
+  - Absence of comprehensive clinical history and treatment outcomes restricts evaluation of immunotherapy efficacy.
+
+This summary reflects the structured evidence available and highlights areas where further information is needed for a complete assessment of immunotherapy readiness.",Hot,False,False,8,982
+TCGA-55-8203,baseline,standard,"**Case ID:** TCGA-55-8203  
+**Cohort:** TCGA-LUAD (lung adenocarcinoma)  
+
+**IO Immune Tier:** Not specified in the provided information.  
+
+**Key Pathology Evidence:** The pathology report indicates the presence of lung adenocarcinoma, which may express PD-L1, a common biomarker for immunotherapy eligibility. Additional histological features such as tumor mutational burden (TMB) and microsatellite instability (MSI) status would be relevant but are not provided.  
+
+**RNA Evidence:** RNA sequencing data may indicate expression levels of immune-related genes, but specific results are not available in the summary.  
+
+**Clinical Context:** The patient's clinical history, including prior treatments and overall health status, is not detailed, which limits the assessment of immunotherapy readiness.  
+
+**Uncertainty/Limitations:** Lack of specific biomarker data (e.g., PD-L1 expression, TMB, MSI) and clinical history restricts the ability to definitively assess immunotherapy readiness. Further testing and clinical evaluation would be necessary for a comprehensive assessment.",Hot,False,False,7,1083
+TCGA-55-8510,baseline,standard,"**Immunotherapy Readiness Summary for Case ID: TCGA-55-8510**
+
+- **IO Immune Tier:** Not specified in the provided data.
+  
+- **Key Pathology Evidence:** The patient has been diagnosed with lung adenocarcinoma (LUAD), which is often associated with specific mutations and PD-L1 expression levels that can influence immunotherapy eligibility.
+
+- **RNA Evidence:** RNA sequencing data may indicate expression levels of immune-related genes, but specific results are not provided in the summary.
+
+- **Clinical Context:** The patient's clinical history, including any previous treatments, performance status, and overall health, is not detailed, which is crucial for assessing immunotherapy readiness.
+
+- **Uncertainty/Limitations:** Lack of specific details on PD-L1 expression, tumor mutational burden (TMB), and other biomarkers limits the ability to definitively assess immunotherapy readiness. Further information on the patient's treatment history and response to prior therapies would also be necessary for a comprehensive evaluation.",Hot,False,False,6,1037
+TCGA-86-7954,baseline,standard,"**Immunotherapy Readiness Summary for Case ID: TCGA-86-7954**
+
+- **IO Immune Tier:** Not specified in the provided data.
+- **Key Pathology Evidence:** The patient has been diagnosed with lung adenocarcinoma (LUAD), which may express PD-L1, a common biomarker for immunotherapy eligibility.
+- **RNA Evidence:** Specific RNA expression data is not provided; however, RNA sequencing in LUAD cases often assesses tumor mutational burden (TMB) and neoantigen load, which are relevant for immunotherapy response.
+- **Clinical Context:** The patient's clinical stage, performance status, and prior treatments (if any) are not detailed, which are critical for determining immunotherapy readiness.
+- **Uncertainty/Limitations:** Lack of specific biomarker data (e.g., PD-L1 expression level, TMB) and clinical details limits the assessment of immunotherapy readiness. Further evaluation of these factors is necessary for a comprehensive readiness assessment.",Warm,False,False,6,949
+TCGA-75-6212,baseline,standard,"**Immunotherapy Readiness Summary for Case ID: TCGA-75-6212**
+
+- **IO Immune Tier:** Not specified in the provided data.
+  
+- **Key Pathology Evidence:** The patient has a diagnosis of lung adenocarcinoma (LUAD). Specific histological features, tumor grade, and PD-L1 expression levels are not provided, which are critical for assessing immunotherapy eligibility.
+
+- **RNA Evidence:** RNA sequencing data may indicate mutational burden or expression of immune-related genes, but specific results are not available in the provided information.
+
+- **Clinical Context:** No additional clinical context such as prior treatments, performance status, or comorbidities is provided, which are important for evaluating overall immunotherapy readiness.
+
+- **Uncertainty/Limitations:** The lack of detailed pathology and RNA evidence limits the ability to assess the patient's immunotherapy readiness accurately. Key factors such as PD-L1 expression, tumor mutational burden, and overall clinical status are essential for a comprehensive evaluation.",Warm,False,False,7,1038
+TCGA-05-4244,baseline,standard,"**Patient Case Summary: TCGA-05-4244 (Lung Adenocarcinoma)**
+
+- **IO Immune Tier:** Not specified in the provided data.
+- **Key Pathology Evidence:** The tumor exhibits characteristics typical of lung adenocarcinoma, but specific biomarkers (e.g., PD-L1 expression, tumor mutational burden) are not detailed.
+- **RNA Evidence:** No RNA sequencing data or relevant gene expression profiles provided.
+- **Clinical Context:** No additional clinical context or treatment history is available to assess the patient's overall health or prior therapies.
+- **Uncertainty/Limitations:** Lack of specific biomarker data (e.g., PD-L1 status, TMB) limits the ability to accurately assess immunotherapy readiness. Further information on the immune microenvironment and patient history would be necessary for a comprehensive evaluation.",Warm,False,False,6,822
+TCGA-55-6985,baseline,standard,"**Immunotherapy Readiness Summary for Case ID: TCGA-55-6985**
+
+- **IO Immune Tier:** Not specified in the provided data.
+  
+- **Key Pathology Evidence:** The patient has been diagnosed with lung adenocarcinoma (LUAD), which is often associated with specific biomarkers that can influence immunotherapy response, such as PD-L1 expression and tumor mutational burden (TMB). Specific pathology results are not provided.
+
+- **RNA Evidence:** No RNA sequencing data or specific gene expression profiles are mentioned in the available information.
+
+- **Clinical Context:** The clinical context is limited to the diagnosis of lung adenocarcinoma. Additional clinical factors such as performance status, previous treatments, and comorbidities are not provided, which are crucial for assessing immunotherapy readiness.
+
+- **Uncertainty/Limitations:** The lack of detailed pathology results, RNA evidence, and clinical context limits the ability to fully assess the patient's readiness for immunotherapy. Key biomarkers and clinical factors that influence treatment decisions are not available. 
+
+Overall, further information is needed to accurately determine the immunotherapy readiness for this patient.",Warm,False,False,9,1195
+TCGA-38-4631,baseline,standard,"**Patient Case Summary: TCGA-38-4631 (Lung Adenocarcinoma)**
+
+- **IO Immune Tier:** Not specified in the provided data.
+- **Key Pathology Evidence:** The tumor exhibits characteristics typical of lung adenocarcinoma, but specific biomarkers (e.g., PD-L1 expression, tumor mutational burden) are not detailed.
+- **RNA Evidence:** RNA sequencing data may indicate expression levels of immune-related genes, but specific results are not provided.
+- **Clinical Context:** No additional clinical context or treatment history is available to assess the patient's overall health or prior therapies.
+- **Uncertainty/Limitations:** Lack of detailed biomarker information (e.g., PD-L1 status, TMB) limits the assessment of immunotherapy readiness. Further data would be necessary to make a definitive conclusion regarding the patient's eligibility for immunotherapy.",Warm,False,False,6,856
+TCGA-75-6206,baseline,standard,"**Patient Case Summary: TCGA-75-6206**
+
+- **IO Immune Tier:** Not specified in the provided data.
+  
+- **Key Pathology Evidence:** The patient is diagnosed with lung adenocarcinoma (LUAD), which is often associated with specific mutations and tumor microenvironment characteristics that can influence immunotherapy response.
+
+- **RNA Evidence:** RNA sequencing data may indicate expression levels of immune checkpoint molecules (e.g., PD-L1) or other relevant biomarkers, but specific values or findings are not provided.
+
+- **Clinical Context:** The patient's clinical history, including prior treatments and overall health status, is not detailed, which limits the assessment of immunotherapy readiness.
+
+- **Uncertainty/Limitations:** Lack of specific IO immune tier classification, detailed RNA expression data, and comprehensive clinical history limits the ability to fully evaluate the patient's readiness for immunotherapy. Further information on tumor mutational burden (TMB) and microsatellite instability (MSI) status would enhance the assessment.",Warm,False,False,6,1057
+TCGA-44-7672,baseline,standard,"**Immunotherapy Readiness Summary for Case ID: TCGA-44-7672**
+
+- **IO Immune Tier:** Not specified in the provided data.
+- **Key Pathology Evidence:** The patient has been diagnosed with lung adenocarcinoma (LUAD). Specific histological features or biomarkers (e.g., PD-L1 expression, tumor mutational burden) are not provided.
+- **RNA Evidence:** No RNA sequencing data or relevant gene expression profiles are available in the provided information.
+- **Clinical Context:** There is no additional clinical context provided regarding the patient's overall health, prior treatments, or specific immunotherapy considerations.
+- **Uncertainty/Limitations:** The lack of detailed immune profiling, including PD-L1 status and mutational burden, limits the assessment of the patient's readiness for immunotherapy. Further information is needed to make a comprehensive evaluation.
+
+This summary reflects the structured evidence available and highlights the need for additional data to fully assess immunotherapy readiness.",Warm,False,False,8,1015
+TCGA-55-6983,baseline,standard,"**Immunotherapy Readiness Summary for Case ID: TCGA-55-6983**
+
+- **IO Immune Tier:** Not specified in the provided data.
+  
+- **Key Pathology Evidence:** The patient is diagnosed with lung adenocarcinoma (LUAD), which may express PD-L1 and have specific mutations that could influence immunotherapy response.
+
+- **RNA Evidence:** RNA sequencing data may indicate expression levels of immune-related genes, but specific results are not provided in the summary.
+
+- **Clinical Context:** The patient's clinical history, including prior treatments and overall health status, is not detailed, which limits the assessment of immunotherapy readiness.
+
+- **Uncertainty/Limitations:** Lack of specific data on PD-L1 expression, tumor mutational burden (TMB), and other biomarkers limits the ability to definitively assess immunotherapy readiness. Further details on the patient's treatment history and response to prior therapies are needed for a comprehensive evaluation.",Cold,False,False,6,963
+TCGA-55-8513,baseline,standard,"**Case ID:** TCGA-55-8513  
+**Cohort:** TCGA-LUAD (lung adenocarcinoma)  
+
+**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Not specified in the provided data.
+- **Key Pathology Evidence:** The tumor exhibits characteristics typical of lung adenocarcinoma, but specific biomarkers (e.g., PD-L1 expression, TMB) are not detailed.
+- **RNA Evidence:** No RNA sequencing data or specific gene expression profiles provided.
+- **Clinical Context:** No additional clinical context or treatment history is available to assess the patient's overall health or prior therapies.
+- **Uncertainty/Limitations:** Lack of detailed biomarker analysis (e.g., PD-L1 status, TMB) limits the ability to determine the patient's readiness for immunotherapy. Further testing may be required to fully evaluate immunotherapy options.",Cold,False,False,6,818
+TCGA-44-7669,baseline,standard,"**Immunotherapy Readiness Summary for Case ID: TCGA-44-7669**
+
+- **IO Immune Tier:** Not specified in the provided data.
+  
+- **Key Pathology Evidence:** The patient is diagnosed with lung adenocarcinoma (LUAD). Specific histological features, tumor grade, and PD-L1 expression levels are not provided, which are critical for assessing immunotherapy eligibility.
+
+- **RNA Evidence:** No RNA sequencing data or specific gene expression profiles are available to evaluate potential biomarkers for immunotherapy response.
+
+- **Clinical Context:** No additional clinical context, such as patient performance status, comorbidities, or previous treatments, is provided, which are important for determining overall immunotherapy readiness.
+
+- **Uncertainty/Limitations:** The lack of detailed pathology and RNA evidence limits the ability to assess the patient's immunotherapy readiness accurately. Without specific biomarkers or expression levels, it is challenging to predict response to immune checkpoint inhibitors.
+
+Overall, the immunotherapy readiness of this patient cannot be conclusively determined based on the available structured evidence.",Cold,False,False,8,1144
+TCGA-55-6642,baseline,standard,"**Patient Case Summary: TCGA-55-6642 (Lung Adenocarcinoma)**
+
+- **IO Immune Tier:** Not specified in the provided information.
+  
+- **Key Pathology Evidence:** The tumor is classified as lung adenocarcinoma, which may express PD-L1 and have specific genetic alterations relevant for immunotherapy.
+
+- **RNA Evidence:** Specific RNA expression data is not provided; however, RNA sequencing in lung adenocarcinoma can reveal potential biomarkers for immunotherapy response, such as TMB (tumor mutational burden) and neoantigen load.
+
+- **Clinical Context:** The patient's clinical history, treatment history, and overall health status are not detailed, which are critical for assessing immunotherapy readiness.
+
+- **Uncertainty/Limitations:** Lack of specific details on PD-L1 expression levels, TMB, and other biomarkers limits the ability to definitively assess immunotherapy readiness. Further clinical and molecular data would be necessary for a comprehensive evaluation.",Cold,False,False,6,973
+TCGA-44-2665,baseline,standard,"**Patient Case Summary: TCGA-44-2665 (Lung Adenocarcinoma)**
+
+- **IO Immune Tier:** Not specified in the provided information.
+  
+- **Key Pathology Evidence:** The pathology report indicates the presence of PD-L1 expression, which is a favorable marker for immunotherapy readiness. Tumor mutational burden (TMB) may also be assessed, but specific values are not provided.
+
+- **RNA Evidence:** RNA sequencing data may indicate the expression of immune-related genes, but specific results are not detailed in the summary.
+
+- **Clinical Context:** The patient is part of the TCGA-LUAD cohort, which typically includes patients with advanced lung adenocarcinoma. The clinical context suggests potential eligibility for immune checkpoint inhibitors, depending on PD-L1 expression and TMB.
+
+- **Uncertainty/Limitations:** Specific details regarding the IO immune tier, exact TMB values, and comprehensive RNA expression profiles are not provided, limiting the assessment of immunotherapy readiness. Further clinical correlation and additional biomarker analysis may be necessary for a complete evaluation.",Cold,False,False,8,1099
+TCGA-55-7914,baseline,standard,"**Immunotherapy Readiness Summary for Case ID: TCGA-55-7914**
+
+- **IO Immune Tier:** Not specified in the provided information.
+- **Key Pathology Evidence:** The patient is diagnosed with lung adenocarcinoma (LUAD), which is often associated with specific mutations and PD-L1 expression levels that can influence immunotherapy eligibility.
+- **RNA Evidence:** No specific RNA evidence provided in the case details.
+- **Clinical Context:** The patient's clinical context, including performance status, comorbidities, and prior treatments, is not detailed, which is crucial for assessing immunotherapy readiness.
+- **Uncertainty/Limitations:** Lack of specific information on PD-L1 expression, tumor mutational burden (TMB), and other biomarkers limits the ability to fully assess immunotherapy readiness. Additionally, the absence of clinical context may affect treatment decisions.
+
+Overall, further detailed biomarker analysis and clinical assessment are needed to determine the patient's readiness for immunotherapy.",Cold,False,False,7,1018

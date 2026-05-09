@@ -1,0 +1,136 @@
+\documentclass{article}
+
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{hyperref}
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\usepackage{icml2026}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+
+\usepackage[capitalize,noabbrev]{cleveref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+
+\icmltitlerunning{STACHE: Cross-Condition Hallucination Evaluation for Clinical LLMs}
+
+\begin{document}
+
+\twocolumn[
+\icmltitle{STACHE: Stratified, Typed-Claim, Agreement-Gated, Cross-Condition\\ Hallucination Evaluation for Clinical LLM Faithfulness on TCGA-LUAD}
+
+\icmlsetsymbol{equal}{*}
+
+\begin{icmlauthorlist}
+\icmlauthor{Anonymous}{anon}
+\end{icmlauthorlist}
+
+\icmlaffiliation{anon}{Anonymous Submission}
+
+\icmlcorrespondingauthor{Anonymous}{anon@anon.org}
+
+\icmlkeywords{clinical LLMs, hallucination, faithfulness evaluation, RAG, foundation models for life sciences}
+
+\vskip 0.3in
+]
+
+\printAffiliationsAndNotice{}
+
+\begin{abstract}
+Clinical-LLM faithfulness is almost universally reported as a single supported-claim rate against an evidence bundle, a number that by construction cannot tell a model that reads the bundle apart from one whose pretraining priors already match the cohort, and this confound has so far gone unaddressed at factorial scale on any clinical cohort. We introduce \textbf{STACHE}, the first \textbf{S}tratified-cohort, \textbf{T}yped-claim, \textbf{A}greement-gated, \textbf{C}ross-condition \textbf{H}allucination \textbf{E}valuation methodology for clinical LLMs, instantiated on 119 TCGA-LUAD cases. STACHE introduces the \emph{Hallucination Dependence Index} (HDI), a paired metric reporting the fraction of ungrounded hallucination a grounding architecture actually suppresses, coupled with an embedding-based semantic-overlap probe that distinguishes calibrated clinical uncertainty from silent prior-recycling. The harness pairs a deterministic rule-based checker with a fixed external LLM judge (gpt-4.1-mini, excluded from the factorial to neutralize self-preference) over sealed multimodal bundles, anchored to a two-expert 300-claim consensus adjudication ($\kappa{=}0.64$). Across a 2$\times$2 factorial of gpt-4o-mini, gpt-5.4-mini, gemini-2.5-flash, and gemini-3-flash-preview, HDI spans 0.336--0.984 while grounded support compresses to 81.9--93.2\%, producing inverted safety rankings (gemini-2.5-flash ``wins'' on grounded support at 93.2\% yet fabricates on 64.8\% of ungrounded cases; gemini-3 fabricates on 91.5\%) and exposes a within-Google generational regression alongside an opposite-direction OpenAI trajectory. STACHE reframes clinical-LLM faithfulness as a measurement of grounding's causal effect rather than a single scoreboard.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Hallucination is a central concern for clinical applications of large language models. When a model writes ``pathology shows CD274 at 4.2 TPM, consistent with moderate immunotherapy response,'' a clinician cannot tell from the sentence whether the number came from the patient's record or from the model's prior over TCGA-LUAD. Strong LLMs encode clinical knowledge \citep{singhal2023largelanguagemodelsencode} yet produce unfaithful generations under evidence constraints \citep{ji2023survey,maynez2020faithfulness,pal2023medhalt}. The standard faithfulness evaluation, a single supported-claim rate against an evidence bundle \citep{deyoung2021ms2,tsatsaronis2015bioasq}, cannot distinguish a model that reads the bundle from one whose priors already match the cohort: both can score 87\% while differing in clinical safety. This ambiguity can only be diagnosed by running the same model without the bundle and observing the delta.
+
+We use \textbf{grounded} to mean the configuration in which an LLM receives a sealed evidence packet (pathology, RNA, clinical notes, fused immune tier \citep{thorsson2018immune}) in the spirit of retrieval-augmented generation \citep{lewis2020rag,shuster2021retrieval}, and \textbf{ungrounded baseline} to mean the same prompt with only a case ID and cohort name. The ungrounded condition is a direct hallucination probe: any specific claim there is fabricated by construction. Medical-RAG work shows retrieval benefit is non-monotone across backbones \citep{xiong2024benchmarking}; we extend that observation from multiple-choice QA to open-ended oncology summarization at factorial scale.
+
+\paragraph{Contributions.} We present \textbf{STACHE}, a methodology composed of four coupled pillars: (i) a paired grounded-vs-ungrounded protocol with the \emph{Hallucination Dependence Index} (HDI; Eq.~\ref{eq:hdi}) and a semantic claim-overlap probe; (ii) stratified-within-tier cohort sampling that anchors each phenotypic stratum to a different reference point; (iii) agreement-gated two-pass LLM judging with disagreement recorded as an explicit \texttt{conflict} label and excluded from the judge rate, replacing majority-vote with measured reliability; and (iv) type-conditioned rule-based verification over a six-class claim typology. STACHE is anchored to a 300-claim two-expert human adjudication ($\kappa{=}0.64$). Across a 2$\times$2 factorial (gpt-4o-mini, gpt-5.4-mini, gemini-2.5-flash, gemini-3-flash-preview), the panel surfaces three findings invisible to grounded-only metrics: HDI and grounded support produce inverted rankings; two clinically distinct ungrounded failure modes (overt confabulation vs.\ calibrated priors) emerge that the overlap probe separates; and within-provider ungrounded behavior diverges between Google's older and newer flash generations. We release the harness, prompts, cohort split, and evaluator.
+
+\section{Related Work and Positioning}
+\label{sec:related}
+
+BioASQ \citep{tsatsaronis2015bioasq} and MS$^2$ \citep{deyoung2021ms2} established evidence-grounded biomedical QA, and Med-HALT \citep{pal2023medhalt} and Med-PaLM \citep{singhal2023largelanguagemodelsencode} have probed medical LLM hallucination at scale. Retrieval augmentation reduces hallucination \citep{lewis2020rag,shuster2021retrieval}; MedRAG \citep{xiong2024benchmarking} extends this to medical QA across 41 corpus/retriever/LLM combinations. Strong LLM judges \citep{zheng2023judging} correlate with human preference but exhibit self-preference bias; \citet{panickssery2024llm} show GPT-4 favors its own generations at $\sim$73.5\% accuracy, motivating our fixed external judge. \citet{ji2023survey,maynez2020faithfulness} formalize the intrinsic/extrinsic hallucination split. To our knowledge, no prior clinical benchmark contrasts grounded and ungrounded conditions of the same model at factorial scale, reports a single-number paired metric like HDI, or pairs that metric with an embedding-overlap probe to separate prior-recycling from genuine grounding. Each STACHE pillar draws selectively from this prior work; the contribution is their joint instantiation as a single coupled diagnostic instrument.
+
+\section{Methodology}
+\label{sec:methods}
+
+\paragraph{Cohort.} We evaluate on 119 TCGA-LUAD lung adenocarcinoma cases \citep{collisson2014comprehensive}. The full LUAD cohort is sorted by a multimodal immune-tier score and partitioned into Hot/Warm/Cold tertiles; 119 cases are selected with approximately equal tier representation under three tier-specific sort keys (Hot descending, Warm by distance to tier center, Cold ascending) so that evaluation does not reduce to a single phenotype. Selection is fully deterministic.
+
+\paragraph{Sealed multimodal bundles.} For each case the harness assembles a closed JSON bundle covering four data layers: pathology (tumor/stroma/necrosis percentages, tile-level scoring, TIL annotation), RNA (TPMs for an immunotherapy-relevant gene panel including CD274, PDCD1, CTLA4, TIGIT, LAG3, IDO1, CD8A, GZMB, IFNG plus housekeeping normalizers), clinical (stage, age, sex, smoking history), and a pre-computed Hot/Warm/Cold immune tier following the logic of \citet{thorsson2018immune}. The bundle is \emph{sealed}: the LLM prompt carries only this JSON, with no free-text retrieval and no chain-of-thought scratchpad.
+
+\paragraph{Factorial and matched protocol.} We run a 2$\times$2 factorial over two providers $\times$ two generations: \texttt{gpt-4o-mini}, \texttt{gpt-5.4-mini}, \texttt{gemini-2.5-flash}, \texttt{gemini-3-flash-preview}. Each case is generated under matched grounded and ungrounded prompting; only the bundle is substituted. A provider-agnostic chat layer holds prompt template, tool surface, timeout (120s), retry policy, and decoding ($T{=}0.2$) constant across providers, so HDI is a controlled measurement rather than a confounded comparison.
+
+\paragraph{Dual checker.} Each summary is split into sentence-level claims tagged as one of six types (\texttt{numeric}, \texttt{modality}, \texttt{tier}, \texttt{uncertainty}, \texttt{literature}, \texttt{other}) and evaluated by two independent checkers. The rule-based checker matches numeric/enumerated values against the bundle with $\pm 0.01$ tolerance for rounded floats and $\pm 1$ pp for integer percentages. The fixed external LLM judge (gpt-4.1-mini, $T{=}0$, two passes) reads claim and bundle in natural language; pass-1 and pass-2 must agree, otherwise the claim is recorded as \texttt{conflict} and excluded from the judge-supported rate. Fixing the judge externally (it is in neither factorial row) removes the self-preference confound of \citet{panickssery2024llm} by construction.
+
+\paragraph{Judge validation.} Two domain-expert authors jointly labeled by consensus 300 claims drawn blind from \texttt{claim\_review.csv} (60 per model-condition bucket), with judge and rule-based labels withheld. The judge achieves $\kappa{=}0.64$ against the human label (substantial agreement on the Landis-Koch scale, bootstrap 95\% CI $[0.55, 0.72]$); the rule-based checker reaches $\kappa{=}0.43$. We treat the two checkers as complementary: HDI and the headline numbers are reported on the rule-based label because it is the more conservative, deterministic, and mechanically reproducible signal (no sampling variance, no vendor dependency); the judge is retained as a paraphrase-aware cross-check, and cross-model conclusions are drawn only where both checkers move in the same direction.
+
+\paragraph{Hallucination Dependence Index.} Let $u_b$ denote the unsupported-claim rate in the ungrounded baseline and $u_g$ the unsupported-claim rate in the grounded full-multimodal condition (rule-based label). Define
+\begin{equation}
+\text{HDI} = \frac{u_b - u_g}{u_b}, \quad u_b > 0.
+\label{eq:hdi}
+\end{equation}
+HDI is the fraction of a model's ungrounded hallucination that the grounded architecture suppresses. It is distinct from the supported-rate delta: a model with a low baseline unsupported rate cannot show a high absolute delta but can still show a high HDI if the relative reduction is large.
+
+\paragraph{Semantic claim overlap.} HDI captures the \emph{amount} of hallucination suppressed but not whether the grounded model is generating genuinely case-specific content or merely paraphrasing baseline-style claims. We embed each grounded and baseline claim with \texttt{text-embedding-3-small} \citep{openai2024embeddings}; for each grounded claim we compute its maximum cosine similarity to any baseline claim from the same patient and call it a \emph{semantic twin} when $\geq \tau$. Patient-level overlap is the fraction of grounded claims with a semantic twin, averaged over the cohort. We report $\tau{=}0.80$ as the primary number with sensitivity at $\tau\in\{0.75, 0.85\}$. Embedding similarity cannot distinguish ``PD-L1 is low'' from ``PD-L1 is high'' (same topic, opposite magnitude) and therefore biases overlap \emph{upward}; low overlap values are robust evidence of genuine content divergence.
+
+\section{Results}
+\label{sec:results}
+
+\begin{table*}[!t]
+\centering
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+\textbf{Model} & \textbf{Base.\ sup.} & \textbf{Base.\ unsup.} & \textbf{Gr.\ sup.} & \textbf{Gr.\ unsup.} & \textbf{Judge agr.} & \textbf{HDI} & \textbf{Overlap@0.80} \\
+\midrule
+gpt-4o-mini             & 79.6\% & 16.0\% & 84.4\% & 0.2\%  & 0.683 & 0.984 & 0.115 \\
+gpt-5.4-mini            & 87.7\% & 5.9\%  & 87.7\% & 4.0\%  & 0.720 & 0.336 & 0.032 \\
+gemini-2.5-flash        & 33.0\% & 64.8\% & 93.2\% & 5.2\%  & 0.970 & 0.919 & 0.005 \\
+gemini-3-flash-preview  & 7.5\%  & 91.5\% & 81.9\% & 14.0\% & 0.794 & 0.847 & 0.051 \\
+\bottomrule
+\end{tabular}
+\caption{2$\times$2 factorial with the STACHE diagnostic panel. Baseline = ungrounded condition; Grounded = full-multimodal. Supported/unsupported rates on the rule-based auto checker; judge-agreement is the fixed external judge's two-pass self-consistency. HDI per Eq.~\ref{eq:hdi}; Overlap@0.80 is the cohort-mean fraction of grounded claims with a same-patient baseline twin at cosine $\geq 0.80$.}
+\label{tab:factorial}
+\end{table*}
+
+\paragraph{Inversion of safety rankings.}
+Baseline unsupported rates span two orders of magnitude (91.5\% for gemini-3-flash-preview, 5.9\% for gpt-5.4-mini); grounded rates compress to 0.2--14.0\%, but the ranking visible from grounded support alone (gemini-2.5-flash 93.2\% $>$ gpt-5.4-mini 87.7\% $\approx$ gpt-4o-mini 84.4\% $>$ gemini-3-flash-preview 81.9\%) inverts under HDI: gpt-4o-mini 0.984, gemini-2.5-flash 0.919, gemini-3-flash-preview 0.847, gpt-5.4-mini 0.336. A reader with only the grounded columns visible would conclude gemini-2.5-flash is the safer Google model; STACHE shows that gemini-3-flash-preview's lower grounded support reflects longer summaries (11.1 vs 8.5 sentences) over a vastly worse ungrounded baseline (91.5\% vs 64.8\% unsupported), and that the grounded architecture is in fact suppressing the larger absolute volume of confabulation.
+
+\paragraph{Two failure modes of ungrounded clinical LLMs.} The factorial surfaces two structurally distinct failure modes that grounded-only metrics conflate.
+\textbf{Mode A (overt confabulation):} gpt-4o-mini, gemini-2.5-flash, and gemini-3-flash-preview produce confident specific claims under no evidence (16.0--91.5\% unsupported); for these models, grounding is necessary and largely sufficient (HDI 0.847--0.984). For TCGA-44-6147, gemini-3-flash-preview asserts ``Tier 3 (Low Readiness / Cold Tumor),'' ``Stage IA; T1a, N0, M0,'' and an EGFR L858R driver, none of which match the bundle (Appendix~A).
+\textbf{Mode B (calibrated priors):} gpt-5.4-mini's baseline unsupported is 5.9\%, grounded unsupported 4.0\%, supported-rate delta 0.1\%, HDI 0.336. A naive reading would suggest the bundle is being ignored, but the overlap probe rules this out: gpt-5.4-mini's grounded claims share a baseline twin only 3.2\% of the time, among the lowest in the factorial. Its ungrounded summary explicitly refuses (``Not assessable / insufficient structured evidence provided'') while the grounded summary reports the actual fusion score, pathology composition, and modality contribution weights. Low HDI here reflects calibrated uncertainty, not silent prior-recycling.
+
+Mode A is adequately captured by any metric with access to the ungrounded baseline. Mode B requires HDI \emph{and} an overlap probe; a supported-rate number alone is silent about whether the grounded system is adding value beyond a well-calibrated refusal policy. This is the clinically dangerous blind spot of grounded-only evaluations.
+
+\paragraph{Within-provider divergence.} OpenAI's newer gpt-5.4-mini halves the baseline unsupported rate of gpt-4o-mini (16.0\% $\to$ 5.9\%); Google's newer gemini-3-flash-preview moves the opposite direction relative to gemini-2.5-flash (64.8\% $\to$ 91.5\%). gemini-3-flash-preview is a preview endpoint and we treat this as a snapshot rather than a stable property of the family; replication on the stable Gemini 3 release and across cohorts is needed before the observation generalizes. Patient-level nonparametric bootstrap ($B{=}1000$) places gpt-5.4-mini's HDI at $[0.231, 0.442]$, non-overlapping with the nearest competitor's CI by 0.38, so the Mode A / Mode B split is statistical rather than a cohort-size artifact.
+
+\paragraph{Bounded grounding.} HDI scales positively with baseline unsupported rate: grounding can only suppress hallucination the model would otherwise produce. The practical consequence is that grounding's value is a property of the model-architecture pair rather than of the architecture alone; a grounded clinical system that substantially reduces hallucination on one foundation model may produce little change on another, with implications for how vendors should report grounded-system safety claims.
+
+\section{Discussion and Limitations}
+\label{sec:discussion}
+
+\paragraph{What a grounded-only evaluation would miss.} On the same four models, grounded-only scoring prefers gemini-2.5-flash (93.2\%) over gemini-3-flash-preview (81.9\%) and would conclude the former is safer; STACHE shows gemini-3 suppresses a much larger absolute volume of confabulation (HDI 0.847) and the grounded gap reflects summary length, not faithfulness. Conversely, gpt-5.4-mini's grounded support of 87.7\% reflects ungrounded behavior that was already cautious (Mode B), so the grounded architecture adds little. Reporting grounded support, HDI, and overlap together resolves both ambiguities at negligible additional cost.
+
+\paragraph{Limitations.} We view this evaluation as an early step rather than a finished instrument: 119 TCGA-LUAD cases is a pilot scale, and the factorial does not span the frontier (Claude, Llama, Qwen, and clinically fine-tuned checkpoints are absent). The judge's two-pass self-agreement varies 0.683--0.970, the rule-based checker is paraphrase-conservative (we report on it for reproducibility, not because it is the stronger label), and embedding overlap biases upward when claims share topic but disagree on magnitude. The 300-claim consensus adjudication anchors the judge at substantial agreement but cannot recover an independent inter-human $\kappa$; future releases will add a blinded annotator. The bundle covers pathology, RNA, clinical notes, and immune tier but not radiology, methylation, somatic variants, or longitudinal treatment data, and the typology may need new classes for those modalities. We frame the structural findings (HDI/grounded inversion, Mode A vs.\ Mode B, within-provider divergence) as more durable than any specific percentage point, and we will broaden the cohort, deepen the adjudication, and retire these limitations in subsequent releases. Extended limitations and the full appendix (worked HDI, judge-conflict examples, paraphrase-failure catalog, ablations, reproducibility details) accompany this submission.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+STACHE reframes clinical-LLM faithfulness as a measurement of grounding's causal effect rather than a single scoreboard. Pairing grounded against ungrounded generation under matched prompting, reporting HDI alongside an embedding-overlap probe, and validating both against a human consensus anchor surfaces three findings invisible to grounded-only benchmarks: ranking inversions, two clinically distinct failure modes, and within-provider regressions. We release the harness, prompts, cohort split, and evaluator so any clinical-LLM faithfulness suite can adopt the protocol with one additional ungrounded run.
+
+\bibliography{custom}
+\bibliographystyle{icml2026}
+
+\end{document}

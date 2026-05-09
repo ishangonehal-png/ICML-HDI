@@ -1,0 +1,159 @@
+name: yc-aixbio-stack
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT:-15434}:5432"
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER:-yc_aixbio}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-change_me_local_only}"
+      POSTGRES_DB: "${POSTGRES_DB:-yc_aixbio}"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-yc_aixbio} -d ${POSTGRES_DB:-yc_aixbio}",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "${REDIS_PORT:-16379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "${API_PORT:-18000}:8000"
+    environment:
+      APP_ENV: "${APP_ENV:-development}"
+      APP_NAME: "${APP_NAME:-YC AIxBio Research API}"
+      API_V1_PREFIX: "${API_V1_PREFIX:-/v1}"
+      DATABASE_URL: "postgresql+psycopg://${POSTGRES_USER:-yc_aixbio}:${POSTGRES_PASSWORD:-change_me_local_only}@postgres:5432/${POSTGRES_DB:-yc_aixbio}"
+      REDIS_URL: "redis://redis:6379/0"
+      ANALYSIS_QUEUE_KEY: "${ANALYSIS_QUEUE_KEY:-aixbio:analysis:jobs}"
+      ANALYSIS_QUEUE_PROCESSING_KEY: "${ANALYSIS_QUEUE_PROCESSING_KEY:-aixbio:analysis:jobs:processing}"
+      ANALYSIS_QUEUE_DEDUPE_TTL_SECONDS: "${ANALYSIS_QUEUE_DEDUPE_TTL_SECONDS:-86400}"
+      ANALYSIS_WORKER_POLL_TIMEOUT_SECONDS: "${ANALYSIS_WORKER_POLL_TIMEOUT_SECONDS:-5}"
+      ANALYSIS_WORKER_REQUEUE_INFLIGHT_ON_START: "${ANALYSIS_WORKER_REQUEUE_INFLIGHT_ON_START:-true}"
+      AUTO_CREATE_TABLES: "${AUTO_CREATE_TABLES:-true}"
+      CORS_ALLOW_ORIGINS: "${CORS_ALLOW_ORIGINS:-http://localhost:13000,http://127.0.0.1:13000}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY:?OPENAI_API_KEY is required for agent chat}"
+      OPENAI_MODEL: "${OPENAI_MODEL:-gpt-5.4}"
+      TCGA_FULL475_ROOT: "${TCGA_FULL475_ROOT:-/data/tcga-full475}"
+      PATHOLOGY_ARTIFACT_DIR: "${PATHOLOGY_ARTIFACT_DIR:-/data/tcga-full475/pathology_artifacts/full475}"
+      PATHOLOGY_HEATMAP_DIR: "${PATHOLOGY_HEATMAP_DIR:-/data/tcga-full475/heatmaps/full475}"
+      PATHOLOGY_WSI_DIR: "${PATHOLOGY_WSI_DIR:-/data/tcga-full475/slides/full475}"
+      PATHOLOGY_STRICT_MISSING_DATA: "${PATHOLOGY_STRICT_MISSING_DATA:-false}"
+      PATHOLOGY_TILE_CACHE_BUST: "${PATHOLOGY_TILE_CACHE_BUST:-}"
+      ENSO_API_BASE_URL: "${ENSO_API_BASE_URL:-http://127.0.0.1:8003}"
+      ENSO_EMBEDDINGS_DIR: "${ENSO_EMBEDDINGS_DIR:-/data/tcga-full475/embeddings/level0}"
+      TRANSCRIPTOMICS_ARTIFACT_DIR: "${TRANSCRIPTOMICS_ARTIFACT_DIR:-/data/tcga-full475/transcriptomics/artifacts}"
+      TRANSCRIPTOMICS_COUNTS_DIR: "${TRANSCRIPTOMICS_COUNTS_DIR:-/data/tcga-full475/transcriptomics/counts}"
+      TRANSCRIPTOMICS_GEP_REFERENCE_STATS_JSON: "${TRANSCRIPTOMICS_GEP_REFERENCE_STATS_JSON:-}"
+      TRANSCRIPTOMICS_GEP_REFERENCE_REQUIRED: "${TRANSCRIPTOMICS_GEP_REFERENCE_REQUIRED:-false}"
+      TRANSCRIPTOMICS_GEP_REFERENCE_ID: "${TRANSCRIPTOMICS_GEP_REFERENCE_ID:-}"
+      CLINICAL_ARTIFACT_DIR: "${CLINICAL_ARTIFACT_DIR:-/data/tcga-full475/clinical/artifacts}"
+      CLINICAL_XML_DIR: "${CLINICAL_XML_DIR:-/data/tcga-full475/clinical/xml}"
+      CLINICAL_REPORTS_DIR: "${CLINICAL_REPORTS_DIR:-/data/tcga-full475/clinical/reports}"
+      CLINICAL_SURVIVAL_MODEL_DIR: "${CLINICAL_SURVIVAL_MODEL_DIR:-/data/clinical/survival_model}"
+      SURVIVAL_MLP_REPO_ROOT: "${SURVIVAL_MLP_REPO_ROOT:-/workspace-repo}"
+    volumes:
+      - ${TCGA_FULL475_HOST_PATH:-./data/tcga-full475}:/data/tcga-full475:ro
+      # Survival MLP: mount repo root so models/ and data/luad/ are available
+      - ${SURVIVAL_MLP_HOST_PATH:-.}:/workspace-repo:ro
+      # Optional portability mounts for split datasets. Configure host paths in env file.
+      - ${LUAD_EMBEDDINGS_HOST_PATH:-./data/tcga-full475/embeddings}:/data/luad-embeddings:ro
+      - ${TRANSCRIPTOMICS_HOST_PATH:-./data/tcga-full475/transcriptomics}:/data/transcriptomics:ro
+      - ${CLINICAL_HOST_PATH:-./data/tcga-full475/clinical}:/data/clinical:ro
+
+  worker:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    restart: unless-stopped
+    command: ["python", "apps/api/worker.py"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      APP_ENV: "${APP_ENV:-development}"
+      APP_NAME: "${APP_NAME:-YC AIxBio Research API}"
+      API_V1_PREFIX: "${API_V1_PREFIX:-/v1}"
+      DATABASE_URL: "postgresql+psycopg://${POSTGRES_USER:-yc_aixbio}:${POSTGRES_PASSWORD:-change_me_local_only}@postgres:5432/${POSTGRES_DB:-yc_aixbio}"
+      REDIS_URL: "redis://redis:6379/0"
+      ANALYSIS_QUEUE_KEY: "${ANALYSIS_QUEUE_KEY:-aixbio:analysis:jobs}"
+      ANALYSIS_QUEUE_PROCESSING_KEY: "${ANALYSIS_QUEUE_PROCESSING_KEY:-aixbio:analysis:jobs:processing}"
+      ANALYSIS_QUEUE_DEDUPE_TTL_SECONDS: "${ANALYSIS_QUEUE_DEDUPE_TTL_SECONDS:-86400}"
+      ANALYSIS_WORKER_POLL_TIMEOUT_SECONDS: "${ANALYSIS_WORKER_POLL_TIMEOUT_SECONDS:-5}"
+      ANALYSIS_WORKER_REQUEUE_INFLIGHT_ON_START: "${ANALYSIS_WORKER_REQUEUE_INFLIGHT_ON_START:-true}"
+      AUTO_CREATE_TABLES: "${AUTO_CREATE_TABLES:-true}"
+      TCGA_FULL475_ROOT: "${TCGA_FULL475_ROOT:-/data/tcga-full475}"
+      PATHOLOGY_ARTIFACT_DIR: "${PATHOLOGY_ARTIFACT_DIR:-/data/tcga-full475/pathology_artifacts/full475}"
+      PATHOLOGY_HEATMAP_DIR: "${PATHOLOGY_HEATMAP_DIR:-/data/tcga-full475/heatmaps/full475}"
+      PATHOLOGY_WSI_DIR: "${PATHOLOGY_WSI_DIR:-/data/tcga-full475/slides/full475}"
+      PATHOLOGY_STRICT_MISSING_DATA: "${PATHOLOGY_STRICT_MISSING_DATA:-false}"
+      PATHOLOGY_TILE_CACHE_BUST: "${PATHOLOGY_TILE_CACHE_BUST:-}"
+      ENSO_API_BASE_URL: "${ENSO_API_BASE_URL:-http://127.0.0.1:8003}"
+      ENSO_EMBEDDINGS_DIR: "${ENSO_EMBEDDINGS_DIR:-/data/tcga-full475/embeddings/level0}"
+      TRANSCRIPTOMICS_ARTIFACT_DIR: "${TRANSCRIPTOMICS_ARTIFACT_DIR:-/data/tcga-full475/transcriptomics/artifacts}"
+      TRANSCRIPTOMICS_COUNTS_DIR: "${TRANSCRIPTOMICS_COUNTS_DIR:-/data/tcga-full475/transcriptomics/counts}"
+      TRANSCRIPTOMICS_GEP_REFERENCE_STATS_JSON: "${TRANSCRIPTOMICS_GEP_REFERENCE_STATS_JSON:-}"
+      TRANSCRIPTOMICS_GEP_REFERENCE_REQUIRED: "${TRANSCRIPTOMICS_GEP_REFERENCE_REQUIRED:-false}"
+      TRANSCRIPTOMICS_GEP_REFERENCE_ID: "${TRANSCRIPTOMICS_GEP_REFERENCE_ID:-}"
+      CLINICAL_ARTIFACT_DIR: "${CLINICAL_ARTIFACT_DIR:-/data/tcga-full475/clinical/artifacts}"
+      CLINICAL_XML_DIR: "${CLINICAL_XML_DIR:-/data/tcga-full475/clinical/xml}"
+      CLINICAL_REPORTS_DIR: "${CLINICAL_REPORTS_DIR:-/data/tcga-full475/clinical/reports}"
+      CLINICAL_SURVIVAL_MODEL_DIR: "${CLINICAL_SURVIVAL_MODEL_DIR:-/data/clinical/survival_model}"
+      SURVIVAL_MLP_REPO_ROOT: "${SURVIVAL_MLP_REPO_ROOT:-/workspace-repo}"
+    volumes:
+      - ${TCGA_FULL475_HOST_PATH:-./data/tcga-full475}:/data/tcga-full475:ro
+      - ${SURVIVAL_MLP_HOST_PATH:-.}:/workspace-repo:ro
+      - ${LUAD_EMBEDDINGS_HOST_PATH:-./data/tcga-full475/embeddings}:/data/luad-embeddings:ro
+      - ${TRANSCRIPTOMICS_HOST_PATH:-./data/tcga-full475/transcriptomics}:/data/transcriptomics:ro
+      - ${CLINICAL_HOST_PATH:-./data/tcga-full475/clinical}:/data/clinical:ro
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_started
+    ports:
+      - "${WEB_PORT:-13000}:3000"
+    environment:
+      NODE_ENV: "${NODE_ENV:-development}"
+      NEXT_PUBLIC_API_BASE_URL: "${NEXT_PUBLIC_API_BASE_URL:-http://localhost:18000}"
+      NEXT_PUBLIC_DISABLE_MOCK_FALLBACK: "${NEXT_PUBLIC_DISABLE_MOCK_FALLBACK:-true}"
+      INTERNAL_API_BASE_URL: "${INTERNAL_API_BASE_URL:-http://api:8000}"
+
+volumes:
+  postgres_data:
+  redis_data:

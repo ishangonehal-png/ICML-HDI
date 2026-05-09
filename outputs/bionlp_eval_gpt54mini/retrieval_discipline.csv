@@ -1,0 +1,273 @@
+case_id,summary_standard,summary_literature,literature_used_standard,literature_used_literature_prompt,notes
+TCGA-44-6147,"**Immunotherapy readiness summary (research-only):**
+
+- **IO immune tier:** **Provisional / moderate-favorable** based on the fused proxy score **0.683** (refined = provisional = 0.683; delta = 0.000).
+- **Key pathology evidence:** Tumor **61%**, stroma **24%**, necrosis **8%**. Top tile **tile_183** scored **0.87** and was annotated as a **dense tumor-infiltrating lymphocyte cluster**, which is the strongest active signal. Pathology contributed **59.7%** of the fused estimate.
+- **RNA evidence:** **Unavailable**. No transcriptomics input was detected, so no cytolytic activity, GEP, or TIDE values are available.
+- **Clinical context:** Deterministic proxy clinical signal contributed **40.3%** with **stage III**, **never smoker**, **age 46**.
+- **Uncertainty / limitations:** This is a **research-only proxy** without RNA data and without explicit clinical source/follow-up survival fields. The IO tier is therefore **provisional**, driven mainly by pathology rather than transcriptomic immune-inflamed evidence.","**Patient-specific immunotherapy readiness (research-only proxy):**
+- **Overall fused score:** **0.683** on a 0–1 scale, with **provisional = refined = 0.683** and **delta = 0.000**.
+- **Interpretation of available evidence:** moderately favorable by the fused proxy.
+- **Main supporting signal:** pathology contributed most (**59.7%**), with **tumor 61%**, **stroma 24%**, **necrosis 8%**, and a top tile scored **0.87** for a **dense tumor-infiltrating lymphocyte cluster**.
+- **Clinical signal:** contributed **40.3%**; available proxy features were **stage III**, **never smoker**, **age 46**.
+- **Transcriptomics:** **not available**, so no RNA-based inflamed/exclusion score could be assessed.
+
+**Literature context (not patient-specific):**
+- In **NeoPACT** (stage I–III TNBC), neoadjuvant carboplatin/docetaxel plus pembrolizumab had **58% pCR** and **86% estimated 3-year EFS** overall; **grade ≥3 immune-mediated adverse events** occurred in **3.5%**.
+- In **BELLINI**, short-course anti-PD-1 showed **53% major pathological response** and **33% pCR**, but also a high rate of **immune-mediated endocrinopathies (57%)**.
+- In a cervical cancer TIL study, **TIL expansion feasibility was 74.1%**, with **75% complete response** among treated patients and **8.3% severe toxicity**.
+- **Quantitative comparison to this patient is not possible from abstract-level evidence alone**, because these studies do not provide patient-matched biomarker baselines.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-7994,"**Immunotherapy readiness summary (research-only proxy):**
+
+- **IO immune tier:** **Intermediate / moderately favorable** based on the fused proxy score **0.676**.
+- **Key pathology evidence:** Tumor **61%**, stroma **24%**, necrosis **8%**; top tile **tile_183** scored **0.87** and was described as a **dense tumor-infiltrating lymphocyte cluster**. Pathology was the largest contributor (**60.4%**).
+- **RNA / transcriptomics:** **Unavailable**. No transcriptomics input was detected, so **cytolytic activity, GEP, and TIDE scores are not available**.
+- **Clinical context:** Limited deterministic proxy signal only: **stage III**, **age 45**, **smoker unknown**. Clinical contribution was **39.6%**.
+- **Uncertainty / limitations:** Fusion is **provisional** because transcriptomics is missing; **refined = provisional = 0.676** and **delta = 0.000**. No direct clinical source, survival follow-up, or RNA-based immune metrics were available.","**Patient-specific evidence (repo-native):**
+- **Fusion immunotherapy-readiness proxy:** **0.676/1.0** (provisional = refined = active; **delta 0.000**), suggesting a **moderately favorable** overall profile by this research-only proxy.
+- **Pathology is the main driver** of the estimate (**60.4% contribution**): tumor **61%**, stroma **24%**, necrosis **8%**.
+- **Top tile:** tile_183 scored **0.87**, described as a **dense tumor-infiltrating lymphocyte cluster**, which is supportive of an inflamed microenvironment.
+- **Clinical proxy contribution:** **39.6%** from stage/age/smoking proxy inputs (**stage III**, age **45**, smoker **unknown**).
+- **Transcriptomics:** **unavailable**, so there is **no RNA-based inflamed/exclusion signal** to refine readiness.
+- **Interpretation caveat:** this is a **research-only proxy**, not a validated clinical biomarker.
+
+**Literature context (brief):**
+- In **HCC**, immune checkpoint inhibitors are established, but a review notes **no validated biomarker** is available to guide treatment selection.
+- In a **TNBC pembrolizumab** trial, pCR was **58%** and grade ≥3 immune-mediated adverse events were **3.5%**; however, this is **disease-specific context** and not directly comparable to this case.
+- Other cited studies support that **immune-infiltrated tumors** can associate with better outcomes or feasibility of immunotherapy/TIL approaches, but **abstract-level evidence here does not provide a direct quantitative benchmark** for this patient’s readiness.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-7281,"**IO immune tier:** Provisional fused IO readiness is **0.674** (refined = provisional; delta = **0.000**), suggesting a moderately favorable immune-readiness signal in this research-only proxy.
+
+**Key pathology evidence:**  
+- **Tumor 61%**, **Stroma 24%**, **Necrosis 8%**  
+- Top tile: **tile_183**, score **0.87**, described as a **dense tumor-infiltrating lymphocyte cluster**  
+- Pathology was the **largest contribution** to the fused estimate (**60.5%**)
+
+**RNA / transcriptomics evidence:**  
+- **Unavailable**: no transcriptomics input detected  
+- Therefore **cytolytic activity, GEP, and TIDE scores are not available**
+
+**Clinical context:**  
+- Clinical proxy signal contributed **39.5%**  
+- Available context: **stage III**, **age 46**, **smoker unknown**  
+- No direct clinical source/follow-up survival fields were available in the repo context
+
+**Uncertainty / limitations:**  
+- This is a **research-only proxy**, not a clinical immunotherapy decision tool  
+- **No RNA data** were available, so immune-inflamed transcriptomic confirmation is absent  
+- Clinical input is **proxy-based** and partly incomplete (smoking unknown; no direct clinical source)","**Patient-specific evidence (case TCGA-55-7281):**
+- **Overall fused immunotherapy-readiness proxy:** **0.674** on a 0–1 scale, with **provisional = refined = 0.674** and **delta = 0.000**.
+- **Main driver:** **Pathology** contributed most (**60.5%**), showing **tumor 61%**, **stroma 24%**, **necrosis 8%**, and a **top tile score 0.87** described as a **dense tumor-infiltrating lymphocyte cluster**.
+- **Clinical contribution:** **39.5%** from deterministic proxy signals: **stage III**, **age 46**, **smoker unknown**.
+- **Transcriptomics:** **Unavailable**, so no transcriptomic inflamed/exclusion scores (cyt, GEP, TIDE) are available and the fusion remained provisional.
+- **Interpretation:** The pathology signal suggests a **relatively immune-infiltrated tumor microenvironment**, which is supportive of immunotherapy readiness, but the absence of transcriptomics limits confidence.
+
+**Literature context:**
+- In **HCC**, immune checkpoint inhibitors are established options, but the cited review states **no validated biomarker** is available to guide selection.
+- In **stage I–III TNBC**, neoadjuvant pembrolizumab-based therapy showed **58% pCR** and **3.5% grade ≥3 immune-mediated adverse events** in the cited phase 2 study.
+- Other cited studies support that **high immune infiltration/Immunoscore** or **TIL-based approaches** can correlate with better outcomes or feasibility in some cancers.
+
+**Bottom line:** Based on available case evidence, this tumor appears **moderately favorable for immunotherapy readiness**, driven mainly by a **TIL-rich pathology signal**, but the assessment is **limited by missing transcriptomics and lack of a validated predictive biomarker**.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-6712,"**IO immune tier:** Provisional fused IO readiness is **0.670** (refined 0.670; delta 0.000), suggesting a **moderately favorable** immune-readiness proxy.
+
+**Key pathology evidence:**  
+- Tumor **61%**, stroma **24%**, necrosis **8%**  
+- Top tile **tile_183** scored **0.87** with rationale: **dense tumor-infiltrating lymphocyte cluster**  
+- Pathology was the largest active contributor (**60.9%**)
+
+**RNA / transcriptomics evidence:**  
+- **Unavailable**; no transcriptomics input detected  
+- Therefore **cyt_score, gep_score, and tide_score are not available**
+
+**Clinical context:**  
+- Clinical proxy contributed **39.1%**  
+- Available clinical signals: **stage III**, **age 49**, **smoker unknown**, stage_signal **0.63**, smoker_signal **0.53**
+
+**Uncertainty / limitations:**  
+- This is a **research-only proxy**, not a clinical immunotherapy decision tool  
+- No transcriptomic evidence, and no explicit survival/follow-up fields available  
+- The case summary is therefore driven mainly by pathology plus limited clinical proxy data","**Patient-specific evidence (case TCGA-55-6712):**
+- **Overall fused immunotherapy-readiness proxy:** **0.670/1** (provisional = refined = 0.670; **delta 0.000**), suggesting a **moderately favorable** research-only estimate.
+- **Main driver:** **Pathology (60.9%)**.
+  - Tumor **61%**, stroma **24%**, necrosis **8%**
+  - Top tile **tile_183** scored **0.87** with rationale: **dense tumor-infiltrating lymphocyte cluster**
+- **Clinical contribution (39.1%):**
+  - **Stage III**
+  - Age **49**
+  - Smoker status **unknown**
+  - Proxy signals: stage_signal **0.63**, smoker_signal **0.53**
+- **Transcriptomics:** **Unavailable**, so no RNA-based inflamed/immune-evasion score could be incorporated.
+- **Interpretation:** The pathology signal is relatively supportive of immune activity, but the absence of transcriptomics limits confidence in immunotherapy-readiness estimation.
+
+**Literature context:**
+- In **hepatocellular carcinoma**, a review states **no validated biomarker** is available to guide immune-checkpoint inhibitor decisions.
+- In **TNBC**, pembrolizumab-containing neoadjuvant regimens have shown meaningful activity (e.g., **pCR 58%** in NeoPACT; **grade ≥3 immune-mediated AEs 3.5%**), but these are **disease-specific trial results** and not directly comparable to this case.
+- In **stage I–III colon cancer**, high Immunoscore was associated with lower recurrence risk (**HR 0.20** vs low Immunoscore), supporting the general concept that immune-infiltrated tumors may have more favorable immune-related biology.
+
+**Bottom line:** Research-only evidence suggests **moderately favorable immunotherapy-readiness**, driven mainly by a **TIL-rich pathology signal**, but **no transcriptomic confirmation** is available.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-05-5420,"**Immunotherapy readiness (IO immune tier):** **Provisional / moderate-favorable**, based on a fused proxy score of **0.670**.
+
+**Key pathology evidence:**  
+- Tumor **61%**, stroma **24%**, necrosis **8%**  
+- Top tile: **tile_183**, score **0.87**, described as a **dense tumor-infiltrating lymphocyte cluster**  
+- Largest active contribution came from **pathology (60.9%)**
+
+**RNA / transcriptomics evidence:**  
+- **Unavailable**: no transcriptomics input detected  
+- Therefore **cyt_score, gep_score, and tide_score are not available**
+
+**Clinical context:**  
+- Clinical proxy signal contributed **39.1%**  
+- Reported context: **stage IV**, **never smoker**, **age 48**  
+- No direct clinical source found in the artifact/context; this is a deterministic proxy
+
+**Uncertainty / limitations:**  
+- Fusion is **provisional** because transcriptomics is missing  
+- The score is a **research-only proxy**, not a clinical immunotherapy decision tool  
+- No explicit survival follow-up or stage-specific outcome data are available","**Patient-specific immunotherapy readiness (research-only):**
+- **Overall fused proxy score:** **0.670/1.0** (provisional = refined = 0.670; **delta 0.000**), suggesting a **moderately favorable** immunotherapy-readiness signal.
+- **Main driver:** **Pathology** contributed most (**60.9%**), with **tumor 61%**, **stroma 24%**, **necrosis 8%**, and a top tile (**tile_183**, score **0.87**) described as a **dense tumor-infiltrating lymphocyte cluster**.
+- **Clinical signal:** **Stage IV**, **never smoker**, age **48**; clinical proxy contribution **39.1%**.
+- **Transcriptomics:** **Unavailable**, so no transcriptomic inflamed/exclusion metrics (cyt/GEP/TIDE) can be assessed here.
+
+**Interpretation:** The available case evidence is **supportive of immune activity in the tumor microenvironment** (notably the TIL-rich pathology tile), but the absence of transcriptomics limits confidence in predicting checkpoint inhibitor responsiveness.
+
+**Literature context:**
+- In breast cancer, **PD-1/PD-L1 blockade plus chemotherapy** is established mainly for **PD-L1-positive metastatic and early-stage triple-negative disease**, while broader use remains under study.
+- **Tumor-infiltrating lymphocytes (TILs)** are highlighted as a **promising biomarker** for PD-1/PD-L1 response.
+- For **TIL therapy** in melanoma, literature shows benefit in selected patients, but it remains **limited in availability** and not broadly approved; one trial reported **PFS 7.2 vs 3.1 months**, **ORR 49% vs 21%**, and **OS 25.8 vs 18.9 months** versus ipilimumab.
+
+**Bottom line:** This case has a **moderately favorable pathology-driven immunotherapy signal**, but **transcriptomic confirmation is missing**, so readiness is **suggestive rather than definitive**.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-8203,"**Immunotherapy readiness summary (research-only, based on available structured evidence):**
+
+- **IO immune tier:** **Provisional / moderate-favorable** fused proxy signal, with **fusion score 0.670** (provisional = refined = 0.670; **delta 0.000**).
+- **Key pathology evidence:** Tumor **61%**, stroma **24%**, necrosis **8%**; top tile **tile_183** scored **0.87** and was annotated as a **dense tumor-infiltrating lymphocyte cluster**. Pathology was the **largest contributor (60.9%)**.
+- **RNA / transcriptomics evidence:** **Unavailable**. No transcriptomics input detected, so **cyt_score, gep_score, and tide_score are not available**.
+- **Clinical context:** Available deterministic proxy only: **stage IV**, **never smoker**, **age 48**; clinical contribution **39.1%**. No direct clinical source/follow-up survival fields were available.
+- **Uncertainty / limitations:** This is a **research-only proxy**. The fused estimate is driven by **pathology + clinical proxy only**; **no RNA evidence** was present, so immune-inflamed transcriptomic support cannot be assessed.","**Patient-specific immunotherapy readiness (research-only):**
+- **Overall fused proxy score:** **0.670/1.0** (provisional = refined = 0.670; **delta 0.000**), suggesting a **moderately favorable** immunotherapy-readiness signal by the available proxy.
+- **Main driver:** **Pathology** contributed most (**60.9%**). The tissue shows **Tumor 61%, Stroma 24%, Necrosis 8%**, with a **top tile score 0.87** described as a **dense tumor-infiltrating lymphocyte cluster**.
+- **Clinical proxy:** **39.1%** contribution from **stage IV**, **never smoker**, age 48.  
+- **Transcriptomics:** **Unavailable**, so no RNA-based inflamed/exclusion scores (cyt, GEP, TIDE) can be assessed here.
+- **Interpretation:** The pathology signal is supportive of immune infiltration, but the absence of transcriptomics limits confidence in predicting immune responsiveness.
+
+**Literature context:**
+- In **breast cancer**, immunotherapy benefit is best established in **selected metastatic settings**, especially **PD-L1-positive triple-negative breast cancer**, and **TILs/PD-L1** are relevant biomarkers.
+- In **melanoma**, TIL therapy has shown meaningful activity but with substantial toxicity; however, that evidence is **disease-specific** and not directly transferable to this case.
+- Because the provided literature is abstract-level and not case-matched, **quantitative comparison to this patient is not possible** from the abstracts alone.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-8510,"**IO immune tier:** Provisional **0.670** (refined **0.670**, delta **0.000**), suggesting a moderately favorable immunotherapy-readiness proxy.
+
+**Key pathology evidence:**  
+- Tumor **61%**, stroma **24%**, necrosis **8%**  
+- Top tile **tile_183** scored **0.87** with rationale: **dense tumor-infiltrating lymphocyte cluster**  
+- Pathology was the largest active contributor (**60.9%**)
+
+**RNA / transcriptomics evidence:**  
+- **Unavailable**: no transcriptomics input detected  
+- Therefore, no cytolytic activity, GEP, or TIDE values are available
+
+**Clinical context:**  
+- Clinical proxy signal contributed **39.1%**  
+- Available clinical features: **stage III**, **current smoker**, **age 45**  
+- No direct clinical source/follow-up survival fields were available in the case metadata
+
+**Uncertainty / limitations:**  
+- This is a **research-only proxy**, not a clinical IO biomarker  
+- Readiness estimate is based on **pathology + clinical proxy only** because **RNA data are absent**  
+- No quantitative transcriptomic comparison is possible without RNA evidence","**Patient-specific evidence (case TCGA-55-8510):**
+- **Overall fused immunotherapy-readiness proxy:** **0.670** on a 0–1 scale, with **provisional = refined = 0.670** and **delta = 0.000**.
+- **Main driver:** **Pathology (60.9%)** contributed most.
+  - Tumor **61%**, stroma **24%**, necrosis **8%**
+  - Top tile **tile_183** scored **0.87**, described as a **dense tumor-infiltrating lymphocyte cluster**
+- **Clinical contribution (39.1%):**
+  - **Stage III**
+  - **Current smoker**
+  - **Age 45**
+- **Transcriptomics:** **Unavailable**, so no transcriptomic adjustment was applied.
+- **Interpretation of available case evidence:** The pathology shows a relatively immune-infiltrated feature (dense TIL cluster), but the absence of transcriptomics limits confidence in a more complete immune-readiness assessment.
+
+**Literature context:**
+- In **hepatocellular carcinoma**, a review states **no validated biomarker is available** to guide immunotherapy decision-making, so biomarker-based readiness remains limited.
+- In **TNBC**, neoadjuvant pembrolizumab-based therapy showed **58% pCR** and **3.5% grade 3+ immune-mediated adverse events**; however, this is disease-specific and not directly transferable to this case.
+- In **stage I–III colon cancer**, high Immunoscore was associated with lower 5-year recurrence risk, supporting the general concept that T-cell–inflamed tumors may be more favorable for immune-based approaches.
+
+**Bottom line:** Based on the available structured evidence, this case has a **moderately favorable research-only immunotherapy-readiness proxy**, driven mainly by **pathology evidence of TIL-rich tumor tissue**, but **lack of transcriptomics and absence of validated disease-specific biomarkers** limit certainty.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-44-3398,"**Immunotherapy readiness summary (research-only, based on available structured evidence):**
+
+- **IO immune tier:** **Provisional fused score 0.667** (refined 0.667; delta 0.000), suggesting a **moderately favorable** IO-associated profile in this proxy framework.
+- **Key pathology evidence:** Tumor **61%**, stroma **24%**, necrosis **8%**. The top tile (**tile_183**, score **0.87**) was described as a **dense tumor-infiltrating lymphocyte cluster**, which is the strongest available immune-related pathology signal. Largest contribution came from **pathology (61.2%)**.
+- **RNA / transcriptomics evidence:** **Unavailable**. No transcriptomics input was detected, so **cyt_score, gep_score, and tide_score are not available** and no RNA-based inflamed/exclusion assessment can be made.
+- **Clinical context:** Available deterministic proxy context indicates **stage III**, **age 51**, **smoker unknown**; clinical contribution was **38.8%**. However, the repo context also notes **no clinical source found** in the case metadata, so this should be treated as proxy-only context.
+- **Uncertainty / limitations:** This is a **research-only proxy summary**, not a clinical recommendation. The fused score is driven mainly by pathology and proxy clinical features; **absence of transcriptomics limits confidence** in immune-inflamed characterization.","**Patient-specific evidence (case TCGA-44-3398):**
+- **Overall fused immunotherapy-readiness proxy:** **0.667** on a 0–1 scale, with **no change** from provisional to refined score (**delta 0.000**).
+- **Main driver:** **Pathology** contributed most (**61.2%**).
+- **Histology signal:** Tumor **61%**, stroma **24%**, necrosis **8%**.
+- **Immune-infiltration feature:** Top tile **tile_183** scored **0.87**, described as a **dense tumor-infiltrating lymphocyte cluster**, which supports an inflamed microenvironment signal.
+- **Clinical proxy signal:** Stage **III**, age **51**, smoker status **unknown**; clinical contribution **38.8%**.
+- **Transcriptomics:** **Unavailable**, so no gene-expression-based inflamed/exclusion scores were available.
+
+**Interpretation:**
+- The available case evidence suggests **moderate-to-favorable immunotherapy readiness**, driven mainly by **pathology evidence of TIL-rich tumor regions**.
+- Confidence is limited because **transcriptomics is missing** and the clinical signal is proxy-based.
+
+**Literature context:**
+- In **hepatocellular carcinoma**, a review states **no validated biomarker** is available to guide immune-checkpoint inhibitor selection.
+- In other tumor settings, higher immune-infiltration measures have been associated with better outcomes or response:
+  - **Colon cancer:** high Immunoscore linked to lower recurrence risk (**HR 0.20**).
+  - **TNBC trials:** pembrolizumab-based regimens showed **pCR 58%** in one phase 2 study; another adaptive trial reported **immune activation 53–60%**, **pCR 33%**, and **grade ≥3 adverse events 17%**.
+- These are **contextual examples only**; they are **not directly quantitative for this patient’s tumor type**.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-7570,"**Immunotherapy readiness (IO immune tier):** **Intermediate / provisional** based on available multimodal proxy evidence, with **fusion score 0.666**.
+
+**Key pathology evidence:**
+- Pathology is the **largest contributor** to the fused estimate (**61.2%**).
+- Tumor/stroma composition: **Tumor 61%**, **Stroma 24%**, **Necrosis 8%**.
+- Top tile: **tile_183**, score **0.87**, described as a **dense tumor-infiltrating lymphocyte cluster**.
+- This supports an immune-infiltrated histologic signal, but it is still a proxy-based assessment.
+
+**RNA / transcriptomics evidence:**
+- **Unavailable**: no transcriptomics input detected.
+- Therefore **cytolytic activity, GEP, and TIDE scores are not available**.
+- Fusion remained **provisional** because RNA data were absent.
+
+**Clinical context:**
+- Available clinical proxy signal: **stage III**, **never smoker**, **age 57**.
+- Clinical modality contributed **38.8%** to the fused estimate.
+- No direct clinical source/follow-up survival fields were available in the context.
+
+**Uncertainty / limitations:**
+- This is a **research-only proxy**, not a clinical immunotherapy biomarker.
+- **No RNA evidence** limits confidence in immune-inflamed classification.
+- The summary is driven mainly by **pathology** plus a **deterministic clinical proxy**; no validated IO response biomarker is provided.","**Patient-specific evidence (case TCGA-55-7570):**
+- **Overall fused immunotherapy-readiness proxy:** **0.666** on a 0–1 scale, with **no change** from provisional to refined (**delta 0.000**), so the estimate is stable but remains research-only.
+- **Main driver:** **Pathology** contributed most (**61.2%**). The slide shows **tumor 61%, stroma 24%, necrosis 8%**, with a **top tile score 0.87** described as a **dense tumor-infiltrating lymphocyte cluster**, which is a favorable immune-infiltration signal.
+- **Clinical proxy contribution:** **38.8%** from **stage III**, **age 57**, **never smoker**.
+- **Transcriptomics:** **Unavailable**, so no cytolytic activity, T-cell inflamed GEP, or TIDE score is available; fusion therefore stayed provisional.
+- **Interpretation:** The available evidence suggests **moderately favorable immunotherapy readiness**, driven mainly by histologic immune infiltration, but the absence of transcriptomic immune-activation metrics limits confidence.
+
+**Literature context:**
+- In **HCC**, a review notes **no validated biomarker** is available to guide immune-checkpoint inhibitor selection.
+- In **TNBC**, pembrolizumab-containing neoadjuvant regimens reported **58% pCR** and **86% 3-year EFS** overall, with **3.5% grade ≥3 immune-mediated adverse events**.
+- In **colon cancer**, a **high Immunoscore** was associated with **lower 5-year recurrence risk**.
+- In **cervical cancer**, TIL expansion was feasible in **74.1%** and a phase I study reported **75.0% complete response** among treated patients.
+- For **melanoma**, guidelines support **PD-1-based immunotherapy** in unresectable stage III/IV disease.
+
+**Bottom line:** Patient data show a **moderately favorable, pathology-driven immune-infiltrated profile**, but **transcriptomic confirmation is missing**, so readiness assessment remains **incomplete and research-only**.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-44-7671,"**Immunotherapy readiness summary (research-only, based on available structured evidence):**
+
+- **IO immune tier:** **Provisional / moderate-favorable** based on fused proxy score **0.665** (provisional = refined = 0.665; delta 0.000).
+- **Key pathology evidence:** Pathology is the main contributor (**61.4%**). Tumor **61%**, stroma **24%**, necrosis **8%**. Top tile **tile_183** scored **0.87** and was annotated as a **dense tumor-infiltrating lymphocyte cluster**, which supports an inflamed local immune signal.
+- **RNA evidence:** **Unavailable.** No transcriptomics input detected; **cyt_score, gep_score, and tide_score are null**, so no RNA-based inflamed/exclusion assessment can be made.
+- **Clinical context:** Clinical proxy contributed **38.6%** with **stage III**, **current smoker**, **age 48**. No direct clinical source/follow-up survival fields were available.
+- **Uncertainty / limitations:** Fusion is **provisional** because transcriptomics is missing. The score is a **research-only proxy**, not a clinical immunotherapy decision tool.","**Patient-specific evidence (TCGA-44-7671):**
+- **Overall fused immunotherapy-readiness proxy:** **0.665/1** (provisional = refined = 0.665; **delta 0.000**), suggesting a **moderately favorable** profile by this research-only proxy.
+- **Main driver:** **Pathology** contributed most (**61.4%**).
+- **Histology signal:** Tumor **61%**, stroma **24%**, necrosis **8%**.
+- **Immune-infiltrate feature:** Top tile **tile_183** scored **0.87** with rationale **“Dense tumor-infiltrating lymphocyte cluster”**, which supports an inflamed local microenvironment.
+- **Clinical proxy signal:** **38.6%** contribution from **stage III**, **current smoker**, age **48**.
+- **Transcriptomics:** **Unavailable**, so no cytolytic activity / GEP / TIDE values were available and the fusion score remained provisional.
+
+**Literature context (not patient-specific):**
+- In **HCC**, one abstract states **no validated biomarker** is available to guide immunotherapy selection, despite checkpoint inhibitors being established.
+- In **stage I–III TNBC**, neoadjuvant pembrolizumab-based therapy reported **58% pCR**, **69% RCB 0+1**, and **3.5% grade ≥3 immune-mediated adverse events**.
+- In other cancers, high immune-infiltration measures (e.g., **Immunoscore**) have been associated with better outcomes, but these are **contextual** and not directly transferable to this case.
+
+**Bottom line:** This case shows a **moderately favorable, pathology-driven immune-infiltration signal** for immunotherapy readiness, but **absence of transcriptomics and lack of validated predictive biomarkers** limit confidence.",False,True,OpenAI-generated summary with/without PubMed RAG.

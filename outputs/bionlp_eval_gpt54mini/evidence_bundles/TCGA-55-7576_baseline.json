@@ -1,0 +1,28 @@
+{
+  "case_id": "TCGA-55-7576",
+  "config": "baseline",
+  "prompt_type": "standard",
+  "io_score": null,
+  "io_tier": "Cold",
+  "note": "Ungrounded baseline \u2014 no evidence bundle provided to LLM",
+  "pathology": {
+    "tissue_fractions": {},
+    "top_tiles": [],
+    "til_fraction": null
+  },
+  "transcriptomics": {
+    "cyt_value": null,
+    "cyt_available": false,
+    "gep_value": null,
+    "gep_available": false,
+    "tide_value": null,
+    "tide_available": false
+  },
+  "fusion": {
+    "mode_used": "none",
+    "active_score": null,
+    "modality_contributions": {}
+  },
+  "literature_retrieval_invoked": false,
+  "literature_citations": []
+}

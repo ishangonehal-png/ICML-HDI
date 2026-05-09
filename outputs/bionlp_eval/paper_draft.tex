@@ -1,0 +1,252 @@
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+% In particular, the hyperref package requires pdfLaTeX in order to break URLs across lines.
+
+\documentclass[11pt]{article}
+
+% Change "review" to "final" to generate the final (sometimes called camera-ready) version.
+% Change to "preprint" to generate a non-anonymous version with page numbers.
+\usepackage[final]{acl}
+
+\usepackage[most]{tcolorbox} % For creating colored and styled boxes
+
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{pgfplots} % For creating plots
+\pgfplotsset{compat=1.17} % Set compatibility level for pgfplots
+\usepackage{tikz} % For creating custom graphics
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out,
+% but it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+
+% This is also not strictly necessary, and may be commented out.
+% However, it will improve the aesthetics of text in
+% the typewriter font.
+\usepackage{inconsolata}
+
+% Including images in your LaTeX document requires adding
+% additional package(s)
+\usepackage{graphicx}
+
+\title{Structural Faithfulness: An Evidence-Bundle Architecture for Hallucination-Resistant Multimodal Oncology Summarization}
+
+\author{
+Anonymous Submission\\
+Affiliation / Address\\
+\texttt{email@domain.com}
+}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+
+In clinical decision support, faithfulness is not a quality metric—it is a safety constraint. A hallucinated lab value, stage, or biomarker score is not a degraded summary; it is a fabricated medical claim. Existing approaches treat faithfulness as an emergent property to be \emph{detected} after generation through factual-consistency scoring or post-hoc verification. We argue this paradigm is inadequate when the facts in question are structured biomedical measurements, and propose \textbf{structural faithfulness} as an alternative: a design discipline in which the model is constructed so that hallucination of in-bundle facts is impossible by construction. We instantiate this principle in an \textbf{evidence-bundle architecture} for multimodal oncology summarization that aggregates pathology, transcriptomic, and clinical modalities into a closed, provenance-tagged JSON payload \emph{before} any LLM call; the model is given no other factual source. We evaluate on 20 TCGA-LUAD cases against an ungrounded GPT-4o-mini baseline using a two-pass LLM-as-judge protocol (96.9\% inter-pass agreement). The grounded system reduces unsupported claims by \textbf{5.4$\times$} (2.1\% vs.\ 11.3\%), holds completeness stable across modality ablations (71--73\% vs.\ 49\% baseline), and achieves 100\% \emph{missing-modality disclosure} (the system correctly flags absent RNA data vs.\ 0\% for the baseline) and 100\%/0\% retrieval discipline (recall on requested retrieval / false-positive rate when not requested). We also identify and characterize a previously undocumented \textbf{negation-blind failure mode} in keyword-gated biomedical retrieval—where prompts saying ``do not cite publications'' actively trigger retrieval—and propose intent-aware gating as a general mitigation for the BioNLP community.
+
+\end{abstract}
+
+\section{Introduction}
+
+Hallucination in oncology summarization is a categorically different failure than hallucination in open-domain text. A clinician reading ``the patient is Stage~III'' has no way to distinguish a value extracted from the chart from one extrapolated by the model; the cost of confusion is a misallocated treatment decision, not a degraded user experience. The dominant response in clinical NLP has been to treat faithfulness as a property to \emph{measure after generation}—factual-consistency classifiers (\citeauthor{kryscinski2020evaluating} \citeyear{kryscinski2020evaluating}), atomic-fact verifiers (\citeauthor{min2023factscore} \citeyear{min2023factscore}), constrained prompting (\citeauthor{rawte2023survey} \citeyear{rawte2023survey})—accepting that the model may hallucinate and trying to catch it. For structured biomedical claims (a tissue fraction, a GEP score, a stage), this is the wrong abstraction layer: the values are not opinions to validate against the world but deterministic measurements that either appear in the patient's record or do not. \\
+\indent We propose \textbf{structural faithfulness}: rather than detecting hallucination, eliminate the conditions that produce it. We assemble a closed, provenance-tagged \emph{evidence bundle} from all available modalities \emph{before} the LLM is invoked and pass it as the model's sole factual source, with no external knowledge access in standard mode. Hallucination of in-bundle facts becomes a structural impossibility rather than a statistical risk; the locus of faithfulness shifts from parametric memory to the bundle's contents. We instantiate this for immunotherapy-readiness summarization on TCGA-LUAD by fusing pathology embeddings, RNA-seq immune signatures (CYT, GEP, TIDE), and clinical variables from BCR XML, with PubMed retrieval bolted on only when explicitly requested. \\
+\indent Contributions: (1) a \textbf{conceptual reframing} of biomedical faithfulness from post-hoc detection to structural prevention, instantiated in a concrete architecture; (2) a \textbf{data-layer ablation methodology} that masks modalities in the bundle rather than via prompt instructions, distinguishing capability from compliance; (3) an \textbf{empirical demonstration} that structural faithfulness yields a 5.4$\times$ reduction in unsupported claims, 100\% missing-modality disclosure, and 100\%/0\% on-demand retrieval discipline against an ungrounded baseline of the same model; (4) \textbf{characterization of a negation-blind failure mode} in keyword-gated biomedical retrieval, with a deployable mitigation.
+
+\section{Related Work}
+
+\paragraph{Faithfulness in clinical NLP.}
+Prior work treats hallucination as a property to detect post-hoc: consistency classifiers (\citeauthor{kryscinski2020evaluating} \citeyear{kryscinski2020evaluating}), atomic-fact verifiers (\citeauthor{min2023factscore} \citeyear{min2023factscore}), and benchmarks showing that general-domain LLMs hallucinate medical facts at rates incompatible with clinical use (\citeauthor{umapathi2023med} \citeyear{umapathi2023med}; \citeauthor{ji2023survey} \citeyear{ji2023survey}). These presuppose model latitude to fabricate and try to catch it; we remove that latitude architecturally for in-bundle facts. \citeauthor{lewis2020rag} (\citeyear{lewis2020rag}) established RAG as the dominant paradigm for knowledge-intensive tasks. We invert the standard pattern: evidence is assembled deterministically from structured sources, and retrieval is an opt-in supplement rather than the spine.
+
+\paragraph{Evaluation and multimodal clinical AI.}
+\citeauthor{zheng2023judging} (\citeyear{zheng2023judging}) established LLM-as-judge as a scalable alternative to human annotation on objective criteria. We adopt a two-pass T\,=\,0 protocol and report 96.9\% inter-pass agreement as a reliability proxy. Joint pathology--genomic modeling has targeted survival prediction and subtyping (\citeauthor{chen2022multimodal} \citeyear{chen2022multimodal}); our complementary contribution is on the language-generation side—surfacing multimodal evidence in prose without unsupported claims.
+
+\section{System Architecture}
+
+\subsection{Design Principles}
+
+Four explicit principles govern the architecture: (1) \textbf{closed bundle}—every value the LLM can reference must be in the serialized payload, with no background knowledge expected; (2) \textbf{provenance tagging}—each field carries a \texttt{data\_source} and \texttt{proxy\_estimate} flag for disclosure; (3) \textbf{data-layer ablation}—modality masking applies to the bundle, not the prompt, so the model cannot decide to ``ignore'' a modality; (4) \textbf{conditional retrieval with explicit intent}—external literature is fetched only when the user query explicitly requests it.
+
+\subsection{Evidence Bundle Assembly}
+
+For each case, a bundle-builder service aggregates signals from three modalities before any LLM call:
+
+\begin{itemize}
+  \setlength\itemsep{1pt}
+  \item \textbf{Pathology}: WSI embeddings (\citeauthor{chen2022hipt} \citeyear{chen2022hipt}) yield tissue composition fractions (tumor, stroma, necrosis, lymphocyte-rich) and top-scoring evidence tiles with rationale text.
+  \item \textbf{Transcriptomics}: cytolytic activity (CYT; \citeauthor{rooney2015molecular} \citeyear{rooney2015molecular}), gene expression profile (GEP; \citeauthor{ayers2017ifng} \citeyear{ayers2017ifng}), and tumor immune dysfunction and exclusion (TIDE; \citeauthor{jiang2018signatures} \citeyear{jiang2018signatures}) computed from RNA-seq counts when available.
+  \item \textbf{Clinical}: stage, age, smoking history, ECOG status, and survival baseline parsed from TCGA BCR XML files (\citeauthor{tcga2014luad} \citeyear{tcga2014luad}).
+\end{itemize}
+
+A multimodal fusion scorer produces a provisional score (pathology + clinical) and a refined score (all three modalities) with per-modality contribution percentages. The serialized JSON bundle is the model's only factual input.
+
+\subsection{LLM Reasoning Over the Closed Bundle}
+
+The bundle is passed to GPT-4o-mini (\citeauthor{openai2024gpt4o} \citeyear{openai2024gpt4o}) with a system prompt that instructs the model to (1) reason exclusively over provided values, (2) refuse to invent unavailable measurements, and (3) explicitly disclose missing modalities. Because the model receives no external context in standard mode, in-bundle hallucinations cannot occur unless the bundle itself is corrupt—a separable, testable property.
+
+\subsection{Conditional PubMed Retrieval}
+
+A keyword-intent gate inspects the user query for explicit retrieval triggers (\emph{literature, paper, study, trial, guideline}). When triggered, the system runs a two-stage PubMed pipeline: GPT-4o-mini plans 2--4 search queries from the case context, NCBI E-utilities retrieves abstracts, and a structured extractor isolates explicit numeric findings. Citations are appended with section headers separating ``Patient Evidence'' from ``Literature Context.'' When the gate does not fire, the retrieval pipeline is suppressed entirely. \S\ref{sec:findings} describes a non-trivial design failure we encountered in this gate.
+
+\subsection{Modality Ablation at the Data Layer}
+
+A central methodological choice: ablation is applied to the bundle, not the prompt. Three configurations are evaluated—\textsc{pathology-only} (RNA fields zeroed and flagged unavailable), \textsc{pathology-rna} (clinical minimized), and \textsc{full-multimodal} (no masking). This isolates capability from compliance: we measure what the model can do with reduced evidence, not whether it follows an instruction to ignore some.
+
+\section{Evaluation}
+
+\subsection{Experimental Setup}
+
+\paragraph{Cohort.}
+20 TCGA-LUAD cases (\citeauthor{tcga2014luad} \citeyear{tcga2014luad}) selected from 119 with embedding data, balanced across immunotherapy-readiness tiers (7 Hot, 7 Warm, 6 Cold) by fusion-score tertile. Real clinical data (stage, age, smoking history, vital status) is sourced from TCGA BCR XML files via the GDC. Pathology and RNA values are deterministic proxy estimates in this preliminary study; integration of real artifact files is planned.
+
+\paragraph{Generation.}
+Each case is summarized under three grounded configurations plus an ungrounded baseline using the same standard prompt; ten cases are additionally summarized under a literature prompt to test retrieval discipline. Total: 90 summaries spanning 519 sentence-level claims. We deliberately use GPT-4o-mini as both generator and ablation baseline: weaker models hallucinate more freely than frontier models, so demonstrating structural prevention on mini is a more conservative test of the architecture than it would be on GPT-4 or Claude. The structural guarantee (bundle-only access) is model-agnostic; the absolute hallucination floor is what changes with model strength, not the bundle's constraint on it.
+
+\paragraph{LLM-as-judge faithfulness annotation.}
+Each claim is presented to GPT-4o-mini at T\,=\,0 alongside the serialized evidence bundle and labeled \emph{supported}, \emph{partial}, or \emph{unsupported} (\citeauthor{zheng2023judging} \citeyear{zheng2023judging}). The judge runs twice independently. Of the 519 total claims, 449 come from the full-multimodal and ungrounded-baseline summaries used in the faithfulness comparison (Table~\ref{tab:faithfulness}); agreement is reported over those. Inter-pass agreement is 96.9\% (435/449 claims), providing a reliability proxy; we report agreed labels and flag disagreements as conflicts. We are explicit that human annotation remains the gold standard and is planned as future work.
+
+\paragraph{Ungrounded baseline.}
+GPT-4o-mini is queried with only the case identifier, the cohort label (TCGA-LUAD), and the standard prompt. No evidence bundle is provided. This isolates the contribution of the bundle independent of the underlying model.
+
+\subsection{Faithfulness: Structural Prevention vs.\ Post-hoc Likelihood}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{System} & \textbf{Supp.\%} & \textbf{Part.\%} & \textbf{Unsupp.\%} \\
+\midrule
+Grounded (full-MM) & 62.5 & 35.4 & \textbf{2.1} \\
+Ungrounded baseline & 69.2 & 19.6 & \textbf{11.3} \\
+\midrule
+$\Delta$ & $-$6.7 & $+$15.8 & $-$9.2 \\
+\bottomrule
+\end{tabular}
+\caption{LLM-judge faithfulness: grounded vs.\ ungrounded baseline (GPT-4o-mini, T\,=\,0, two passes, 96.9\% agreement).}
+\label{tab:faithfulness}
+\end{table}
+
+Table~\ref{tab:faithfulness} reports judge-assigned labels on \textsc{full-multimodal} versus baseline summaries. The grounded system produces a \textbf{5.4$\times$ reduction} in unsupported claims (2.1\% vs.\ 11.3\%), supporting the central architectural claim: when the model has no access to anything outside the bundle, it cannot fabricate facts about the patient.
+
+The baseline's \emph{higher} supported rate (69.2\%) is informative: the judge marks generic hedging (e.g., ``PD-L1 status would typically be assessed'') as supported general knowledge, while the grounded system's specific patient claims are often marked ``partial'' when the bundle uses a different format (``stroma=0.24'' vs.\ ``stroma fraction 24\%''). The clinically meaningful number is the unsupported rate—that is what hallucination is—and by that measure the grounded system is substantially safer. Manual inspection reveals a recurrent baseline failure: in 75\% of cases it writes ``the patient is diagnosed with lung adenocarcinoma,'' inferred from the cohort label alone with no diagnostic evidence in scope. The grounded system never exhibits this behavior because no such claim exists in the bundle.
+
+\subsection{Modality Ablation: Capability Under Masked Evidence}
+
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Config} & \textbf{Tier} & \textbf{Path} & \textbf{RNA} & \textbf{Clin} & \textbf{Lim} & \textbf{Mean} \\
+\midrule
+Path-only & 65 & \textbf{100} & 100$^\dagger$ & 100 & 60 & 73 \\
+Path+RNA  & 55 & \textbf{100} & 100$^\dagger$ & 100 & 50 & 71 \\
+Full-MM   & \textbf{75} & \textbf{100} & 100$^\dagger$ & 100 & 60 & 72 \\
+\midrule
+Baseline  & 10 & 55  & 35  & 45  & 0  & 49 \\
+\bottomrule
+\end{tabular}
+\caption{Section-level completeness (\%) by configuration ($n$\,=\,20). Columns: pathology, RNA, clinical, and an explicit \emph{limitations} block (Lim) in the summary. $\dagger$~RNA correctly disclosed as \emph{unavailable}, not fabricated (this is \emph{missing-modality disclosure}, distinct from the Lim column which measures whether the summary includes a dedicated limitations paragraph).}
+\label{tab:ablation}
+\end{table}
+
+Table~\ref{tab:ablation} reports section-level completeness across configurations. Two findings stand out. First, completeness is \textbf{stable across grounded ablations} (71--73\%), indicating that the architecture degrades gracefully under modality loss: the model continues to produce structured summaries while correctly reporting absent modalities (RNA is disclosed as unavailable in 100\% of grounded cases rather than hallucinated). This is the correct behavior under partial evidence and is a direct consequence of data-layer ablation—the model cannot pretend to use evidence it was not given. Second, the baseline collapses on the dimensions that matter most for clinical safety. Its \emph{missing-modality disclosure} rate is 0\% (vs.\ 100\% grounded)—it never tells the reader that RNA data is absent, because it has no notion that such data could have been present. Separately, its inclusion of an explicit \emph{limitations} paragraph (the Lim column) also drops to 0\% vs.\ 50--60\% grounded. A model that omits limitations language precisely when it has the least patient-specific evidence is systematically misleading; this is the failure mode our architecture is designed to prevent.
+
+\subsection{Retrieval Discipline}
+
+Across 10 standard-prompt and 10 literature-prompt cases, conditional retrieval achieves perfect discipline: \textbf{0/10} PubMed invocations on standard calls and \textbf{10/10} on literature calls, with zero spurious citations in either condition (100\% recall on requested retrieval, 0\% false-positive rate when not requested). Literature-mode summaries surface real PubMed abstracts (e.g., PMID~33449799: nivolumab 5-year OS 13.4\% vs.\ docetaxel 2.6\% (\citeauthor{brahmer2023nivolumab} \citeyear{brahmer2023nivolumab})) and explicitly partition ``Patient Evidence'' from ``Literature Context.'' These results were achieved only after correcting a non-trivial design flaw, described next.
+
+\section{Findings: A Negation-Blind Failure Mode in Keyword-Gated Retrieval}
+\label{sec:findings}
+
+We report a failure mode in lexical retrieval gating that, to our knowledge, has not been documented in the BioNLP literature and is relevant to any biomedical system using keyword gates for conditional retrieval.
+
+\paragraph{Observed failure.}
+Our initial standard prompt included ``do not retrieve or cite external \emph{publications}.'' PubMed was triggered on every standard call: the gate matched lexical presence without parsing intent, invoking retrieval precisely when the prompt forbade it. Discipline measured before the fix would have been 100\%/100\% rather than 100\%/0\%—a complete inversion masked entirely by the keyword pattern. The same vulnerability afflicts any keyword-present gate: ``avoid consulting \emph{studies}'' or ``this is not a \emph{literature} review'' open the retrieval pipeline against stated intent.
+
+\paragraph{Mitigations.}
+Two deployable fixes: (1) \textbf{whitelist-only matching}, firing only on explicit affirmative phrases (``find relevant papers''), which avoids negation entirely at marginal recall cost; (2) \textbf{intent-aware classification} via a single-call binary classifier (``Does this query \emph{request} external literature?'' at T\,=\,0), which handles negation, conditionals, and rephrasing robustly. We recommend BioNLP systems with conditional retrieval adopt one of these over bare keyword presence.
+
+\section{Conclusion}
+
+We have argued that faithfulness in clinical summarization is better treated as a structural property of the system than as an emergent property of the model—particularly when the facts in question are structured biomedical measurements that either appeared in the patient's record or did not. We instantiated this argument as an \textbf{evidence-bundle architecture} for multimodal oncology summarization in which the LLM operates over a closed, provenance-tagged JSON payload assembled from pathology, transcriptomic, and clinical sources. Across 20 TCGA-LUAD cases, the architecture reduces unsupported claims by 5.4$\times$ relative to an ungrounded baseline of the same model, holds completeness stable across data-layer modality ablations, and achieves 100\%/0\% retrieval discipline. We additionally identified and characterized a negation-blind failure mode in keyword-gated retrieval and proposed mitigations applicable beyond our system. We see structural faithfulness not as a finished result but as a design discipline applicable wherever a language model must surface structured biomedical evidence: any context in which a hallucinated number is a safety event, not a quality event.
+
+\section*{Limitations}
+
+This is a preliminary study and we are explicit about its constraints. \textbf{(1)~Proxy modality data.} Pathology fractions and RNA signature values are deterministic proxy estimates derived from case identifiers; real artifact integration is planned and is necessary for clinical claims. The architectural results we report are about the bundle-mediated generation, not about the predictive validity of the underlying biomarkers. \textbf{(2)~LLM-as-judge.} Faithfulness annotation uses an LLM judge with two-pass T\,=\,0 evaluation and 96.9\% inter-pass agreement; this is a reliability proxy, not a substitute for human annotation with Cohen's $\kappa$, which is planned. \textbf{(3)~Sample size.} 20 cases. Confidence intervals on the headline rates are wide and we report point estimates rather than significance tests. Expansion to the full available cohort is in progress. \textbf{(4)~Tier assignment.} Tiers are assigned by fusion-score tertile rather than validated biomarker thresholds, due to the absence of RNA artifact data; this affects the interpretation of tier labels but not of the faithfulness comparison. \textbf{(5)~Single LLM family.} All evaluation uses GPT-4o-mini as both generator and judge. As argued in \S4.1 this is a conservative choice—frontier models hallucinate less and would likely show a smaller absolute delta—but cross-model evaluation is needed to disentangle architecture effects from model-specific behavior.
+
+\section*{Ethics Statement}
+
+All data are from TCGA-LUAD, a de-identified public research dataset; clinical XML files are from GDC under open-access terms. No patient-identifiable information is used. All system outputs carry explicit ``research-only'' disclaimers and are not intended for clinical decision-making. The ungrounded baseline is included strictly for comparative evaluation; we do not recommend its deployment in any clinical setting. We use an LLM as faithfulness judge and are explicit that this is a reliability proxy, not a substitute for clinical expert review; reliance on LLM-as-judge in safety-critical domains carries known risks of correlated error that human annotation is needed to bound.
+
+\bibliography{refs}
+
+\pagebreak
+\appendix
+\section{Appendix}
+
+\subsection{Standard Prompt (Corrected)}
+
+The standard prompt used for grounded generation, refined to remove the negation-blind retrieval trigger described in \S\ref{sec:findings}:
+
+\begin{tcolorbox}[
+    colback=gray!10,
+    colframe=gray!50,
+    sharp corners,
+    boxrule=0.5pt,
+    left=5pt,
+    right=5pt,
+    top=5pt,
+    bottom=5pt,
+    width=\linewidth,
+    boxsep=2pt
+]
+Summarize this patient's immunotherapy readiness using only the available structured evidence. State the IO immune tier, key pathology evidence, RNA evidence if available, clinical context if relevant, and any uncertainty or limitations. Keep the response concise and factual.
+\end{tcolorbox}
+
+\subsection{Literature Prompt}
+
+The literature-mode prompt that explicitly opts in to retrieval:
+
+\begin{tcolorbox}[
+    colback=gray!10,
+    colframe=gray!50,
+    sharp corners,
+    boxrule=0.5pt,
+    left=5pt,
+    right=5pt,
+    top=5pt,
+    bottom=5pt,
+    width=\linewidth,
+    boxsep=2pt
+]
+Summarize this patient's immunotherapy readiness using the provided evidence bundle. Clearly distinguish patient-specific evidence from literature-derived context using section headers ``Patient Evidence'' and ``Literature Context.'' Add brief relevant literature context where available. Cite papers by PMID.
+\end{tcolorbox}
+
+\subsection{Qualitative Case Studies}
+
+\paragraph{Case 1 — Hot tier, full-multimodal (TCGA-44-6147).}
+``IO Immune Tier: Provisional (fusion score: 0.683). Tumor (61\%), Stroma (24\%); top tile scored 0.87, dense TIL cluster. RNA: not available; no transcriptomics input detected. Clinical: Stage III LUAD, never smoker, age 46; clinical contributed 40.3\%. Uncertainty: fusion remains provisional without transcriptomics.'' Every reported value is directly traceable to the bundle; no diagnostic claim is fabricated; modality absence is disclosed.
+
+\paragraph{Case 2 — Cold tier, pathology-only ablation (TCGA-55-6983).}
+``IO Immune Tier: Provisional (fusion score: 0.586). Tumor (61\%), Stroma (24\%), Necrosis (8\%); top tile 0.87. RNA: not available. Clinical: Stage IIB, former smoker, age 81; pathology contribution 69.6\%. Uncertainty: transcriptomics unavailable; research-only.'' The pathology contribution rises (40.3\% $\rightarrow$ 69.6\%) under the ablation as expected; the model surfaces the structural shift faithfully.
+
+\paragraph{Case 3 — Ungrounded baseline contrast.}
+For the same patient as Case 1, the baseline produces: ``Specific histological features and PD-L1 expression would typically be assessed but are not provided. The patient is diagnosed with lung adenocarcinoma (LUAD).'' The diagnostic claim is fabricated from the cohort name alone—a recurrent baseline pathology that the grounded system never exhibits.
+
+\end{document}

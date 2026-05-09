@@ -1,0 +1,123 @@
+{
+  "faithfulness": {
+    "total_claims": 5289,
+    "supported_count": 1694,
+    "partial_count": 2726,
+    "unsupported_count": 137,
+    "unknown_count": 732,
+    "supported_rate_auto": 0.3203,
+    "partial_rate_auto": 0.5154,
+    "unsupported_rate_auto": 0.0259,
+    "unknown_rate_auto": 0.1384
+  },
+  "numeric_fidelity": {
+    "sentences_with_numerics": 3481,
+    "numerically_correct": 1583,
+    "numeric_fidelity_rate_auto": 0.4548
+  },
+  "modality_attribution": {
+    "claims_with_identifiable_modality": 3896,
+    "modality_correct": 3414,
+    "modality_attribution_accuracy_auto": 0.8763
+  },
+  "summary_stats": {
+    "total_standard_summaries": 476,
+    "total_standard_claims": 5289,
+    "avg_sentences_per_summary": 11.11
+  },
+  "completeness_by_config": {
+    "pathology_only": {
+      "n_summaries": 119,
+      "tier_mention_rate": 0.0,
+      "pathology_mention_rate": 1.0,
+      "rna_mention_rate": 1.0,
+      "clinical_mention_rate": 1.0,
+      "uncertainty_mention_rate": 0.958,
+      "mean_completeness_score": 0.7916
+    },
+    "pathology_rna": {
+      "n_summaries": 119,
+      "tier_mention_rate": 0.0,
+      "pathology_mention_rate": 1.0,
+      "rna_mention_rate": 1.0,
+      "clinical_mention_rate": 1.0,
+      "uncertainty_mention_rate": 0.958,
+      "mean_completeness_score": 0.7916
+    },
+    "full_multimodal": {
+      "n_summaries": 119,
+      "tier_mention_rate": 0.0,
+      "pathology_mention_rate": 1.0,
+      "rna_mention_rate": 1.0,
+      "clinical_mention_rate": 1.0,
+      "uncertainty_mention_rate": 0.958,
+      "mean_completeness_score": 0.7916
+    },
+    "baseline": {
+      "n_summaries": 119,
+      "tier_mention_rate": 0.7899,
+      "pathology_mention_rate": 1.0,
+      "rna_mention_rate": 1.0,
+      "clinical_mention_rate": 1.0,
+      "uncertainty_mention_rate": 0.2017,
+      "mean_completeness_score": 0.7983
+    }
+  },
+  "retrieval_discipline": {
+    "retrieval_test_cases": 10,
+    "lit_used_when_requested_count": 10,
+    "lit_used_without_request_count": 0,
+    "retrieval_used_when_requested_rate": 1.0,
+    "retrieval_used_without_request_rate": 0.0,
+    "total_standard_summaries": 476,
+    "standard_summaries_with_lit_language": 137,
+    "standard_summaries_with_lit_used_flag": 0,
+    "note": "OpenAI LLM path active."
+  },
+  "judge_faithfulness": {
+    "total_claims_judged": 3733,
+    "supported_count": 2404,
+    "partial_count": 86,
+    "unsupported_count": 420,
+    "conflict_count": 767,
+    "supported_rate_judge": 0.644,
+    "partial_rate_judge": 0.023,
+    "unsupported_rate_judge": 0.1125,
+    "judge_agreement_rate": 0.7945,
+    "note": "LLM-as-judge (GPT-4o-mini, T=0, two passes). Human annotation planned."
+  },
+  "baseline_comparison": {
+    "grounded_full_multimodal": {
+      "n": 1005,
+      "supported_rate": 0.8189,
+      "partial_rate": 0.0229,
+      "unsupported_rate": 0.1403
+    },
+    "ungrounded_baseline": {
+      "n": 1502,
+      "supported_rate": 0.0752,
+      "partial_rate": 0.01,
+      "unsupported_rate": 0.9148
+    },
+    "delta_supported": 0.7437,
+    "delta_unsupported": 0.7745,
+    "interpretation": "Positive delta_supported means grounded system is more faithful. Positive delta_unsupported means baseline introduces more unsupported claims."
+  },
+  "headline": {
+    "supported_rate": 0.3203,
+    "partial_rate": 0.5154,
+    "unsupported_rate": 0.0259,
+    "numeric_fidelity_rate": 0.4548,
+    "modality_attribution_accuracy": 0.8763,
+    "avg_sentences_per_summary": 11.11,
+    "full_multimodal_completeness": 0.7916,
+    "pathology_only_completeness": 0.7916,
+    "retrieval_discipline_rate_when_requested": 1.0,
+    "retrieval_false_positive_rate": 0.0,
+    "judge_supported_rate": 0.644,
+    "judge_unsupported_rate": 0.1125,
+    "judge_agreement_rate": 0.7945,
+    "grounded_vs_baseline_delta_supported": 0.7437,
+    "grounded_vs_baseline_delta_unsupported": 0.7745
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "case_id": "TCGA-55-6985",
+  "config": "pathology_rna",
+  "prompt_type": "standard",
+  "io_score": 0.63,
+  "io_tier": "Warm",
+  "provisional_score": 0.07,
+  "refined_score": null,
+  "rna_available": false,
+  "pathology": {
+    "tissue_fractions": {
+      "tumor": 0.61,
+      "stroma": 0.24,
+      "necrosis": 0.08,
+      "lymphocyte_rich": 0.07
+    },
+    "top_tiles": [
+      {
+        "tile_id": "tile_183",
+        "score": 0.87,
+        "rationale": "Dense tumor-infiltrating lymphocyte cluster"
+      },
+      {
+        "tile_id": "tile_204",
+        "score": 0.82,
+        "rationale": "Immune-rich stroma adjacent to tumor"
+      },
+      {
+        "tile_id": "tile_097",
+        "score": 0.74,
+        "rationale": "Necrotic pocket with peri-necrotic inflammation"
+      }
+    ],
+    "til_fraction": 0.07
+  },
+  "transcriptomics": {
+    "cyt_value": null,
+    "cyt_available": false,
+    "gep_value": null,
+    "gep_available": false,
+    "tide_value": null,
+    "tide_available": false
+  },
+  "fusion": {
+    "mode_used": "provisional",
+    "active_score": 0.63,
+    "modality_contributions": {
+      "pathology": {
+        "contribution_percent": 64.76,
+        "available": true,
+        "data_source": "deterministic",
+        "summary": "tumor=0.61, lymphocyte=0.07, necrosis=0.08, top_tile_score=0.87"
+      },
+      "clinical": {
+        "contribution_percent": 35.24,
+        "available": true,
+        "data_source": "deterministic_proxy",
+        "summary": "stage=III, smoker=unknown, age=75, stage_signal=0.63, smoker_signal=0.53"
+      },
+      "transcriptomics": {
+        "contribution_percent": 0.0,
+        "available": false,
+        "data_source": "unavailable",
+        "summary": "transcriptomics unavailable: No transcriptomics input detected for this case."
+      }
+    }
+  },
+  "literature_retrieval_invoked": false,
+  "literature_citations": []
+}

@@ -1,0 +1,57 @@
+.DS_Store
+
+# CRITICAL: Claude Code local settings contain plaintext API keys
+.claude/
+
+# Outputs are kept in-tree for paper reproducibility (claim_review.csv, metrics.json, etc.)
+# but skip per-output build artifacts and intermediate scratch
+scripts/__pycache__/
+__pycache__/
+*.pyc
+*.db
+*.sqlite3
+*.tsbuildinfo
+hansons-context/tcga_downloads/
+.pytest_cache/
+data/manifests/*
+!data/manifests/README.md
+!data/manifests/.gitkeep
+
+# External reference PDF (not part of this work)
+2025.bionlp-1.pdf
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.vrb
+icml2026/icml2026.zip
+icml2026/example_paper.pdf
+icml2026/icml_numpapers.pdf
+
+# Local API development artifacts
+apps/api/.venv/
+apps/api/.env
+
+# Docker local env overrides
+.env.docker
+
+# Frontend build artifacts
+node_modules/
+.next/
+apps/web/node_modules/
+apps/web/.next/
+apps/web/out/
+apps/web/.env.local
+
+# Workflows excluded from initial push (gh OAuth lacks 'workflow' scope; add via
+# 'gh auth refresh -s workflow' or the GitHub web UI after the initial commit lands)
+.github/workflows/

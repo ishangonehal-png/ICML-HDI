@@ -1,0 +1,490 @@
+row_id,patient_id,model,condition,claim,rule_label,judge_label,judge_agreement,claim_type
+gemini-3-flash-preview__ungrounded__TCGA-55-7573_baseline_standard_000,TCGA-55-7573,gemini-3-flash-preview,ungrounded,"Based on the structured genomic and transcriptomic data available for **TCGA-55-7573** (TCGA-LUAD), the immunotherapy (IO) readiness summary is as follows:
+
+*   **IO Immune Tier:** **Tier 1 (Immune-Hot / Inflamed)**
+    *   This case exhibits high immune infiltration and strong signaling associated with a favorable response to checkpoint inhibitors.",supported,conflict,False,tier
+gemini-3-flash-preview__ungrounded__TCGA-44-2668_baseline_standard_013,TCGA-44-2668,gemini-3-flash-preview,ungrounded,"*   **Microenvironment:** While the C1 subtype suggests a ""mitotically active"" tumor, it may lack the robust T-cell infiltration seen in ""hot"" tumors.",partial,unsupported,True,tier
+gpt-5.4-mini__ungrounded__TCGA-44-7672_baseline_standard_006,TCGA-44-7672,gpt-5.4-mini,ungrounded,"- **Uncertainty / limitations:**  
+  - Immunotherapy readiness **cannot be reliably inferred** from the available structured evidence alone.",unknown,supported,True,other
+gemini-3-flash-preview__ungrounded__TCGA-55-7726_baseline_standard_001,TCGA-55-7726,gemini-3-flash-preview,ungrounded,*   **Histology:** Solid and acinar growth patterns.,unknown,unsupported,True,other
+gpt-5.4-mini__ungrounded__TCGA-55-7995_baseline_standard_004,TCGA-55-7995,gpt-5.4-mini,ungrounded,- No transcriptomic evidence supporting an inflamed tumor microenvironment is available.,partial,supported,True,RNA
+gpt-5.4-mini__ungrounded__TCGA-55-6978_baseline_standard_001,TCGA-55-6978,gpt-5.4-mini,ungrounded,- **RNA evidence:** No RNA-based immune signature or expression evidence was provided.,partial,supported,True,RNA
+gemini-3-flash-preview__ungrounded__TCGA-75-6211_baseline_standard_002,TCGA-75-6211,gemini-3-flash-preview,ungrounded,"*   **Key Pathology Evidence:**
+    *   **Tumor Mutational Burden (TMB):** High.",partial,unsupported,True,pathology
+gpt-5.4-mini__ungrounded__TCGA-75-6214_baseline_standard_000,TCGA-75-6214,gpt-5.4-mini,ungrounded,"**Immunotherapy readiness summary — TCGA-75-6214 (TCGA-LUAD)**
+
+- **IO immune tier:** **Not assessable from the provided structured evidence**  
+  - No explicit immune tier, PD-L1, TMB, MSI, or immune-infiltration summary was provided.",unknown,supported,True,other
+gpt-5.4-mini__ungrounded__TCGA-75-6203_baseline_standard_002,TCGA-75-6203,gpt-5.4-mini,ungrounded,"- **Clinical context:** Lung adenocarcinoma (TCGA-LUAD); no additional treatment, biomarker, or response data available in the structured record.",partial,supported,True,clinical
+gpt-4o-mini__grounded__TCGA-05-4424_full_multimodal_standard_004,TCGA-05-4424,gpt-4o-mini,grounded,The fusion score remains provisional with no definitive transcriptomic input.,partial,supported,True,RNA
+gpt-5.4-mini__grounded__TCGA-55-8207_full_multimodal_standard_005,TCGA-55-8207,gpt-5.4-mini,grounded,"No transcriptomics input was detected, so **cyt_score, gep_score, and tide_score are null**.",partial,conflict,False,RNA
+gpt-4o-mini__grounded__TCGA-55-8510_full_multimodal_standard_005,TCGA-55-8510,gpt-4o-mini,grounded,"Overall, the largest contribution to the readiness assessment comes from pathology evidence (60.9%).",partial,supported,True,pathology
+gemini-2.5-flash__grounded__TCGA-55-8506_full_multimodal_standard_006,TCGA-55-8506,gemini-2.5-flash,grounded,"**Clinical Context:** Clinical context contributed 37.4% and includes stage IV disease, age 54, and unknown smoker status.",partial,supported,True,clinical
+gemini-2.5-flash__grounded__TCGA-44-6145_full_multimodal_standard_007,TCGA-44-6145,gemini-2.5-flash,grounded,"**Uncertainty/Limitations:** The fusion score is provisional because transcriptomics data was unavailable, preventing refinement.",supported,supported,True,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-44-6146_baseline_standard_001,TCGA-44-6146,gpt-5.4-mini,ungrounded,"- **RNA evidence:** No RNA-based immune signature, checkpoint expression, or inflamed/non-inflamed transcriptomic evidence was provided.",partial,supported,True,RNA
+gpt-5.4-mini__grounded__TCGA-55-7994_full_multimodal_literature_004,TCGA-55-7994,gpt-5.4-mini,grounded,"- **Transcriptomics:** **unavailable**, so there is **no RNA-based inflamed/exclusion signal** to refine readiness.",supported,,,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-05-4382_baseline_standard_011,TCGA-05-4382,gemini-3-flash-preview,ungrounded,*   **Stage:** Stage IB (T2aN0M0).,partial,unsupported,True,clinical
+gpt-5.4-mini__grounded__TCGA-38-4628_full_multimodal_standard_008,TCGA-38-4628,gpt-5.4-mini,grounded,- **Uncertainty / limitations:** Fusion is **provisional** because transcriptomics is missing.,supported,supported,True,uncertainty
+gpt-5.4-mini__grounded__TCGA-05-4424_full_multimodal_standard_000,TCGA-05-4424,gpt-5.4-mini,grounded,"**Immunotherapy readiness summary (structured evidence only):**
+
+- **IO immune tier:** Not explicitly provided in the available evidence.",unknown,unsupported,True,other
+gpt-5.4-mini__grounded__TCGA-55-6983_full_multimodal_standard_000,TCGA-55-6983,gpt-5.4-mini,grounded,**Immunotherapy readiness (research-only proxy):** **IO immune tier not explicitly provided** in the available evidence.,supported,conflict,False,uncertainty
+gpt-4o-mini__grounded__TCGA-05-4425_full_multimodal_standard_001,TCGA-05-4425,gpt-4o-mini,grounded,- **RNA Evidence:** Not available; no transcriptomics input detected.,supported,supported,True,RNA
+gpt-5.4-mini__grounded__TCGA-55-6985_full_multimodal_standard_004,TCGA-55-6985,gpt-5.4-mini,grounded,"**RNA / transcriptomics evidence:**  
+- **Unavailable**: no transcriptomics input detected.",supported,supported,True,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-44-3917_baseline_standard_002,TCGA-44-3917,gpt-5.4-mini,ungrounded,"- **Clinical context:** Lung adenocarcinoma (TCGA-LUAD); no additional treatment, biomarker, or metastatic context available in the structured evidence.",partial,conflict,False,clinical
+gpt-5.4-mini__grounded__TCGA-44-A47B_full_multimodal_standard_006,TCGA-44-A47B,gpt-5.4-mini,grounded,"Transcriptomics is missing, so RNA-based inflamed/exclusion assessment cannot be made.",supported,conflict,False,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-44-6774_baseline_standard_003,TCGA-44-6774,gpt-5.4-mini,ungrounded,"- **Uncertainty / limitations:** Immunotherapy readiness cannot be determined from the available evidence because the dataset lacks the necessary immune biomarker, pathology, and transcriptomic inputs.",partial,supported,True,RNA
+gpt-5.4-mini__grounded__TCGA-44-7669_full_multimodal_standard_004,TCGA-44-7669,gpt-5.4-mini,grounded,"- **Clinical context:**  
+  - Deterministic proxy signal included **stage I**, **current smoker**, **age 69**  
+  - Clinical contribution was **31.4%**
+- **Uncertainty / limitations:**  
+  - **No transcriptomic data**, so immune-inflamed RNA assessment cannot be made  
+  - **No explicit IO immune tier** is provided in the source evidence  
+  - This is a **research-only proxy summary**, not a clinical recommendation",supported,conflict,False,uncertainty
+gemini-2.5-flash__grounded__TCGA-55-8505_full_multimodal_standard_004,TCGA-55-8505,gemini-2.5-flash,grounded,"**Clinical Context:** Clinical factors contributed 37.3% and include stage=II, smoker=current, and age=45.",partial,supported,True,clinical
+gpt-5.4-mini__ungrounded__TCGA-49-AAR9_baseline_standard_001,TCGA-49-AAR9,gpt-5.4-mini,ungrounded,- **RNA evidence:** No RNA-based immune signature evidence provided.,partial,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-38-4632_full_multimodal_standard_000,TCGA-38-4632,gpt-4o-mini,grounded,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.620894)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).",supported,partial,True,pathology
+gpt-5.4-mini__grounded__TCGA-44-6145_full_multimodal_standard_000,TCGA-44-6145,gpt-5.4-mini,grounded,"**Immunotherapy readiness summary (research-only proxy):**
+
+- **IO immune tier:** **Moderate / intermediate** readiness based on the provisional fused score **0.633** (higher = more favorable in this proxy).",supported,conflict,False,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-44-6144_baseline_standard_004,TCGA-44-6144,gemini-3-flash-preview,ungrounded,"*   **RNA Evidence:**
+    *   **Immune Signature:** Low expression of cytolytic markers (GZMB, PRF1) and T-cell signaling genes (CD3E, CD8A).",partial,unsupported,True,RNA
+gemini-3-flash-preview__ungrounded__TCGA-75-5146_baseline_standard_008,TCGA-75-5146,gemini-3-flash-preview,ungrounded,"*   **Favorable Genomic Profile:** Absence of *STK11* (LKB1) or *KEAP1* mutations, which are common genomic drivers of primary resistance to immunotherapy in lung adenocarcinoma.",unknown,unsupported,True,other
+gpt-5.4-mini__grounded__TCGA-55-A4DG_full_multimodal_standard_004,TCGA-55-A4DG,gpt-5.4-mini,grounded,- **RNA / transcriptomics evidence:** **Unavailable**.,supported,conflict,False,uncertainty
+gpt-5.4-mini__grounded__TCGA-55-8620_full_multimodal_standard_001,TCGA-55-8620,gpt-5.4-mini,grounded,"The fused proxy score is **0.601** (provisional = refined = 0.601; delta = 0.000), suggesting a **moderately favorable** multimodal signal, but this is a research-only estimate.",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-55-8096_baseline_standard_003,TCGA-55-8096,gemini-3-flash-preview,ungrounded,*   **TIL Density:** Digital pathology slides indicate a high density of Tumor-Infiltrating Lymphocytes (TILs) within the stromal and tumoral compartments.,partial,unsupported,True,pathology
+gpt-5.4-mini__grounded__TCGA-38-4632_full_multimodal_standard_005,TCGA-38-4632,gpt-5.4-mini,grounded,"- Therefore, no cytolytic activity, GEP, or TIDE values are available.",partial,conflict,False,RNA
+gemini-2.5-flash__grounded__TCGA-44-3917_full_multimodal_standard_000,TCGA-44-3917,gemini-2.5-flash,grounded,"This patient's immunotherapy readiness is characterized by a provisional fusion score of 0.657, where a higher score is more favorable.",supported,supported,True,fusion
+gemini-3-flash-preview__ungrounded__TCGA-55-8301_baseline_standard_010,TCGA-55-8301,gemini-3-flash-preview,ungrounded,"While the molecular profile suggests a lower likelihood of response to monotherapy PD-1/PD-L1 inhibitors, clinical response can be influenced by factors not captured in TCGA data, such as HLA diversity or the specific composition of the gut microbiome.",partial,supported,True,clinical
+gpt-4o-mini__grounded__TCGA-75-5122_full_multimodal_standard_002,TCGA-75-5122,gpt-4o-mini,grounded,This case is based on research-only metrics and is not for clinical use.,supported,supported,True,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-44-7671_baseline_standard_001,TCGA-44-7671,gpt-5.4-mini,ungrounded,"- **Key pathology evidence:**  
+  - Available structured pathology information is limited.",partial,supported,True,pathology
+gpt-4o-mini__grounded__TCGA-05-4390_full_multimodal_standard_000,TCGA-05-4390,gpt-4o-mini,grounded,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.622)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).",supported,partial,True,pathology
+gpt-4o-mini__grounded__TCGA-80-5608_full_multimodal_standard_002,TCGA-80-5608,gpt-4o-mini,grounded,"- **Clinical Context:** Stage IV, former smoker, age 50; clinical minimum signal contributed 38.2% to the fusion score.",partial,supported,True,clinical
+gemini-2.5-flash__grounded__TCGA-55-7911_full_multimodal_standard_000,TCGA-55-7911,gemini-2.5-flash,grounded,"This patient's immunotherapy readiness is provisionally assessed with a fusion score of 0.648, where a higher score indicates more favorable readiness.",supported,supported,True,fusion
+gpt-5.4-mini__grounded__TCGA-75-6206_full_multimodal_standard_006,TCGA-75-6206,gpt-5.4-mini,grounded,"- **Clinical context:** Clinical proxy signal contributed **35.3%** and included **stage I**, **current smoker**, **age 46**.",supported,partial,True,uncertainty
+gemini-2.5-flash__grounded__TCGA-44-3398_full_multimodal_literature_000,TCGA-44-3398,gemini-2.5-flash,grounded,"**Patient-Specific Immunotherapy Readiness:**
+
+This patient's immunotherapy readiness is indicated by a provisional fusion score of 0.667 (active and refined scores are also 0.667, with a delta of 0.0).",supported,,,fusion
+gemini-3-flash-preview__ungrounded__TCGA-44-7669_baseline_standard_008,TCGA-44-7669,gemini-3-flash-preview,ungrounded,*   **TMB (Tumor Mutational Burden):** Relatively high for the LUAD cohort (approx.,partial,unsupported,True,pathology
+gemini-3-flash-preview__ungrounded__TCGA-55-7995_baseline_standard_010,TCGA-55-7995,gemini-3-flash-preview,ungrounded,"*   **Early Stage:** As a Stage IB case, the primary treatment was surgical; the predictive value of these markers for IO is best validated in metastatic settings.",partial,unsupported,True,clinical
+gemini-3-flash-preview__ungrounded__TCGA-55-8620_baseline_standard_000,TCGA-55-8620,gemini-3-flash-preview,ungrounded,"Based on the structured data available for **TCGA-55-8620** within the TCGA-LUAD cohort, the patient’s immunotherapy (IO) readiness is summarized as follows:
+
+### **IO Immune Tier**
+*   **Tier 1 (High Readiness / Inflamed):** This case is classified under the **C2 (IFN-gamma Dominant)** immune subtype, which is typically associated with high immune activation and potential responsiveness to checkpoint inhibitors.",unknown,unsupported,True,other
+gemini-3-flash-preview__ungrounded__TCGA-55-7994_baseline_standard_002,TCGA-55-7994,gemini-3-flash-preview,ungrounded,"*   **Key Pathology/Genomic Evidence:**
+    *   **High TMB:** Approximately 11.5 mutations/Mb (above the typical threshold for high TMB in some assays).",partial,unsupported,True,pathology
+gpt-5.4-mini__grounded__TCGA-44-7669_full_multimodal_standard_000,TCGA-44-7669,gpt-5.4-mini,grounded,"**Immunotherapy readiness summary (research-only, based on available structured evidence):**
+
+- **IO immune tier:** Not explicitly provided in the structured evidence.",supported,conflict,False,uncertainty
+gpt-4o-mini__grounded__TCGA-05-4425_full_multimodal_standard_002,TCGA-05-4425,gpt-4o-mini,grounded,"- **Clinical Context:** Stage IV, current smoker, age 46; clinical minimum signal contributed 37.9% (stage_signal=0.58, smoker_signal=0.48).",partial,partial,True,clinical
+gemini-2.5-flash__grounded__TCGA-55-7576_full_multimodal_standard_000,TCGA-55-7576,gemini-2.5-flash,grounded,"The patient's immunotherapy readiness, represented by the provisional fusion score, is 0.624 (higher = more favorable).",supported,supported,True,fusion
+gemini-2.5-flash__grounded__TCGA-44-7671_full_multimodal_literature_003,TCGA-44-7671,gemini-2.5-flash,grounded,"Transcriptomics data, including cytolytic activity (cyt_score), T-cell inflamed gene expression profile (gep_score), and Tumor Immune Dysfunction and Exclusion (tide_score), were unavailable, meaning the fusion score could not be refined.",supported,,,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-55-8204_baseline_standard_001,TCGA-55-8204,gpt-5.4-mini,ungrounded,"- **Key pathology evidence:**  
+  - **Diagnosis/cohort:** Lung adenocarcinoma (LUAD)  
+  - No structured pathology details provided here indicating immune-inflamed features, PD-L1 status, or other immunotherapy-relevant histology.",partial,supported,True,pathology
+gpt-5.4-mini__ungrounded__TCGA-55-8301_baseline_standard_001,TCGA-55-8301,gpt-5.4-mini,ungrounded,- **RNA evidence:** No RNA-based immune signature or expression evidence was provided.,partial,conflict,False,RNA
+gemini-2.5-flash__grounded__TCGA-44-8119_full_multimodal_standard_009,TCGA-44-8119,gemini-2.5-flash,grounded,This is a research-only proxy and not for clinical use.,supported,supported,True,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-55-8511_baseline_standard_003,TCGA-55-8511,gpt-5.4-mini,ungrounded,- **Uncertainty / limitations:** Immunotherapy readiness cannot be determined from the available structured data because the necessary immune biomarker evidence is absent.,unknown,conflict,False,other
+gpt-5.4-mini__grounded__TCGA-55-8621_full_multimodal_standard_008,TCGA-55-8621,gpt-5.4-mini,grounded,"This is a **research-only proxy**, not a clinical immunotherapy decision tool.",supported,conflict,False,uncertainty
+gpt-4o-mini__grounded__TCGA-38-4628_full_multimodal_standard_002,TCGA-38-4628,gpt-4o-mini,grounded,"- **Clinical Context:** Stage II, age 46; clinical minimum signal contributed 37.7%.",partial,partial,True,clinical
+gpt-5.4-mini__ungrounded__TCGA-44-3919_baseline_standard_000,TCGA-44-3919,gpt-5.4-mini,ungrounded,"**Immunotherapy readiness summary — TCGA-44-3919 (TCGA-LUAD)**
+
+- **IO immune tier:** **Not assessable from the provided structured evidence**  
+- **Key pathology evidence:** No structured pathology features supporting an immune-inflamed or immune-excluded phenotype were provided.",partial,supported,True,pathology
+gpt-5.4-mini__ungrounded__TCGA-38-4632_baseline_standard_001,TCGA-38-4632,gpt-5.4-mini,ungrounded,- **RNA evidence:** No RNA-based immune signature or expression evidence provided.,partial,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-75-6206_full_multimodal_standard_004,TCGA-75-6206,gpt-4o-mini,grounded,The largest contribution to the score came from pathology (64.7%).,supported,supported,True,pathology
+gpt-5.4-mini__grounded__TCGA-44-7671_full_multimodal_standard_008,TCGA-44-7671,gpt-5.4-mini,grounded,"The score is a **research-only proxy**, not a clinical immunotherapy decision tool.",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-38-4631_baseline_standard_003,TCGA-38-4631,gemini-3-flash-preview,ungrounded,11.5 mutations/Mb).,unknown,unsupported,True,other
+gpt-5.4-mini__ungrounded__TCGA-44-2668_baseline_standard_003,TCGA-44-2668,gpt-5.4-mini,ungrounded,- **Uncertainty / limitations:** Immunotherapy readiness cannot be determined from the available structured evidence alone.,unknown,supported,True,other
+gemini-2.5-flash__grounded__TCGA-44-8119_full_multimodal_standard_000,TCGA-44-8119,gemini-2.5-flash,grounded,This patient's immunotherapy readiness is characterized by a provisional fusion score of 0.606.,supported,supported,True,fusion
+gpt-5.4-mini__grounded__TCGA-55-8094_full_multimodal_standard_007,TCGA-55-8094,gpt-5.4-mini,grounded,"- **Clinical context:** Clinical proxy contributed **33.5%** and includes **stage I**, **never smoker**, **age 67**.",supported,supported,True,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-55-7573_baseline_standard_004,TCGA-55-7573,gpt-5.4-mini,ungrounded,No conclusion about immunotherapy readiness can be made from the available evidence alone.,unknown,supported,True,other
+gpt-5.4-mini__ungrounded__TCGA-05-4382_baseline_standard_002,TCGA-05-4382,gpt-5.4-mini,ungrounded,"- **Clinical context:** Cohort is **lung adenocarcinoma (TCGA-LUAD)**, but no treatment history, stage, or metastatic/recurrence context was provided.",partial,conflict,False,clinical
+gemini-3-flash-preview__ungrounded__TCGA-75-6212_baseline_standard_009,TCGA-75-6212,gemini-3-flash-preview,ungrounded,"*   **Outcome Data:** TCGA records provide baseline molecular snapshots; actual clinical response to specific IO agents (e.g., pembrolizumab, nivolumab) is not recorded in the primary dataset.",partial,supported,True,clinical
+gpt-5.4-mini__ungrounded__TCGA-44-2655_baseline_standard_006,TCGA-44-2655,gpt-5.4-mini,ungrounded,"- No treatment history, metastatic status, smoking history, or prior immunotherapy data were provided.",partial,conflict,False,clinical
+gpt-4o-mini__grounded__TCGA-44-7672_full_multimodal_standard_004,TCGA-44-7672,gpt-4o-mini,grounded,This summary reflects the current state of evidence and does not imply definitive clinical applicability.,partial,supported,True,clinical
+gpt-4o-mini__grounded__TCGA-55-8619_full_multimodal_standard_000,TCGA-55-8619,gpt-4o-mini,grounded,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.",supported,partial,True,pathology
+gpt-4o-mini__grounded__TCGA-55-7281_full_multimodal_literature_004,TCGA-55-7281,gpt-4o-mini,grounded,"**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients exhibited a five-year overall survival rate of 13.4% and a progression-free survival rate of 8.0%, significantly better than those treated with docetaxel.",unsupported,,,literature
+gpt-4o-mini__grounded__TCGA-44-7661_full_multimodal_standard_002,TCGA-44-7661,gpt-4o-mini,grounded,"- **Clinical Context:** Stage I, former smoker, age 70; clinical minimum signal contributed 32.3%.",partial,partial,True,clinical
+gemini-2.5-flash__grounded__TCGA-55-8087_full_multimodal_standard_001,TCGA-55-8087,gemini-2.5-flash,grounded,**Key Pathology Evidence:** Pathology shows Tumor (61%) and Stroma (24%).,supported,conflict,False,pathology
+gemini-2.5-flash__grounded__TCGA-55-7570_full_multimodal_literature_003,TCGA-55-7570,gemini-2.5-flash,grounded,"Clinical factors include stage III, never smoker, and age 57, contributing 38.8% to the score.",partial,,,clinical
+gpt-4o-mini__grounded__TCGA-55-7815_full_multimodal_standard_003,TCGA-55-7815,gpt-4o-mini,grounded,"- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score.",supported,supported,True,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-55-6982_baseline_standard_004,TCGA-55-6982,gpt-5.4-mini,ungrounded,"No PD-L1, TMB, MSI, immune infiltration, or checkpoint-related data were supplied.",unknown,supported,True,other
+gpt-4o-mini__grounded__TCGA-44-8119_full_multimodal_standard_002,TCGA-44-8119,gpt-4o-mini,grounded,"- **Clinical Context:** Stage I, current smoker, age 62; clinical minimum signal contributed 32.6%.",partial,partial,True,clinical
+gemini-2.5-flash__grounded__TCGA-55-A491_full_multimodal_standard_001,TCGA-55-A491,gemini-2.5-flash,grounded,"**Key Pathology Evidence:** Pathology contributed 64.3% to the score, showing Tumor (61%), Stroma (24%), and a top tile (tile_183) with a score of 0.87, indicating a ""Dense tumor-infiltrating lymphocyte cluster.""
+
+**RNA Evidence:** Transcriptomics signal was unavailable, and no RNA-based scores (cytolytic activity, T-cell inflamed GEP, or TIDE) were detected.",supported,supported,True,uncertainty
+gemini-2.5-flash__grounded__TCGA-75-6203_full_multimodal_standard_000,TCGA-75-6203,gemini-2.5-flash,grounded,"This patient's immunotherapy readiness, indicated by a provisional fusion score of 0.616 (higher = more favorable), is primarily driven by pathology evidence (66.3% contribution).",supported,supported,True,pathology
+gpt-5.4-mini__grounded__TCGA-44-3398_full_multimodal_literature_001,TCGA-44-3398,gpt-5.4-mini,grounded,- **Main driver:** **Pathology** contributed most (**61.2%**).,supported,,,pathology
+gemini-2.5-flash__grounded__TCGA-44-3398_full_multimodal_standard_004,TCGA-44-3398,gemini-2.5-flash,grounded,"**Clinical Context:** Clinical context contributed 38.8%, with the patient being stage III, age 51, and smoker status unknown.",partial,supported,True,clinical
+gemini-2.5-flash__grounded__TCGA-05-5428_full_multimodal_standard_002,TCGA-05-5428,gemini-2.5-flash,grounded,**Key Pathology Evidence:** Pathology shows Tumor (61%) and Stroma (24%).,supported,supported,True,pathology
+gpt-4o-mini__grounded__TCGA-05-4244_full_multimodal_standard_000,TCGA-05-4244,gpt-4o-mini,grounded,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.630)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%), Necrosis (8%); top tile (tile_183) scored 0.87 (Dense tumor-infiltrating lymphocyte cluster).",supported,partial,True,pathology
+gemini-3-flash-preview__ungrounded__TCGA-55-A48Y_baseline_standard_012,TCGA-55-A48Y,gemini-3-flash-preview,ungrounded,*   **Retrospective Nature:** TCGA data represents treatment-naive primary surgical samples; actual clinical response to IO was not recorded for this patient.,partial,unsupported,True,clinical
+gpt-5.4-mini__ungrounded__TCGA-75-7031_baseline_standard_000,TCGA-75-7031,gpt-5.4-mini,ungrounded,"**Immunotherapy readiness summary (TCGA-75-7031, LUAD)**
+
+- **IO immune tier:** **Not assessable from the provided structured evidence**  
+- **Key pathology evidence:** No structured pathology markers provided here to support an immune-inflamed or immune-excluded phenotype.",partial,supported,True,pathology
+gpt-5.4-mini__ungrounded__TCGA-55-8506_baseline_standard_004,TCGA-55-8506,gpt-5.4-mini,ungrounded,"No PD-L1, TMB, MSI, immune infiltration, or other validated IO biomarkers were supplied.",unknown,supported,True,other
+gemini-3-flash-preview__ungrounded__TCGA-55-7911_baseline_standard_005,TCGA-55-7911,gemini-3-flash-preview,ungrounded,"*   **Microsatellite Status:** Stable (MSS), which is typical for LUAD; however, the high TMB compensates for the lack of MSI-H status.",unknown,unsupported,True,other
+gemini-3-flash-preview__ungrounded__TCGA-55-6982_baseline_standard_007,TCGA-55-6982,gemini-3-flash-preview,ungrounded,"*   **Uncertainty and Limitations:**
+    *   **Snapshot Limitation:** TCGA data represents a single time point from a primary surgical resection; it may not reflect the immune landscape of metastatic lesions or changes following subsequent lines of therapy.",unknown,supported,True,other
+gpt-5.4-mini__ungrounded__TCGA-44-5644_baseline_standard_003,TCGA-44-5644,gpt-5.4-mini,ungrounded,- **Uncertainty / limitations:** Immunotherapy readiness cannot be determined from the available structured data alone.,unknown,conflict,False,other
+gemini-2.5-flash__grounded__TCGA-55-A4DG_full_multimodal_standard_006,TCGA-55-A4DG,gemini-2.5-flash,grounded,"**Clinical Context:** Clinical factors contributed 33.8% to the score, with the patient being stage I, a never smoker, and age 65.",partial,supported,True,clinical
+gpt-5.4-mini__grounded__TCGA-55-7815_full_multimodal_standard_001,TCGA-55-7815,gpt-5.4-mini,grounded,"The available fused proxy score is **0.641** (provisional/refined unchanged), which is a **moderately favorable** research-only proxy, but no formal tier label is given.",supported,supported,True,uncertainty
+gpt-5.4-mini__grounded__TCGA-38-4631_full_multimodal_standard_000,TCGA-38-4631,gpt-5.4-mini,grounded,"**Immunotherapy readiness (research-only):** **IO immune tier: not explicitly provided in the structured evidence.** The available fused proxy score is **0.630** (provisional/refined both 0.630; delta 0.000), which suggests a **moderate** overall multimodal signal, but this is **not a validated clinical IO-readiness score**.",supported,conflict,False,uncertainty
+gpt-5.4-mini__grounded__TCGA-55-8205_full_multimodal_standard_004,TCGA-55-8205,gpt-5.4-mini,grounded,Largest contribution came from **pathology (66.7%)**.,supported,conflict,False,pathology
+gpt-5.4-mini__grounded__TCGA-55-7573_full_multimodal_standard_005,TCGA-55-7573,gpt-5.4-mini,grounded,"- **Clinical context:** Clinical proxy signal contributed **38.6%** and included **stage III**, **current smoker**, **age 48**.",supported,supported,True,uncertainty
+gpt-4o-mini__grounded__TCGA-44-7671_full_multimodal_standard_003,TCGA-44-7671,gpt-4o-mini,grounded,"- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score.",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-44-6779_baseline_standard_000,TCGA-44-6779,gemini-3-flash-preview,ungrounded,"Based on the structured genomic and transcriptomic data for **TCGA-44-6779**, the summary of immunotherapy (IO) readiness is as follows:
+
+*   **IO Immune Tier:** **Tier 3 (Immune Cold / Poor Candidate)**
+*   **Key Pathology Evidence:** 
+    *   Diagnosis: Lung Adenocarcinoma (Stage IA, T1aN0M0).",partial,unsupported,True,tier
+gpt-4o-mini__grounded__TCGA-44-2655_full_multimodal_standard_001,TCGA-44-2655,gpt-4o-mini,grounded,- **RNA Evidence:** Not available; no transcriptomics input detected for this case.,supported,supported,True,RNA
+gemini-3-flash-preview__ungrounded__TCGA-05-5715_baseline_standard_001,TCGA-05-5715,gemini-3-flash-preview,ungrounded,"11.5 mut/Mb), which is often associated with increased neoantigen load and better response to checkpoint inhibitors.",unknown,unsupported,True,other
+gemini-2.5-flash__grounded__TCGA-44-7662_full_multimodal_standard_002,TCGA-44-7662,gemini-2.5-flash,grounded,"The top tile, tile_183, scored 0.87, indicating a Dense tumor-infiltrating lymphocyte cluster, which is a favorable immune characteristic.",supported,supported,True,pathology
+gemini-2.5-flash__grounded__TCGA-44-3398_full_multimodal_literature_004,TCGA-44-3398,gemini-2.5-flash,grounded,"**Literature Context:**
+
+Literature suggests that the quality and magnitude of tumor-infiltrating lymphocytes (TILs), including T, NK, and B cells, within the tumor microenvironment are linked to the outcome of immune checkpoint inhibitor (ICB) therapy (PMID:33139907).",unsupported,,,literature
+gpt-5.4-mini__grounded__TCGA-55-A4DG_full_multimodal_standard_003,TCGA-55-A4DG,gpt-5.4-mini,grounded,Pathology was the largest contributor (**66.2%**).,partial,conflict,False,pathology
+gpt-5.4-mini__ungrounded__TCGA-55-8090_baseline_standard_002,TCGA-55-8090,gpt-5.4-mini,ungrounded,"- No documented PD-L1, TIL, or other immune-marker pathology results were provided.",partial,conflict,False,pathology
+gpt-5.4-mini__grounded__TCGA-55-7281_full_multimodal_literature_008,TCGA-55-7281,gpt-5.4-mini,grounded,"**Bottom line:** Based on available case evidence, this tumor appears **moderately favorable for immunotherapy readiness**, driven mainly by a **TIL-rich pathology signal**, but the assessment is **limited by missing transcriptomics and lack of a validated predictive biomarker**.",supported,,,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-44-7672_baseline_standard_007,TCGA-44-7672,gpt-5.4-mini,ungrounded,"- Missing key inputs include **PD-L1 status, tumor-infiltrating lymphocytes, TMB/MSI, and RNA immune signatures**.",supported,supported,True,uncertainty
+gpt-4o-mini__grounded__TCGA-44-7671_full_multimodal_literature_006,TCGA-44-7671,gpt-4o-mini,grounded,These findings suggest that immunotherapy may provide significant survival benefits in similar patient populations.,partial,,,clinical
+gpt-5.4-mini__grounded__TCGA-55-6985_full_multimodal_standard_009,TCGA-55-6985,gpt-5.4-mini,grounded,- IO readiness is inferred from pathology + clinical proxy only; **no RNA evidence** was available.,supported,supported,True,uncertainty
+gpt-5.4-mini__grounded__TCGA-55-8094_full_multimodal_standard_003,TCGA-55-8094,gpt-5.4-mini,grounded,"Reported tissue composition: **Tumor 61%**, **Stroma 24%**, **Necrosis 8%**, **lymphocyte 7%**.",supported,supported,True,pathology
+gemini-2.5-flash__grounded__TCGA-55-7574_full_multimodal_standard_002,TCGA-55-7574,gemini-2.5-flash,grounded,"The top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.",supported,supported,True,pathology
+gpt-5.4-mini__ungrounded__TCGA-55-6985_baseline_standard_002,TCGA-55-6985,gpt-5.4-mini,ungrounded,- **Clinical context:** Case is from **lung adenocarcinoma (LUAD)** in the TCGA cohort; no treatment history or metastatic/PD-L1 context was supplied.,partial,unsupported,True,clinical
+gemini-3-flash-preview__ungrounded__TCGA-55-8087_baseline_standard_009,TCGA-55-8087,gemini-3-flash-preview,ungrounded,"*   **Uncertainty and Limitations:**
+    *   **IHC Correlation:** While RNA levels for *CD274* are high, clinical IO eligibility is often determined by PD-L1 Immunohistochemistry (IHC), which is not provided in the structured TCGA molecular data.",partial,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-44-7672_full_multimodal_standard_001,TCGA-44-7672,gpt-4o-mini,grounded,- **RNA Evidence:** Not available; no transcriptomics input detected for this case.,supported,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-05-4410_full_multimodal_standard_004,TCGA-05-4410,gpt-4o-mini,grounded,The fusion score remains provisional due to this lack of transcriptomic evidence.,partial,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-44-7659_full_multimodal_standard_004,TCGA-44-7659,gemini-2.5-flash,grounded,"**Clinical Context:** Clinical factors contributed 34.7%, including stage II, current smoker status, and age 62.",partial,supported,True,clinical
+gemini-3-flash-preview__ungrounded__TCGA-44-7661_baseline_standard_009,TCGA-44-7661,gemini-3-flash-preview,ungrounded,"*   **Uncertainty and Limitations:**
+    *   **PD-L1 Expression:** Specific IHC staining results for PD-L1 (TPS/CPS) are not provided in the standard TCGA clinical dataset.",partial,supported,True,RNA
+gpt-5.4-mini__ungrounded__TCGA-55-7903_baseline_standard_004,TCGA-55-7903,gpt-5.4-mini,ungrounded,"**Uncertainty / limitations:**  
+- Immunotherapy readiness cannot be determined reliably because the available evidence lacks the necessary immune pathology and RNA biomarkers.",partial,supported,True,RNA
+gpt-5.4-mini__ungrounded__TCGA-80-5608_baseline_standard_001,TCGA-80-5608,gpt-5.4-mini,ungrounded,- **RNA evidence:** No structured RNA-based immune signature or expression evidence was provided.,partial,supported,True,RNA
+gemini-3-flash-preview__ungrounded__TCGA-44-7659_baseline_standard_007,TCGA-44-7659,gemini-3-flash-preview,ungrounded,"KRAS mutations in LUAD, particularly in patients with a smoking history (as seen in this case), are frequently associated with higher Tumor Mutational Burden (TMB) and improved response to PD-1/PD-L1 inhibitors.",partial,unsupported,True,pathology
+gemini-2.5-flash__grounded__TCGA-55-6982_full_multimodal_standard_005,TCGA-55-6982,gemini-2.5-flash,grounded,"**Clinical Context:** Clinical context contributed 37.0% and includes stage=III, never smoker, and age=69.",partial,supported,True,clinical
+gemini-2.5-flash__grounded__TCGA-38-4628_full_multimodal_standard_003,TCGA-38-4628,gemini-2.5-flash,grounded,"**RNA Evidence:** Transcriptomics signal was unavailable, resulting in null cytolytic activity (cyt_score), T-cell inflamed gene expression profile (gep_score), and Tumor Immune Dysfunction and Exclusion (tide_score).",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-05-4245_baseline_standard_006,TCGA-05-4245,gemini-3-flash-preview,ungrounded,"*   **Signature:** High interferon-gamma (IFN-$\gamma$) signaling score, suggesting an active but suppressed anti-tumor immune response.",partial,unsupported,True,pathology
+gemini-2.5-flash__grounded__TCGA-44-7662_full_multimodal_standard_003,TCGA-44-7662,gemini-2.5-flash,grounded,"**RNA Evidence:** Transcriptomics signal was unavailable, and no transcriptomics input was detected for this case.",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-55-7570_baseline_standard_008,TCGA-55-7570,gemini-3-flash-preview,ungrounded,"*   **Uncertainty and Limitations:** 
+    *   **PD-L1 Validation:** PD-L1 status is inferred from RNA expression; clinical IHC protein expression levels are not provided.",partial,unsupported,True,RNA
+gpt-5.4-mini__grounded__TCGA-44-7671_full_multimodal_literature_006,TCGA-44-7671,gpt-5.4-mini,grounded,"**Literature context (not patient-specific):**
+- In **HCC**, one abstract states **no validated biomarker** is available to guide immunotherapy selection, despite checkpoint inhibitors being established.",unsupported,,,literature
+gpt-5.4-mini__grounded__TCGA-55-8203_full_multimodal_standard_008,TCGA-55-8203,gpt-5.4-mini,grounded,"The fused estimate is driven by **pathology + clinical proxy only**; **no RNA evidence** was present, so immune-inflamed transcriptomic support cannot be assessed.",supported,supported,True,uncertainty
+gpt-4o-mini__grounded__TCGA-55-8505_full_multimodal_standard_003,TCGA-55-8505,gpt-4o-mini,grounded,- **Uncertainty/Limitations:** Fusion score remains provisional due to the absence of transcriptomics data.,partial,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-05-5715_full_multimodal_standard_006,TCGA-05-5715,gemini-2.5-flash,grounded,"Therefore, cytolytic activity (cyt_score), T-cell inflamed gene expression profile (gep_score), and Tumor Immune Dysfunction and Exclusion (tide_score) are all null.",partial,supported,True,RNA
+gpt-5.4-mini__ungrounded__TCGA-55-8619_baseline_standard_004,TCGA-55-8619,gpt-5.4-mini,ungrounded,"Therefore, immunotherapy readiness cannot be determined from the available evidence.",unknown,supported,True,other
+gemini-2.5-flash__grounded__TCGA-55-7726_full_multimodal_standard_005,TCGA-55-7726,gemini-2.5-flash,grounded,"**Clinical Context:** Clinical context contributed 36.2%, indicating stage IV disease, age 62, and unknown smoker status.",partial,supported,True,clinical
+gemini-3-flash-preview__ungrounded__TCGA-55-A493_baseline_standard_003,TCGA-55-A493,gemini-3-flash-preview,ungrounded,*   **Mutational Profile:** Significant for a **TP53** mutation (p.R248W) co-occurring with **STK11** (p.Q37*) and **KEAP1** (p.G423V) mutations.,unknown,unsupported,True,other
+gemini-3-flash-preview__ungrounded__TCGA-55-7574_baseline_standard_000,TCGA-55-7574,gemini-3-flash-preview,ungrounded,"Based on the structured genomic and transcriptomic data available for **TCGA-55-7574** (Lung Adenocarcinoma), the immunotherapy (IO) readiness summary is as follows:
+
+### **IO Immune Tier**
+*   **Tier 1: Highly Immunogenic (""Hot"")**.",partial,unsupported,True,tier
+gpt-4o-mini__grounded__TCGA-55-8203_full_multimodal_literature_002,TCGA-55-8203,gpt-4o-mini,grounded,"Clinical factors also contribute significantly (39.1%), with the patient being a never smoker, aged 48, and at stage IV.",partial,,,clinical
+gemini-2.5-flash__grounded__TCGA-55-7573_full_multimodal_standard_005,TCGA-55-7573,gemini-2.5-flash,grounded,The provided scores are research-only proxies and not for clinical use.,supported,supported,True,uncertainty
+gemini-2.5-flash__grounded__TCGA-75-7031_full_multimodal_standard_000,TCGA-75-7031,gemini-2.5-flash,grounded,"This patient's immunotherapy readiness is indicated by a provisional fusion score of 0.622 (research-only proxy, higher = more favorable).",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-55-A4DG_baseline_standard_003,TCGA-55-A4DG,gemini-3-flash-preview,ungrounded,"This patient exhibits a high neoantigen load, which correlates with improved IO response rates.",unknown,unsupported,True,other
+gemini-3-flash-preview__ungrounded__TCGA-44-6774_baseline_standard_012,TCGA-44-6774,gemini-3-flash-preview,ungrounded,"While early-stage, the molecular profile suggests high vulnerability to checkpoint blockade if the disease were to progress or in a neoadjuvant/adjuvant setting.",partial,unsupported,True,clinical
+gpt-5.4-mini__grounded__TCGA-55-7913_full_multimodal_standard_001,TCGA-55-7913,gpt-5.4-mini,grounded,"**Key pathology evidence:**  
+- **Tumor 61%**, **Stroma 24%**, **Necrosis 8%**  
+- Top tile **tile_183** scored **0.87** with rationale: **dense tumor-infiltrating lymphocyte cluster**  
+- Pathology was the **largest contribution** to the fused estimate (**62.2%**)
+
+**RNA / transcriptomics evidence:**  
+- **Unavailable**: no transcriptomics input detected  
+- Therefore **cyt_score, gep_score, and tide_score are not available**
+
+**Clinical context:**  
+- Clinical proxy signal contributed **37.8%**  
+- Available clinical context: **stage II**, **former smoker**, **age 47**
+
+**Uncertainty / limitations:**  
+- This is a **research-only proxy**, not a clinical immunotherapy recommendation  
+- Fusion remained **provisional** because **transcriptomics was absent**  
+- No stage/follow-up survival fields were available",supported,supported,True,uncertainty
+gpt-4o-mini__grounded__TCGA-05-4384_full_multimodal_standard_004,TCGA-05-4384,gpt-4o-mini,grounded,"- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the immune readiness assessment.",supported,supported,True,uncertainty
+gpt-5.4-mini__grounded__TCGA-55-6971_full_multimodal_standard_000,TCGA-55-6971,gpt-5.4-mini,grounded,"**IO immune tier:** Provisional **0.614** (refined **0.614**, delta **0.000**), suggesting a moderately favorable immunotherapy-readiness proxy.",supported,supported,True,uncertainty
+gemini-2.5-flash__grounded__TCGA-55-8097_full_multimodal_standard_008,TCGA-55-8097,gemini-2.5-flash,grounded,This is a research-only proxy score and not for clinical use.,supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-05-4410_baseline_standard_009,TCGA-05-4410,gemini-3-flash-preview,ungrounded,"*   **Uncertainty and Limitations:** 
+    *   There is a biological conflict between the **High TMB** (positive predictor) and the **STK11 mutation** (negative predictor).",unknown,unsupported,True,other
+gpt-5.4-mini__ungrounded__TCGA-55-8096_baseline_standard_001,TCGA-55-8096,gpt-5.4-mini,ungrounded,- **RNA evidence:** No structured RNA-based immune signature or expression evidence available.,partial,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-55-7570_full_multimodal_literature_004,TCGA-55-7570,gemini-2.5-flash,grounded,"Transcriptomics data was unavailable, meaning transcriptomic scores like cytolytic activity, GEP, and TIDE scores could not be assessed, and the fusion score remained provisional.",supported,,,uncertainty
+gpt-5.4-mini__grounded__TCGA-55-6712_full_multimodal_literature_001,TCGA-55-6712,gpt-5.4-mini,grounded,- **Main driver:** **Pathology (60.9%)**.,partial,,,pathology
+gpt-5.4-mini__grounded__TCGA-44-7671_full_multimodal_literature_004,TCGA-44-7671,gpt-5.4-mini,grounded,"- **Clinical proxy signal:** **38.6%** contribution from **stage III**, **current smoker**, age **48**.",supported,,,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-05-4424_baseline_standard_004,TCGA-05-4424,gpt-5.4-mini,ungrounded,"No PD-L1, TMB, MSI, immune infiltration, or gene-expression immune signature results were supplied.",partial,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-55-A48X_full_multimodal_standard_000,TCGA-55-A48X,gemini-2.5-flash,grounded,"The patient's immunotherapy readiness, indicated by a research-only provisional fusion score, is 0.648 (higher = more favorable).",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-55-7576_baseline_standard_003,TCGA-55-7576,gemini-3-flash-preview,ungrounded,"There is a strong signature for **CD8+ T-cells** and cytolytic activity (GZMB, PRF1), alongside an active Interferon-gamma (IFN-$\gamma$) signaling pathway.",partial,unsupported,True,RNA
+gpt-5.4-mini__ungrounded__TCGA-05-5423_baseline_standard_001,TCGA-05-5423,gpt-5.4-mini,ungrounded,- **RNA evidence:** No RNA-based immune signature or expression evidence was provided.,partial,conflict,False,RNA
+gemini-3-flash-preview__ungrounded__TCGA-55-7726_baseline_standard_000,TCGA-55-7726,gemini-3-flash-preview,ungrounded,"Based on the structured data available for **TCGA-55-7726** (Lung Adenocarcinoma), the immunotherapy (IO) readiness summary is as follows:
+
+*   **IO Immune Tier:** **Tier 2 (Intermediate/Potential)**
+*   **Key Pathology Evidence:** 
+    *   **Diagnosis:** Lung Adenocarcinoma (LUAD), Stage IB (T2aN0M0).",partial,unsupported,True,pathology
+gpt-5.4-mini__grounded__TCGA-05-5715_full_multimodal_standard_005,TCGA-05-5715,gpt-5.4-mini,grounded,"- **Clinical context:** Clinical proxy signal contributed **36.0%** with **stage IV**, **former smoker**, **age 65** (stage signal 0.58, smoker signal 0.55).",supported,conflict,False,uncertainty
+gpt-4o-mini__grounded__TCGA-55-A48Y_full_multimodal_standard_001,TCGA-55-A48Y,gpt-4o-mini,grounded,- **RNA Evidence:** Not available; no transcriptomics input detected for this case.,supported,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-44-3917_full_multimodal_standard_001,TCGA-44-3917,gpt-4o-mini,grounded,The largest contribution to the score is from pathology (62.1%).,partial,supported,True,pathology
+gemini-3-flash-preview__ungrounded__TCGA-05-5423_baseline_standard_001,TCGA-05-5423,gemini-3-flash-preview,ungrounded,"### **Key Pathology Evidence**
+*   **Diagnosis:** Lung Adenocarcinoma (LUAD).",partial,unsupported,True,pathology
+gpt-5.4-mini__ungrounded__TCGA-44-2659_baseline_standard_002,TCGA-44-2659,gpt-5.4-mini,ungrounded,"- No structured pathology details provided for immune infiltration, PD-L1, or related IO biomarkers.",partial,supported,True,pathology
+gpt-5.4-mini__ungrounded__TCGA-55-6712_baseline_standard_004,TCGA-55-6712,gpt-5.4-mini,ungrounded,"- No treatment history, metastatic status, or other immunotherapy-relevant clinical details were available in the structured evidence.",partial,supported,True,clinical
+gpt-5.4-mini__ungrounded__TCGA-44-2665_baseline_standard_000,TCGA-44-2665,gpt-5.4-mini,ungrounded,"**Immunotherapy readiness summary — TCGA-44-2665 (TCGA-LUAD)**
+
+- **IO immune tier:** **Not assessable from the provided structured evidence**  
+  - No explicit immune tier assignment was available in the structured data.",unknown,supported,True,other
+gemini-3-flash-preview__ungrounded__TCGA-49-AAR9_baseline_standard_007,TCGA-49-AAR9,gemini-3-flash-preview,ungrounded,"### **RNA Evidence (Immune Microenvironment)**
+*   **Immune Infiltration:** High expression of CD8A, GZMB (granzyme B), and PRF1 (perforin), indicating a robust cytotoxic T-cell infiltration.",partial,unsupported,True,RNA
+gemini-3-flash-preview__ungrounded__TCGA-55-A57B_baseline_standard_004,TCGA-55-A57B,gemini-3-flash-preview,ungrounded,"Expression levels of PD-L1 (*CD274*) and cytolytic activity (CYT) scores are low to moderate, suggesting an ""immune-excluded"" or ""cold"" phenotype.",partial,unsupported,True,tier
+gpt-4o-mini__grounded__TCGA-55-6971_full_multimodal_standard_000,TCGA-55-6971,gpt-4o-mini,grounded,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.",supported,partial,True,pathology
+gpt-5.4-mini__grounded__TCGA-55-8203_full_multimodal_literature_001,TCGA-55-8203,gpt-5.4-mini,grounded,- **Main driver:** **Pathology** contributed most (**60.9%**).,partial,,,pathology
+gpt-5.4-mini__grounded__TCGA-55-8206_full_multimodal_standard_006,TCGA-55-8206,gpt-5.4-mini,grounded,"- **Clinical context:** Clinical proxy signal contributed **34.7%** and included **stage IV**, **former smoker**, **age 73**.",supported,partial,True,uncertainty
+gpt-5.4-mini__grounded__TCGA-55-8511_full_multimodal_standard_000,TCGA-55-8511,gpt-5.4-mini,grounded,**Immunotherapy readiness (IO immune tier):** **Intermediate / provisional favorable** based on the available multimodal proxy score (**fusion_refined/provisional/active = 0.626**).,supported,partial,True,uncertainty
+gpt-4o-mini__grounded__TCGA-55-8510_full_multimodal_literature_005,TCGA-55-8510,gpt-4o-mini,grounded,"Additionally, the 5-year progression-free survival rates were 8.0% for nivolumab versus 0% for docetaxel.",partial,,,clinical
+gemini-3-flash-preview__ungrounded__TCGA-55-A48Y_baseline_standard_007,TCGA-55-A48Y,gemini-3-flash-preview,ungrounded,There is low expression of CD8+ T-cell effector genes and low **CD274 (PD-L1)** mRNA levels.,partial,unsupported,True,RNA
+gpt-4o-mini__grounded__TCGA-05-4384_full_multimodal_standard_000,TCGA-05-4384,gpt-4o-mini,grounded,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.636)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%), Necrosis (8%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.",supported,partial,True,pathology
+gpt-4o-mini__grounded__TCGA-80-5608_full_multimodal_standard_003,TCGA-80-5608,gpt-4o-mini,grounded,"- **Uncertainty/Limitations:** The fusion score remains provisional due to the absence of transcriptomics data, limiting comprehensive assessment.",partial,supported,True,RNA
+gemini-3-flash-preview__ungrounded__TCGA-55-6712_baseline_standard_004,TCGA-55-6712,gemini-3-flash-preview,ungrounded,*   **Tumor Mutational Burden (TMB):** High.,partial,unsupported,True,pathology
+gpt-5.4-mini__grounded__TCGA-05-4382_full_multimodal_standard_000,TCGA-05-4382,gpt-5.4-mini,grounded,"**IO immune tier:** Provisional fused IO readiness is **0.633** (refined **0.633**, delta **0.000**), suggesting a **moderate/favorable research-only immune signal**.",supported,supported,True,uncertainty
+gpt-5.4-mini__grounded__TCGA-55-6975_full_multimodal_standard_000,TCGA-55-6975,gpt-5.4-mini,grounded,**IO immune tier:** Provisional **0.643** (moderately favorable / intermediate readiness based on the research-only fused proxy).,supported,supported,True,uncertainty
+gemini-2.5-flash__grounded__TCGA-55-8205_full_multimodal_standard_002,TCGA-55-8205,gemini-2.5-flash,grounded,"**Key Pathology Evidence:** Pathology contributed 66.7% to the score, showing Tumor (61%) and Stroma (24%).",supported,supported,True,pathology
+gpt-4o-mini__grounded__TCGA-55-7725_full_multimodal_standard_004,TCGA-55-7725,gpt-4o-mini,grounded,The largest contribution to the fusion score came from pathology (64.7%).,supported,supported,True,pathology
+gpt-5.4-mini__ungrounded__TCGA-44-2668_baseline_standard_002,TCGA-44-2668,gpt-5.4-mini,ungrounded,"- **Clinical context:** Cohort is **TCGA-LUAD (lung adenocarcinoma)**; no additional treatment, stage, or biomarker context available in the structured data shown.",partial,conflict,False,clinical
+gemini-3-flash-preview__ungrounded__TCGA-05-4390_baseline_standard_008,TCGA-05-4390,gemini-3-flash-preview,ungrounded,"*   **Clinical Context:**
+    *   65-year-old male, former smoker (40 pack-years).",partial,unsupported,True,clinical
+gpt-5.4-mini__grounded__TCGA-55-8621_full_multimodal_standard_007,TCGA-55-8621,gpt-5.4-mini,grounded,"- **Uncertainty / limitations:** The score is **provisional** because **transcriptomics is missing**; **fusion_refined = fusion_provisional = 0.649** and **delta = 0.0**, so RNA did not change the estimate.",supported,supported,True,uncertainty
+gpt-4o-mini__grounded__TCGA-55-8619_full_multimodal_standard_003,TCGA-55-8619,gpt-4o-mini,grounded,- **Uncertainty/Limitations:** Fusion score remains provisional due to the absence of transcriptomics data; largest contribution to the score came from pathology (64.2%).,partial,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-44-6144_full_multimodal_standard_000,TCGA-44-6144,gpt-4o-mini,grounded,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.635)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%), Necrosis (8%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).",supported,partial,True,pathology
+gemini-2.5-flash__grounded__TCGA-55-8510_full_multimodal_standard_006,TCGA-55-8510,gemini-2.5-flash,grounded,This assessment is a research-only proxy and not for clinical use.,supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-55-8513_baseline_standard_001,TCGA-55-8513,gemini-3-flash-preview,ungrounded,"*   **Key Pathology Evidence:**
+    *   **Tumor Mutational Burden (TMB):** High.",partial,unsupported,True,pathology
+gpt-5.4-mini__ungrounded__TCGA-75-5146_baseline_standard_006,TCGA-75-5146,gpt-5.4-mini,ungrounded,"- Missing data on **PD-L1, TMB, MSI, immune infiltrates, and RNA immune signatures** limits interpretation.",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-44-2665_baseline_standard_007,TCGA-44-2665,gemini-3-flash-preview,ungrounded,"### **RNA Evidence**
+*   **Immune Subtype:** Classified as **C2 (IFN-gamma Dominant)**.",partial,unsupported,True,RNA
+gemini-2.5-flash__grounded__TCGA-55-8510_full_multimodal_literature_006,TCGA-55-8510,gemini-2.5-flash,grounded,TIL-based adoptive cell therapy (ACT) resulted in a 75.0% complete response rate (9 of 12 patients) with disease control durations ranging from 9 to 22 months.,supported,,,pathology
+gemini-3-flash-preview__ungrounded__TCGA-55-8511_baseline_standard_005,TCGA-55-8511,gemini-3-flash-preview,ungrounded,The absence of these driver mutations (particularly EGFR) generally correlates with a better response to immune checkpoint inhibitors (ICIs) in LUAD.,unknown,unsupported,True,other
+gpt-4o-mini__grounded__TCGA-44-6774_full_multimodal_standard_002,TCGA-44-6774,gpt-4o-mini,grounded,"- **Clinical Context:** Stage III, former smoker, age 62; clinical minimum signal contributed 37.5%.",partial,partial,True,clinical
+gpt-5.4-mini__grounded__TCGA-55-8207_full_multimodal_standard_000,TCGA-55-8207,gpt-5.4-mini,grounded,**Immunotherapy readiness (IO immune tier):** **Intermediate / moderately favorable** based on the available fused proxy evidence.,supported,unsupported,True,uncertainty
+gpt-4o-mini__grounded__TCGA-86-8056_full_multimodal_standard_001,TCGA-86-8056,gpt-4o-mini,grounded,"This case is primarily driven by pathology evidence, with no transcriptomic data to enhance the assessment.",partial,supported,True,RNA
+gemini-3-flash-preview__ungrounded__TCGA-44-3917_baseline_standard_000,TCGA-44-3917,gemini-3-flash-preview,ungrounded,"Based on the structured genomic and transcriptomic data for patient **TCGA-44-3917**, the immunotherapy (IO) readiness summary is as follows:
+
+*   **IO Immune Tier:** **Tier 1 (Highly Ready / ""Hot"" Tumor)**
+*   **Key Pathology Evidence:**
+    *   **High Tumor Mutational Burden (TMB):** Reported at approximately 12.7 mut/Mb, which is above the standard threshold for IO sensitivity in NSCLC.",supported,unsupported,True,tier
+gpt-5.4-mini__grounded__TCGA-44-A47B_full_multimodal_standard_007,TCGA-44-A47B,gpt-5.4-mini,grounded,"Clinical source details were limited/inconsistent in the provided context, and no survival follow-up fields were available.",partial,conflict,False,clinical
+gpt-4o-mini__grounded__TCGA-55-7281_full_multimodal_literature_006,TCGA-55-7281,gpt-4o-mini,grounded,These findings highlight the potential benefits of immunotherapy in similar patient populations.,unknown,,,other
+gemini-3-flash-preview__ungrounded__TCGA-75-5122_baseline_standard_006,TCGA-75-5122,gemini-3-flash-preview,ungrounded,*   **Pathway Activation:** Significant enrichment in Interferon-gamma (IFN-$\gamma$) signaling and antigen processing/presentation pathways (MHC Class I and II).,unknown,unsupported,True,other
+gpt-5.4-mini__ungrounded__TCGA-05-4245_baseline_standard_003,TCGA-05-4245,gpt-5.4-mini,ungrounded,"- **RNA evidence:**  
+  - **No RNA-based immune evidence available** in the structured data provided.",partial,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-44-3398_full_multimodal_standard_003,TCGA-44-3398,gemini-2.5-flash,grounded,"The top tile, `tile_183`, scored 0.87 and is described as a ""Dense tumor-infiltrating lymphocyte cluster.""
+
+**RNA Evidence:** Transcriptomics signal was unavailable, so no RNA evidence (e.g., cytolytic activity, GEP, TIDE scores) is available for this case.",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-55-6983_baseline_standard_003,TCGA-55-6983,gemini-3-flash-preview,ungrounded,"*   **Checkpoint Expression:** Elevated mRNA levels for *CD274* (PD-L1) and *CTLA4*, suggesting a microenvironment primed for checkpoint inhibition.",partial,unsupported,True,RNA
+gpt-5.4-mini__grounded__TCGA-55-7570_full_multimodal_standard_012,TCGA-55-7570,gpt-5.4-mini,grounded,- **No RNA evidence** limits confidence in immune-inflamed classification.,partial,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-44-6147_full_multimodal_literature_004,TCGA-44-6147,gpt-4o-mini,grounded,"**Literature Context:**
+In a study (PMID: 33449799), nivolumab-treated patients exhibited a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel, and a 5-year progression-free survival rate of 8.0% versus 0%.",unsupported,,,literature
+gpt-5.4-mini__ungrounded__TCGA-75-7025_baseline_standard_002,TCGA-75-7025,gpt-5.4-mini,ungrounded,"- No structured pathology details provided here regarding **PD-L1**, **tumor-infiltrating lymphocytes**, **immune phenotype**, or **histologic immune features**.",partial,supported,True,pathology
+gpt-5.4-mini__grounded__TCGA-55-8206_full_multimodal_standard_001,TCGA-55-8206,gpt-5.4-mini,grounded,"- **Key pathology evidence:** Tumor **61%**, stroma **24%**, necrosis **8%**.",supported,supported,True,pathology
+gpt-5.4-mini__ungrounded__TCGA-55-8097_baseline_standard_001,TCGA-55-8097,gpt-5.4-mini,ungrounded,"- **RNA evidence:** No RNA-based immune signature, interferon/inflamed score, or related transcriptomic immune evidence provided.",partial,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-55-8205_full_multimodal_standard_000,TCGA-55-8205,gemini-2.5-flash,grounded,This patient's immunotherapy readiness is indicated by a research-only provisional fusion proxy score of 0.612.,supported,supported,True,uncertainty
+gpt-5.4-mini__grounded__TCGA-55-7911_full_multimodal_standard_004,TCGA-55-7911,gpt-5.4-mini,grounded,"**RNA / transcriptomics evidence:**  
+- **Unavailable**: no transcriptomics input detected.",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-44-7661_baseline_standard_008,TCGA-44-7661,gemini-3-flash-preview,ungrounded,"While smoking history often correlates with higher IO response, the specific STK11/KEAP1/KRAS mutational triad is a dominant negative predictor.",partial,unsupported,True,clinical
+gemini-3-flash-preview__ungrounded__TCGA-44-7671_baseline_standard_007,TCGA-44-7671,gemini-3-flash-preview,ungrounded,"### **Clinical Context**
+*   **Smoking Status:** History of smoking (Current Smoker at time of diagnosis), which is statistically correlated with higher neoantigen loads and better ICI response in LUAD.",partial,unsupported,True,clinical
+gpt-5.4-mini__grounded__TCGA-44-6145_full_multimodal_standard_001,TCGA-44-6145,gpt-5.4-mini,grounded,"- **Key pathology evidence:** Tumor **61%**, stroma **24%**, necrosis **8%**.",supported,conflict,False,pathology
+gpt-5.4-mini__grounded__TCGA-55-7570_full_multimodal_literature_000,TCGA-55-7570,gpt-5.4-mini,grounded,"**Patient-specific evidence (case TCGA-55-7570):**
+- **Overall fused immunotherapy-readiness proxy:** **0.666** on a 0–1 scale, with **no change** from provisional to refined (**delta 0.000**), so the estimate is stable but remains research-only.",supported,,,uncertainty
+gpt-4o-mini__grounded__TCGA-44-6147_full_multimodal_literature_005,TCGA-44-6147,gpt-4o-mini,grounded,"Additionally, treatment-related adverse events were reported in 25.8% of nivolumab-treated patients.",unknown,,,other
+gpt-4o-mini__grounded__TCGA-75-6206_full_multimodal_standard_001,TCGA-75-6206,gpt-4o-mini,grounded,- **RNA Evidence:** Not available (no transcriptomics input detected).,supported,supported,True,RNA
+gpt-5.4-mini__grounded__TCGA-86-7954_full_multimodal_standard_001,TCGA-86-7954,gpt-5.4-mini,grounded,"**Key pathology evidence:**  
+- Tumor **61%**, stroma **24%**, necrosis **8%**  
+- Top tile **tile_183** scored **0.87** and was annotated as a **dense tumor-infiltrating lymphocyte cluster**  
+- Pathology was the largest contributor to the fused estimate (**65.0%**)
+
+**RNA / transcriptomics evidence:**  
+- **Unavailable**: no transcriptomics input detected  
+- Therefore **cytolytic activity, GEP, and TIDE scores are not available**
+
+**Clinical context:**  
+- Clinical proxy signal contributed **35.0%**  
+- Reported context: **stage II**, **age 64**, **smoker unknown**  
+- No direct clinical source/follow-up survival fields were available
+
+**Uncertainty / limitations:**  
+- This is a **research-only proxy**, not a clinical immunotherapy biomarker  
+- **No RNA data** were available, so immune-inflamed transcriptional support cannot be assessed  
+- Clinical input is limited and partly proxy-based, so readiness assessment remains **provisional**",supported,conflict,False,uncertainty
+gemini-2.5-flash__grounded__TCGA-44-A47B_full_multimodal_standard_009,TCGA-44-A47B,gemini-2.5-flash,grounded,The score is a research-only proxy and not for clinical use.,supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-75-6203_baseline_standard_010,TCGA-75-6203,gemini-3-flash-preview,ungrounded,"*   **IHC Correlation:** While mRNA for *CD274* is high, clinical-grade PD-L1 immunohistochemistry (IHC) scores are not provided in the standard TCGA clinical supplement.",partial,unsupported,True,RNA
+gpt-5.4-mini__ungrounded__TCGA-44-6147_baseline_standard_003,TCGA-44-6147,gpt-5.4-mini,ungrounded,- **Uncertainty / limitations:** Immunotherapy readiness cannot be determined from the available structured data.,unknown,supported,True,other
+gpt-5.4-mini__grounded__TCGA-44-2668_full_multimodal_standard_000,TCGA-44-2668,gpt-5.4-mini,grounded,**IO immune tier:** Provisional **0.642** (moderate/favorable by the provided fused proxy score).,supported,supported,True,uncertainty
+gpt-4o-mini__grounded__TCGA-55-8087_full_multimodal_standard_001,TCGA-55-8087,gpt-4o-mini,grounded,- **RNA Evidence:** Not available; no transcriptomics input detected.,supported,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-55-7728_full_multimodal_standard_006,TCGA-55-7728,gemini-2.5-flash,grounded,This is a research-only proxy score and not for clinical use.,supported,supported,True,uncertainty
+gpt-4o-mini__grounded__TCGA-44-2668_full_multimodal_standard_002,TCGA-44-2668,gpt-4o-mini,grounded,"- **Clinical Context:** Stage III, age 67; clinical contribution to score is 36.5%.",partial,supported,True,clinical
+gpt-5.4-mini__ungrounded__TCGA-05-4424_baseline_standard_001,TCGA-05-4424,gpt-5.4-mini,ungrounded,- **RNA evidence:** No RNA-based immune signature data were provided.,partial,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-55-8510_full_multimodal_standard_000,TCGA-55-8510,gpt-4o-mini,grounded,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.669537)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).",supported,partial,True,pathology
+gpt-4o-mini__grounded__TCGA-55-7994_full_multimodal_standard_001,TCGA-55-7994,gpt-4o-mini,grounded,- **RNA Evidence:** Not available (no transcriptomics input detected).,supported,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-55-8203_full_multimodal_standard_003,TCGA-55-8203,gpt-4o-mini,grounded,"- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the immune assessment.",supported,supported,True,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-55-7726_baseline_standard_000,TCGA-55-7726,gpt-5.4-mini,ungrounded,"**Immunotherapy readiness summary — TCGA-55-7726 (TCGA-LUAD)**
+
+- **IO immune tier:** **Not assessable from the provided structured evidence**  
+- **Key pathology evidence:** No structured pathology markers of immune responsiveness were provided (e.g., PD-L1 IHC, TILs, CD8, MSI/MMR, or TMB-related pathology surrogates).",partial,supported,True,pathology
+gemini-2.5-flash__grounded__TCGA-44-6779_full_multimodal_standard_006,TCGA-44-6779,gemini-2.5-flash,grounded,**Uncertainty/Limitations:** The fusion score is provisional due to unavailable transcriptomics data.,supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-38-4628_baseline_standard_000,TCGA-38-4628,gemini-3-flash-preview,ungrounded,"Based on the structured genomic and transcriptomic data available for **TCGA-38-4628**, the patient’s immunotherapy (IO) readiness is summarized as follows:
+
+*   **IO Immune Tier:** **Tier 1 (High Readiness / Inflamed)**
+*   **Key Pathology & Genomic Evidence:**
+    *   **Tumor Mutational Burden (TMB):** High (approximately 11.5 mutations/Mb), which is often associated with increased neoantigen load and better IO response.",partial,unsupported,True,RNA
+gpt-5.4-mini__ungrounded__TCGA-55-7903_baseline_standard_001,TCGA-55-7903,gpt-5.4-mini,ungrounded,"**Key pathology evidence:**  
+- Cohort: **TCGA-LUAD** (lung adenocarcinoma)  
+- No structured pathology details provided here regarding immune infiltration, PD-L1, TILs, or other IO-relevant histologic features.",partial,supported,True,pathology
+gpt-5.4-mini__grounded__TCGA-55-8205_full_multimodal_standard_009,TCGA-55-8205,gpt-5.4-mini,grounded,No clinical source/follow-up survival fields were available in the context.,partial,conflict,False,clinical
+gemini-2.5-flash__grounded__TCGA-38-4631_full_multimodal_standard_005,TCGA-38-4631,gemini-2.5-flash,grounded,**Uncertainty/Limitations**: The fusion score is provisional due to the unavailability of transcriptomics data.,partial,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-05-5428_full_multimodal_standard_004,TCGA-05-5428,gemini-2.5-flash,grounded,Pathology contributed 67.5% to the overall score.,supported,supported,True,pathology
+gemini-2.5-flash__grounded__TCGA-55-8091_full_multimodal_standard_004,TCGA-55-8091,gemini-2.5-flash,grounded,"**RNA Evidence:** Transcriptomics data was unavailable, so the cytolytic activity (cyt_score), T-cell inflamed gene expression profile (gep_score), and Tumor Immune Dysfunction and Exclusion (tide_score) are all null.",supported,supported,True,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-55-8205_baseline_standard_001,TCGA-55-8205,gpt-5.4-mini,ungrounded,- **RNA evidence:** No RNA-based immune signature evidence was provided.,partial,conflict,False,RNA
+gpt-4o-mini__grounded__TCGA-05-4395_full_multimodal_standard_004,TCGA-05-4395,gpt-4o-mini,grounded,The fusion score remains provisional due to this lack of transcriptomic input.,partial,supported,True,RNA
+gemini-3-flash-preview__ungrounded__TCGA-05-4395_baseline_standard_008,TCGA-05-4395,gemini-3-flash-preview,ungrounded,"*   Tumor Mutational Burden (TMB) is approximately **5.2 mut/Mb**, which is considered low-to-intermediate for lung adenocarcinoma and falls below the typical ""TMB-high"" threshold (≥10 mut/Mb).",partial,unsupported,True,pathology
+gpt-5.4-mini__grounded__TCGA-55-6712_full_multimodal_literature_004,TCGA-55-6712,gpt-5.4-mini,grounded,"**Literature context:**
+- In **hepatocellular carcinoma**, a review states **no validated biomarker** is available to guide immune-checkpoint inhibitor decisions.",unsupported,,,literature
+gpt-4o-mini__grounded__TCGA-55-7570_full_multimodal_literature_002,TCGA-55-7570,gpt-4o-mini,grounded,"Clinical factors contribute 38.8% to the score, with the patient being a never-smoker, aged 57, and at stage III.",partial,,,clinical
+gpt-4o-mini__grounded__TCGA-55-8096_full_multimodal_standard_002,TCGA-55-8096,gpt-4o-mini,grounded,"- **Clinical Context:** Stage I, current smoker, age 67; clinical minimum signal contributed 31.8% (stage_signal=0.45, smoker_signal=0.48).",partial,conflict,False,clinical
+gpt-5.4-mini__grounded__TCGA-55-6985_full_multimodal_standard_008,TCGA-55-6985,gpt-5.4-mini,grounded,"**Uncertainty / limitations:**  
+- This is a **research-only proxy** and not a clinical immunotherapy decision tool.",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-55-7573_baseline_standard_007,TCGA-55-7573,gemini-3-flash-preview,ungrounded,"*   **Clinical Context:**
+    *   **Patient Profile:** 68-year-old female, former smoker (significant pack-year history).",partial,unsupported,True,clinical
+gpt-5.4-mini__grounded__TCGA-55-6985_full_multimodal_standard_006,TCGA-55-6985,gpt-5.4-mini,grounded,"**Clinical context:**  
+- Available clinical proxy signal: **stage III**, age **75**, smoker **unknown**.",supported,partial,True,uncertainty
+gemini-2.5-flash__grounded__TCGA-55-7574_full_multimodal_standard_007,TCGA-55-7574,gemini-2.5-flash,grounded,This is a research-only proxy score and not for clinical use.,supported,supported,True,uncertainty
+gpt-4o-mini__grounded__TCGA-55-7914_full_multimodal_standard_005,TCGA-55-7914,gpt-4o-mini,grounded,Largest contribution to the score is from pathology (68.3%).,supported,supported,True,pathology
+gpt-4o-mini__grounded__TCGA-55-8510_full_multimodal_standard_003,TCGA-55-8510,gpt-4o-mini,grounded,"- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score.",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-55-A493_baseline_standard_000,TCGA-55-A493,gemini-3-flash-preview,ungrounded,"Based on the structured genomic and transcriptomic data available for **TCGA-55-A493** (Lung Adenocarcinoma), the immunotherapy (IO) readiness summary is as follows:
+
+### **IO Immune Tier**
+*   **Tier 3 (Cold / Poorly Responsive):** Despite a smoking history, the molecular profile suggests an ""immune desert"" or suppressed microenvironment.",partial,unsupported,True,tier
+gemini-3-flash-preview__ungrounded__TCGA-44-A47B_baseline_standard_004,TCGA-44-A47B,gemini-3-flash-preview,ungrounded,"*   **RNA Evidence:** 
+    *   **Checkpoint Expression:** High mRNA expression of *CD274* (PD-L1), *PDCD1* (PD-1), and *CTLA4*.",partial,unsupported,True,RNA
+gemini-3-flash-preview__ungrounded__TCGA-55-7911_baseline_standard_015,TCGA-55-7911,gemini-3-flash-preview,ungrounded,"*   **Spatial Heterogeneity:** Bulk RNA-seq does not account for the spatial distribution of immune cells (e.g., excluded vs.",partial,unsupported,True,RNA
+gpt-5.4-mini__grounded__TCGA-44-2657_full_multimodal_standard_007,TCGA-44-2657,gpt-5.4-mini,grounded,- **Uncertainty / limitations:** Fusion remained **provisional** because transcriptomics was absent; the score is a **research-only proxy** and should not be used as a clinical immunotherapy decision tool.,supported,supported,True,uncertainty
+gemini-2.5-flash__grounded__TCGA-44-7661_full_multimodal_standard_005,TCGA-44-7661,gemini-2.5-flash,grounded,This is a research-only proxy and not for clinical use.,supported,supported,True,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-05-4245_baseline_standard_001,TCGA-05-4245,gpt-5.4-mini,ungrounded,"- **Key pathology evidence:**  
+  - Available structured pathology evidence is limited to the diagnosis of **lung adenocarcinoma (LUAD)**.",partial,conflict,False,pathology
+gemini-2.5-flash__grounded__TCGA-55-8096_full_multimodal_standard_006,TCGA-55-8096,gemini-2.5-flash,grounded,"**RNA Evidence:** Transcriptomics signal was unavailable, and no transcriptomics input was detected for this case.",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-05-5420_baseline_standard_008,TCGA-05-5420,gemini-3-flash-preview,ungrounded,"*   **Clinical Context:**
+    *   **Patient:** 66-year-old male, former smoker (reformed >15 years).",partial,unsupported,True,clinical
+gpt-5.4-mini__ungrounded__TCGA-05-5715_baseline_standard_002,TCGA-05-5715,gpt-5.4-mini,ungrounded,"- **Clinical context:** Lung adenocarcinoma (TCGA-LUAD); no additional treatment, PD-L1, TMB, MSI, or immune infiltrate data available in the structured evidence supplied.",partial,supported,True,clinical
+gpt-5.4-mini__ungrounded__TCGA-55-A4DG_baseline_standard_002,TCGA-55-A4DG,gpt-5.4-mini,ungrounded,- **Clinical context:** Lung adenocarcinoma (TCGA-LUAD); no additional clinical immunotherapy biomarkers or treatment context available.,partial,supported,True,clinical
+gpt-4o-mini__grounded__TCGA-55-8207_full_multimodal_standard_002,TCGA-55-8207,gpt-4o-mini,grounded,"- **Clinical Context:** Stage I, former smoker, age 55; clinical minimum signal contributed 34.7% (stage_signal=0.45, smoker_signal=0.55).",partial,partial,True,clinical
+gpt-5.4-mini__grounded__TCGA-55-A493_full_multimodal_standard_006,TCGA-55-A493,gpt-5.4-mini,grounded,"**Clinical context:**  
+- Clinical proxy signal contributed **37.1%**.",supported,conflict,False,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-55-7227_baseline_standard_002,TCGA-55-7227,gemini-3-flash-preview,ungrounded,*   **Driver Mutation:** Positive for **EGFR L858R** (Exon 21).,unknown,unsupported,True,other
+gemini-2.5-flash__grounded__TCGA-55-7994_full_multimodal_literature_007,TCGA-55-7994,gemini-2.5-flash,grounded,"Severe toxicity (Grade 3 hypersensitivity) occurred in 8.3% of patients, but no autoimmune adverse events or treatment-related mortalities were reported.",unknown,,,other
+gemini-2.5-flash__grounded__TCGA-55-A48Y_full_multimodal_standard_000,TCGA-55-A48Y,gemini-2.5-flash,grounded,"This patient's immunotherapy readiness is indicated by a provisional fusion score of 0.650, where higher scores are more favorable.",supported,supported,True,fusion
+gpt-5.4-mini__ungrounded__TCGA-44-2655_baseline_standard_008,TCGA-44-2655,gpt-5.4-mini,ungrounded,"- Missing key biomarkers: **PD-L1, TMB, MSI/MMR, immune infiltration, and RNA immune signatures**.",supported,conflict,False,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-55-7281_baseline_standard_001,TCGA-55-7281,gpt-5.4-mini,ungrounded,- **RNA evidence:** No RNA-based immune signature or expression evidence was provided.,partial,supported,True,RNA
+gpt-5.4-mini__grounded__TCGA-55-A48X_full_multimodal_standard_008,TCGA-55-A48X,gpt-5.4-mini,grounded,"Lack of transcriptomics means the fused estimate is **not RNA-informed**, and immunotherapy readiness cannot be confirmed clinically from this evidence alone.",partial,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-75-5146_full_multimodal_standard_004,TCGA-75-5146,gpt-4o-mini,grounded,The fusion remains provisional with no transcriptomic contribution detected.,partial,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-44-3917_full_multimodal_standard_000,TCGA-44-3917,gpt-4o-mini,grounded,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.657)
+- **Key Pathology Evidence:** 
+  - Tumor (61%), Stroma (24%), Necrosis (8%)
+  - Top tile score: 0.87 (Dense tumor-infiltrating lymphocyte cluster)
+- **RNA Evidence:** Not available (No transcriptomics input detected)
+- **Clinical Context:** 
+  - Stage IV, never smoker, age 56
+  - Clinical minimum signal contributed 37.9% (stage_signal=0.58, smoker_signal=0.60)
+- **Uncertainty/Limitations:** 
+  - Transcriptomics signal is unavailable, limiting the robustness of the fusion score.",supported,partial,True,uncertainty
+gemini-2.5-flash__grounded__TCGA-44-6147_full_multimodal_standard_004,TCGA-44-6147,gemini-2.5-flash,grounded,"**Clinical Context:** Clinical factors contributed 40.3% to the score, including stage III disease, never smoker status, and age 46.",partial,supported,True,clinical
+gpt-5.4-mini__grounded__TCGA-55-8621_full_multimodal_standard_005,TCGA-55-8621,gpt-5.4-mini,grounded,"- **Clinical context:** Clinical proxy signal contributed **37.1%** and included **stage II**, **current smoker**, **age 46**.",supported,conflict,False,uncertainty
+gpt-4o-mini__grounded__TCGA-86-7954_full_multimodal_standard_000,TCGA-86-7954,gpt-4o-mini,grounded,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.628)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).",supported,partial,True,pathology
+gemini-2.5-flash__grounded__TCGA-44-3398_full_multimodal_standard_006,TCGA-44-3398,gemini-2.5-flash,grounded,"This means the refined score is identical to the provisional score, and transcriptomic markers like `cyt_score`, `gep_score`, and `tide_score` are null.",partial,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-55-8506_full_multimodal_standard_001,TCGA-55-8506,gemini-2.5-flash,grounded,"**Key Pathology Evidence:** Pathology shows Tumor (61%), Stroma (24%), and Necrosis (8%).",supported,supported,True,pathology
+gpt-5.4-mini__ungrounded__TCGA-44-2655_baseline_standard_002,TCGA-44-2655,gpt-5.4-mini,ungrounded,"- No structured pathology markers of immune responsiveness were provided (e.g., PD-L1, TILs, immune infiltration score, or MSI status).",partial,conflict,False,pathology
+gemini-3-flash-preview__ungrounded__TCGA-55-6975_baseline_standard_016,TCGA-55-6975,gemini-3-flash-preview,ungrounded,"*   **Co-mutations:** While STK11 is wild-type, other rare negative regulators of the immune response (e.g., KEAP1 mutations) were not definitively excluded in all secondary analyses.",unknown,unsupported,True,other
+gpt-5.4-mini__grounded__TCGA-38-4628_full_multimodal_standard_000,TCGA-38-4628,gpt-5.4-mini,grounded,"**Immunotherapy readiness summary (research-only):**
+
+- **IO immune tier:** **Intermediate / provisional favorable** based on the fused proxy score **0.655** (higher = more favorable).",supported,supported,True,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-05-5425_baseline_standard_007,TCGA-05-5425,gpt-5.4-mini,ungrounded,"- Missing key inputs include **PD-L1 status, tumor immune infiltration, TMB/MSI, and RNA immune signatures**.",supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-55-7728_baseline_standard_012,TCGA-55-7728,gemini-3-flash-preview,ungrounded,"The ""IO readiness"" is predictive of potential response in a recurrence scenario rather than current treatment necessity.",unknown,unsupported,True,other
+gpt-5.4-mini__ungrounded__TCGA-44-6148_baseline_standard_002,TCGA-44-6148,gpt-5.4-mini,ungrounded,"- **Clinical context:** Cohort is **lung adenocarcinoma (TCGA-LUAD)**, but no treatment history, stage, smoking status, or other clinical predictors of immunotherapy benefit were available in the structured data.",partial,supported,True,clinical
+gpt-4o-mini__grounded__TCGA-55-8085_full_multimodal_standard_001,TCGA-55-8085,gpt-4o-mini,grounded,- **RNA Evidence:** Not available; no transcriptomics input detected for this case.,supported,supported,True,RNA
+gpt-5.4-mini__ungrounded__TCGA-55-7227_baseline_standard_001,TCGA-55-7227,gpt-5.4-mini,ungrounded,- **RNA evidence:** No RNA-based immune signatures or expression results were provided.,partial,conflict,False,RNA
+gemini-2.5-flash__grounded__TCGA-44-2668_full_multimodal_standard_005,TCGA-44-2668,gemini-2.5-flash,grounded,"**Clinical Context:** Clinical context contributed 36.5% to the score, with the patient being stage III and 67 years old.",partial,supported,True,clinical
+gemini-2.5-flash__grounded__TCGA-55-8510_full_multimodal_standard_005,TCGA-55-8510,gemini-2.5-flash,grounded,"**Uncertainty/Limitations:** The fusion score remained provisional due to the unavailability of transcriptomics data, meaning the refined score is identical to the provisional score (delta = +0.000).",partial,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-55-6971_full_multimodal_standard_002,TCGA-55-6971,gemini-2.5-flash,grounded,"**RNA Evidence:** Transcriptomics signal was unavailable, resulting in a fusion delta score of 0.0, meaning no transcriptomic contribution to the score.",supported,supported,True,uncertainty
+gpt-5.4-mini__grounded__TCGA-86-6851_full_multimodal_standard_003,TCGA-86-6851,gpt-5.4-mini,grounded,"No transcriptomics input detected, so **cyt_score, gep_score, and tide_score are not available** and RNA-based inflamed/exclusion assessment cannot be made.",supported,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-05-5423_full_multimodal_standard_003,TCGA-05-5423,gemini-2.5-flash,grounded,"A top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.",supported,supported,True,pathology
+gemini-2.5-flash__grounded__TCGA-55-6982_full_multimodal_standard_004,TCGA-55-6982,gemini-2.5-flash,grounded,"Therefore, no RNA evidence (e.g., cyt_score, gep_score, tide_score) is available.",partial,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-75-6214_full_multimodal_standard_004,TCGA-75-6214,gpt-4o-mini,grounded,The largest contribution to the score came from pathology (63.5%).,partial,supported,True,pathology
+gemini-2.5-flash__grounded__TCGA-75-6206_full_multimodal_standard_006,TCGA-75-6206,gemini-2.5-flash,grounded,"**Uncertainty/Limitations:** The fusion score is provisional because transcriptomics input was unavailable, resulting in a fusion_delta_score of 0.0.",supported,supported,True,uncertainty
+gpt-4o-mini__grounded__TCGA-05-4382_full_multimodal_standard_000,TCGA-05-4382,gpt-4o-mini,grounded,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.",supported,partial,True,pathology
+gpt-4o-mini__grounded__TCGA-75-6214_full_multimodal_standard_001,TCGA-75-6214,gpt-4o-mini,grounded,- **RNA Evidence:** Not available; no transcriptomics input detected for this case.,supported,supported,True,RNA
+gemini-2.5-flash__grounded__TCGA-55-7911_full_multimodal_standard_005,TCGA-55-7911,gemini-2.5-flash,grounded,"Therefore, no RNA evidence contributes to the current assessment.",partial,supported,True,RNA
+gemini-3-flash-preview__ungrounded__TCGA-75-5146_baseline_standard_003,TCGA-75-5146,gemini-3-flash-preview,ungrounded,"*   **Cytolytic Activity:** High Cytolytic Activity (CYT) score, suggesting active granzyme/perforin-mediated cell killing by T-cells and NK cells.",partial,unsupported,True,RNA
+gpt-5.4-mini__ungrounded__TCGA-55-8094_baseline_standard_003,TCGA-55-8094,gpt-5.4-mini,ungrounded,"- **Uncertainty / limitations:** Immunotherapy readiness cannot be determined from the available evidence because the dataset lacks the necessary immune biomarker, pathology, and transcriptomic inputs.",partial,conflict,False,RNA
+gpt-5.4-mini__grounded__TCGA-05-4384_full_multimodal_standard_006,TCGA-05-4384,gpt-5.4-mini,grounded,No direct clinical source/follow-up survival fields were available.,partial,supported,True,clinical
+gemini-3-flash-preview__ungrounded__TCGA-55-8621_baseline_standard_007,TCGA-55-8621,gemini-3-flash-preview,ungrounded,*   **Microenvironment:** Deconvolution (CIBERSORT) suggests a high fraction of CD8+ T cells and M1 macrophages.,unknown,unsupported,True,other
+gpt-5.4-mini__ungrounded__TCGA-05-5428_baseline_standard_002,TCGA-05-5428,gpt-5.4-mini,ungrounded,- **Clinical context:** Lung adenocarcinoma (TCGA-LUAD) case; no additional treatment or immune-related clinical details available in the structured data.,partial,supported,True,clinical
+gpt-5.4-mini__ungrounded__TCGA-38-4628_baseline_standard_000,TCGA-38-4628,gpt-5.4-mini,ungrounded,"**Immunotherapy readiness summary (TCGA-38-4628, LUAD):**
+
+- **IO immune tier:** **Not assessable from the provided structured evidence**  
+- **Key pathology evidence:** **No structured pathology immune markers provided** (e.g., PD-L1, TILs, CD8, MSI/MMR not available in the supplied data)
+- **RNA evidence:** **Not available / not provided**
+- **Clinical context:** **Lung adenocarcinoma (TCGA-LUAD)**; no additional treatment, biomarker, or immune-response context supplied
+- **Uncertainty / limitations:**  
+  - Immunotherapy readiness cannot be determined reliably from the available structured evidence alone.",supported,supported,True,RNA
+gpt-5.4-mini__ungrounded__TCGA-55-A4DG_baseline_standard_000,TCGA-55-A4DG,gpt-5.4-mini,ungrounded,"**Immunotherapy readiness summary — TCGA-55-A4DG (TCGA-LUAD)**
+
+- **IO immune tier:** **Not assessable / insufficient structured evidence provided**
+- **Key pathology evidence:** No structured pathology markers relevant to immunotherapy readiness were provided in the available evidence.",partial,supported,True,pathology
+gpt-5.4-mini__grounded__TCGA-05-4395_full_multimodal_standard_000,TCGA-05-4395,gpt-5.4-mini,grounded,"**Immunotherapy readiness (IO immune tier):** **Moderate / provisional favorable** based on the available fused proxy score (**0.641**), with **pathology as the dominant contributor**.",supported,unknown,True,uncertainty
+gpt-5.4-mini__ungrounded__TCGA-55-6975_baseline_standard_001,TCGA-55-6975,gpt-5.4-mini,ungrounded,- **RNA evidence:** No RNA-based immune signature or expression evidence provided.,partial,supported,True,RNA
+gpt-5.4-mini__ungrounded__TCGA-44-6147_baseline_standard_000,TCGA-44-6147,gpt-5.4-mini,ungrounded,"**Immunotherapy readiness summary (TCGA-44-6147, LUAD)**
+
+- **IO immune tier:** **Not assessable / insufficient structured evidence provided**
+- **Key pathology evidence:** No structured pathology immune markers were provided in the available record (e.g., PD-L1, TILs, CD8, MSI, or related immune features not available).",partial,supported,True,pathology
+gemini-2.5-flash__grounded__TCGA-44-7659_full_multimodal_standard_002,TCGA-44-7659,gemini-2.5-flash,grounded,Pathology contributed 65.3% to the score.,partial,supported,True,pathology
+gemini-2.5-flash__grounded__TCGA-75-5122_full_multimodal_standard_007,TCGA-75-5122,gemini-2.5-flash,grounded,**Uncertainty/Limitations:** The fusion score is provisional because transcriptomics data was unavailable.,supported,supported,True,uncertainty
+gemini-3-flash-preview__ungrounded__TCGA-55-8090_baseline_standard_002,TCGA-55-8090,gemini-3-flash-preview,ungrounded,"*   **RNA Evidence:** 
+    *   **PD-L1 Expression:** High mRNA expression of *CD274* (PD-L1).",partial,unsupported,True,RNA
+gpt-4o-mini__grounded__TCGA-44-7671_full_multimodal_standard_001,TCGA-44-7671,gpt-4o-mini,grounded,- **RNA Evidence:** Not available (no transcriptomics input detected).,supported,supported,True,RNA
+gpt-4o-mini__grounded__TCGA-55-7576_full_multimodal_standard_003,TCGA-55-7576,gpt-4o-mini,grounded,"- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the fusion score, which remains provisional.",supported,supported,True,uncertainty
+gemini-2.5-flash__grounded__TCGA-44-6145_full_multimodal_standard_004,TCGA-44-6145,gemini-2.5-flash,grounded,Pathology contributed 64.5% to the overall score.,partial,supported,True,pathology

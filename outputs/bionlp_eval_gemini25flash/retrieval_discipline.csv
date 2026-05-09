@@ -1,0 +1,154 @@
+case_id,summary_standard,summary_literature,literature_used_standard,literature_used_literature_prompt,notes
+TCGA-44-6147,"This patient's immunotherapy readiness is indicated by a provisional fusion score of 0.683.
+
+**Key Pathology Evidence:** Pathology shows Tumor (61%) and Stroma (24%), with a top tile (tile_183) scoring 0.87, characterized by a dense tumor-infiltrating lymphocyte cluster. This pathology evidence contributed 59.7% to the score.
+
+**RNA Evidence:** Transcriptomics signal was unavailable, and no transcriptomic scores (cytolytic activity, GEP, TIDE) were detected.
+
+**Clinical Context:** Clinical factors contributed 40.3% to the score, including stage III disease, never smoker status, and age 46.
+
+**Uncertainty/Limitations:** The fusion score is provisional because transcriptomics data was unavailable, meaning the score could not be refined further. The `fusion_delta_score` is 0.0, reflecting the lack of transcriptomic input.","**Patient-Specific Immunotherapy Readiness:**
+
+This patient's provisional multimodal research-only fused proxy score for immunotherapy readiness is **0.683**. This score is primarily driven by pathology (59.7%) and clinical factors (40.3%). Pathology evidence shows a ""Dense tumor-infiltrating lymphocyte cluster"" in tile_183 with a score of 0.87, and the tumor comprises 61% of the tissue. Clinical factors include stage III, never smoker, and age 46. Transcriptomics data was unavailable for this case.
+
+**Relevant Literature Context:**
+
+Literature on TIL-based adoptive cell therapy (ACT) in locally advanced cervical cancer indicates a **74.1% feasibility** for TIL expansion. In a study of 12 patients receiving TILs, **75.0% (9 of 12 patients) achieved a complete response**. Regarding safety, **8.3% (1 of 12 patients) experienced severe toxicity** (Grade 3 hypersensitivity), but no autoimmune adverse events or treatment-related mortalities were reported. Quantitative comparison of patient-specific scores to literature-derived baselines is not possible from this abstract-level evidence.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-7994,"This patient's immunotherapy readiness is characterized by a provisional fusion score of 0.676.
+
+**IO Immune Tier:** Not explicitly stated as a tier, but the provisional fusion score of 0.676 suggests a moderately favorable profile.
+
+**Key Pathology Evidence:** Pathology contributed 60.4% to the score, showing Tumor (61%) and Stroma (24%). The top tile, tile_183, scored 0.87, indicating a ""Dense tumor-infiltrating lymphocyte cluster.""
+
+**RNA Evidence:** Transcriptomics signal was unavailable, and no transcriptomics input was detected for this case. Therefore, no RNA evidence (e.g., cytolytic activity, GEP, TIDE scores) is available.
+
+**Clinical Context:** Clinical factors contributed 39.6%, including stage=III, age=45, and smoker status=unknown.
+
+**Uncertainty/Limitations:** The fusion score is provisional because transcriptomics data was unavailable, preventing a refined score calculation.","**Patient-Specific Immunotherapy Readiness:**
+
+This patient has a research-only provisional fusion score of 0.676, which is also the active and refined score. The largest contribution to this score came from pathology (60.4%), which identified a ""Dense tumor-infiltrating lymphocyte cluster"" with a top tile score of 0.87. The tissue composition includes 61% tumor and 24% stroma. Clinical factors contributing to the score (39.6%) include stage III and age 45. Transcriptomics data was unavailable for this case.
+
+**Relevant Literature Context (PMID:35727633):**
+
+In a study of locally advanced cervical cancer, tumor-infiltrating lymphocytes (TILs) were successfully expanded from 74.1% of patients. Among 12 patients who received TIL-based adoptive cell therapy (ACT), 75.0% achieved a complete response, with disease control durations ranging from 9 to 22 months. Severe toxicity (Grade 3 hypersensitivity) occurred in 8.3% of patients, but no autoimmune adverse events or treatment-related mortalities were reported. Quantitative comparison of patient-specific scores (e.g., fusion score) with literature-derived outcomes is not possible from this abstract-level evidence.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-7281,"This patient's immunotherapy readiness is indicated by a provisional fusion score of 0.674, where a higher score is more favorable.
+
+**Key Pathology Evidence:** Pathology contributed 60.5% to the score, showing Tumor (61%) and Stroma (24%). The top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+
+**RNA Evidence:** Transcriptomics signal was unavailable, resulting in a fusion delta score of 0.0, and no cytolytic activity (cyt_score), T-cell inflamed gene expression profile (gep_score), or Tumor Immune Dysfunction and Exclusion (tide_score) could be calculated.
+
+**Clinical Context:** Clinical data contributed 39.5% to the score, indicating stage III disease, age 46, and unknown smoker status.
+
+**Uncertainty/Limitations:** The fusion score is provisional due to the unavailability of transcriptomics data. This is a research-only proxy and not for clinical use.","This patient's immunotherapy readiness, as indicated by the research-only provisional fusion score, is 0.67431 (on a scale of 0-1, higher being more favorable).
+
+**Patient-specific evidence:**
+The largest contribution to this score came from pathology (60.5%), which identified a dense tumor-infiltrating lymphocyte cluster (top tile score 0.87) within the tumor (61%) and stroma (24%). Clinical factors, including stage III and age 46, contributed 39.5%. Transcriptomics data was unavailable, meaning no cytolytic activity, T-cell inflamed gene expression profile, or Tumor Immune Dysfunction and Exclusion scores could be calculated, and the fusion score remained provisional.
+
+**Relevant literature context:**
+High CD8+ tumor infiltration is strongly associated with clinical benefit, particularly when tumors retain good expression of HLA-A and HLA-B/C (p=0.004). In a study of 197 patients with resected pulmonary adenocarcinoma, loss and low expression of HLA-A was observed in 44% of cases, and HLA-B/C in 75% of cases. High expression of HLA-E in tumors (seen in >70% of tumors in the study) is an independent negative prognostic factor for overall survival (p=0.031). The prognostic benefit of dense stromal CD8+ T cell infiltration is strongly associated with improved overall survival only in HLA-E negative tumors (p=0.005), and this effect is abolished when tumors highly express HLA-E (p=0.989). Quantitative comparison of patient-specific CD8+ infiltration with literature baselines for HLA expression is not possible from the provided abstract-level evidence.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-6712,"The patient's provisional immunotherapy readiness score is 0.670, indicating a favorable profile.
+
+**Key Pathology Evidence:** Pathology shows Tumor (61%) and Stroma (24%). The top tile, tile_183, scored 0.87, indicating a Dense tumor-infiltrating lymphocyte cluster.
+
+**RNA Evidence:** Transcriptomics signal was unavailable, and no transcriptomics input was detected for this case. Therefore, cytolytic activity (cyt_score), T-cell inflamed gene expression profile (gep_score), and Tumor Immune Dysfunction and Exclusion (tide_score) are not available.
+
+**Clinical Context:** The patient is age 49 with stage III disease; smoker status is unknown.
+
+**Uncertainty/Limitations:** The fusion score remained provisional due to the unavailability of transcriptomics data. This is a research-only proxy and not for clinical use.","**Patient-Specific Immunotherapy Readiness:**
+
+This patient has a provisional multimodal fusion score of 0.670, indicating a research-only proxy for immunotherapy readiness. The score is primarily driven by pathology (60.9%) and clinical (39.1%) data. Pathology analysis shows Tumor (61%) and Stroma (24%), with a top tile (tile_183) scoring 0.87, characterized by a ""Dense tumor-infiltrating lymphocyte cluster."" Clinically, the patient is 49 years old and has stage III disease; smoker status is unknown. Transcriptomics data, including cytolytic activity (cyt_score), GEP score, and TIDE score, were unavailable, meaning the fusion score could not be refined.
+
+**Relevant Literature Context:**
+
+Literature suggests that ""hot"" inflammatory immune environments are beneficial for the clinical efficacy of TIL-based adoptive cell therapy (ACT). Transcriptomic characteristics of infused TIL products and immune biomarkers in the tumor microenvironment and serum have been correlated with clinical response. In a study, TIL expansion was feasible in 74.1% of patients, with 12 patients receiving TILs. Among these, 75.0% achieved a complete response, with disease control durations ranging from 9-22 months. Severe toxicity (Grade 3 hypersensitivity) was observed in 8.3% of patients. Quantitative comparison of this patient's specific scores (e.g., cyt_score, GEP_score, TIDE_score) with literature baselines is not possible due to the unavailability of these metrics for the patient.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-05-5420,"This patient's immunotherapy readiness is indicated by a provisional fusion score of 0.670 (research-use only).
+
+**Key Pathology Evidence:** Pathology shows Tumor (61%) and Stroma (24%). The top tile, tile_183, scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+
+**RNA Evidence:** Transcriptomics signal was unavailable, so no RNA evidence (e.g., cytolytic activity, GEP, TIDE scores) is available for this case.
+
+**Clinical Context:** The patient is stage IV, a never smoker, and 48 years old.
+
+**Uncertainty/Limitations:** The fusion score is provisional because transcriptomics data was unavailable, meaning the score does not incorporate RNA evidence. The score is a research-only proxy and not for clinical use.","This patient's provisional immunotherapy readiness score is **0.670**.
+
+**Patient-specific evidence:**
+The score is primarily driven by **pathology** (60.9% contribution), which shows Tumor (61%) and Stroma (24%), with a top tile (tile_183) scoring 0.87 for a ""Dense tumor-infiltrating lymphocyte cluster."" **Clinical factors** (39.1% contribution) include stage IV disease, never smoker status, and age 48. **Transcriptomics** data, including cytolytic activity (cyt_score), T-cell inflamed gene expression profile (gep_score), and Tumor Immune Dysfunction and Exclusion (tide_score), were unavailable for this case.
+
+**Literature-derived context:**
+Tumor-infiltrating lymphocyte (TIL) therapy has shown a feasibility of 74.1% for TIL expansion from patient samples. In a cohort of 12 patients who received TILs following chemoradiotherapy (CCRT), 75.0% achieved a complete response with disease control durations ranging from 9-22 months. Severe toxicity (Grade 3 hypersensitivity) was observed in 8.3% of patients. ""Hot"" inflammatory immune environments are considered beneficial for the clinical efficacy of TIL-based adoptive cell therapy (ACT), and transcriptomic characteristics of infused TIL products and immune biomarkers correlate with clinical response. Quantitative comparison of this patient's specific scores (e.g., cyt_score, gep_score) with literature baselines is not possible due to the unavailability of these metrics for the patient.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-8203,"This patient's immunotherapy readiness is characterized by a provisional fusion score of 0.670, indicating a favorable readiness based on available evidence.
+
+**IO Immune Tier:** Not explicitly defined as a tier, but the provisional fusion score is 0.670 (range 0-1, higher = more favorable).
+
+**Key Pathology Evidence:** Pathology evidence, contributing 60.9% to the score, shows Tumor (61%) and Stroma (24%). The top tile (tile_183) scored 0.87, indicating a ""Dense tumor-infiltrating lymphocyte cluster.""
+
+**RNA Evidence:** Transcriptomics signal was unavailable, and no transcriptomics input was detected for this case. Therefore, no RNA evidence (e.g., cyt_score, gep_score, tide_score) is available.
+
+**Clinical Context:** Clinical context, contributing 39.1% to the score, includes stage IV disease, never smoker status, and age 48.
+
+**Uncertainty/Limitations:** The fusion score is provisional because transcriptomics data was unavailable. This means the refined score is identical to the provisional score (delta = 0.0), and the absence of transcriptomic input is a key limitation.","This patient's immunotherapy readiness, as indicated by the research-only multimodal provisional fused proxy score, is 0.670.
+
+**Patient-Specific Evidence:**
+Pathology evidence shows a ""Dense tumor-infiltrating lymphocyte cluster"" (top tile score 0.87), with Tumor (61%) and Stroma (24%). Clinical factors include stage IV disease, never smoker status, and age 48. Transcriptomics data, including cytolytic activity (cyt_score), T-cell inflamed gene expression profile (gep_score), and Tumor Immune Dysfunction and Exclusion (tide_score), were unavailable, meaning the fusion score remained provisional and was not refined by transcriptomic input.
+
+**Literature Context (PMID:35727633):**
+Tumor-infiltrating lymphocyte (TIL) expansion has a reported feasibility of 74.1%. In a study of 12 patients receiving TILs, 75.0% achieved a complete response, with disease control durations ranging from 9-22 months. Severe toxicity (Grade 3 hypersensitivity) was observed in 8.3% of patients. ""Hot"" inflammatory immune environments and transcriptomic characteristics of infused TIL products, along with immune biomarkers in the tumor microenvironment and serum, were correlated with clinical efficacy of TIL-based adoptive cell therapy.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-8510,"This patient's immunotherapy readiness is characterized by a provisional fusion score of 0.670.
+
+**Key Pathology Evidence:** Pathology evidence shows Tumor (61%) and Stroma (24%), with a top tile (tile_183) scoring 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+
+**RNA Evidence:** Transcriptomics signal was unavailable, resulting in no transcriptomics input detected for this case. Consequently, the cytolytic activity (cyt_score), T-cell inflamed gene expression profile (gep_score), and Tumor Immune Dysfunction and Exclusion (tide_score) are all null.
+
+**Clinical Context:** Clinical context contributed 39.1% to the score, indicating stage III disease, current smoker status, and age 45.
+
+**Uncertainty/Limitations:** The fusion score remained provisional due to the unavailability of transcriptomics data, meaning the refined score is identical to the provisional score (delta = +0.000). This assessment is a research-only proxy and not for clinical use.","This patient's immunotherapy readiness, as indicated by the research-only multimodal provisional fusion score, is 0.670.
+
+**Patient-Specific Evidence:**
+Pathology evidence shows a dense tumor-infiltrating lymphocyte cluster (top tile score 0.87) within 61% tumor and 24% stroma. Clinical factors include stage III disease, current smoker status, and age 45. Transcriptomics signal was unavailable, meaning the fusion score remained provisional. The largest contribution to the score came from pathology (60.9%).
+
+**Literature Context (PMID:35727633):**
+In a study of locally advanced cervical cancer, tumor-infiltrating lymphocytes (TILs) were successfully expanded in 74.1% of patients. TIL-based adoptive cell therapy (ACT) resulted in a 75.0% complete response rate (9 of 12 patients) with disease control durations ranging from 9 to 22 months. Severe toxicity (Grade 3 hypersensitivity) occurred in 8.3% of patients (1 of 12), with no reported autoimmune adverse events or treatment-related mortalities. Quantitative comparison of this patient's TIL density to specific thresholds for TIL expansion feasibility or response rates from the literature is not possible from the abstract-level evidence provided.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-44-3398,"This patient's immunotherapy readiness is characterized by a provisional fusion score of 0.667.
+
+**IO Immune Tier:** Not explicitly stated as a tier, but the provisional fusion score of 0.667 suggests a moderate to favorable readiness.
+
+**Key Pathology Evidence:** Pathology contributed 61.2% to the score, showing Tumor (61%) and Stroma (24%). The top tile, `tile_183`, scored 0.87 and is described as a ""Dense tumor-infiltrating lymphocyte cluster.""
+
+**RNA Evidence:** Transcriptomics signal was unavailable, so no RNA evidence (e.g., cytolytic activity, GEP, TIDE scores) is available for this case.
+
+**Clinical Context:** Clinical context contributed 38.8%, with the patient being stage III, age 51, and smoker status unknown.
+
+**Uncertainty or Limitations:** The fusion score is provisional because transcriptomics data was unavailable, resulting in a fusion delta score of 0.0. This means the refined score is identical to the provisional score, and transcriptomic markers like `cyt_score`, `gep_score`, and `tide_score` are null.","**Patient-Specific Immunotherapy Readiness:**
+
+This patient's immunotherapy readiness is indicated by a provisional fusion score of 0.667 (active and refined scores are also 0.667, with a delta of 0.0). Pathology contributed 61.2% to this score, showing 61% tumor and 24% stroma. A top tile (tile_183) scored 0.87, indicating a ""Dense tumor-infiltrating lymphocyte cluster."" Clinical factors contributed 38.8%, with the patient being stage III and age 51 (smoker status unknown). Transcriptomics data was unavailable, so the fusion score remained provisional.
+
+**Literature Context:**
+
+Literature suggests that the quality and magnitude of tumor-infiltrating lymphocytes (TILs), including T, NK, and B cells, within the tumor microenvironment are linked to the outcome of immune checkpoint inhibitor (ICB) therapy (PMID:33139907). Immunotherapy, including adoptive cell transfer (ACT) and ICIs, has achieved durable clinical responses, though efficacy varies (PMID:32612154). Regulatory T cells (Tregs) are abundant in tumor tissues and are targets for cancer immunotherapy (PMID:36917950). Studies have shown successful expansion of TILs (e.g., 74.1% feasibility in a cervical cancer study, PMID:35727633) and objective responses with TIL therapy (e.g., 75% complete response rate in cervical cancer, PMID:35727633; 63% objective response rate at high doses in metastatic melanoma, PMID:25695689). Quantitative comparison of this patient's TIL density to specific response thresholds from abstract-level literature is not possible.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-7570,"The patient's provisional fusion score for immunotherapy readiness is 0.666, which is considered more favorable.
+
+**Key Pathology Evidence:** Pathology evidence, contributing 61.2%, shows 61% Tumor and 24% Stroma. The top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+
+**RNA Evidence:** Transcriptomics signal was unavailable, resulting in no cytolytic activity (cyt_score), T-cell inflamed gene expression profile (gep_score), or Tumor Immune Dysfunction and Exclusion (tide_score) data.
+
+**Clinical Context:** Clinical context, contributing 38.8%, includes a stage III diagnosis, never smoker status, and age 57.
+
+**Uncertainty/Limitations:** The fusion score remains provisional due to the unavailability of transcriptomics data, with a delta score of 0.0. This assessment is a research-only proxy and not for clinical use.","This patient's immunotherapy readiness, as indicated by the research-only multimodal provisional fusion score, is 0.66633.
+
+**Patient-Specific Evidence:**
+The patient's pathology evidence shows a ""Dense tumor-infiltrating lymphocyte cluster"" with a top tile score of 0.87, and tumor content of 61%. Pathology contributed 61.2% to the fusion score. Clinical factors include stage III, never smoker, and age 57, contributing 38.8% to the score. Transcriptomics data was unavailable, meaning transcriptomic scores like cytolytic activity, GEP, and TIDE scores could not be assessed, and the fusion score remained provisional.
+
+**Literature-Derived Context:**
+Literature suggests that tumor-infiltrating lymphocytes (TILs) can be successfully expanded, with one study reporting 74.1% feasibility in locally advanced cervical cancer. Clinical response rates for TIL-based therapies vary; for example, 75.0% complete response was observed in locally advanced cervical cancer patients receiving TILs after chemoradiotherapy, while objective response rates in metastatic melanoma ranged from 5.9% (low dose) to 63% (high dose) with NFAT.IL12-transduced TILs. Regarding safety, a study in cervical cancer reported 8.3% severe toxicity (Grade 3 hypersensitivity) but no autoimmune adverse events or treatment-related mortalities. Quantitative comparison of this patient's scores (e.g., cytolytic, GEP, TIDE) to literature baselines is not possible due to the unavailability of transcriptomics data.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-44-7671,"This patient's immunotherapy readiness is indicated by a provisional fusion score of 0.665 (research-only proxy).
+
+**Key Pathology Evidence:** Pathology shows Tumor (61%) and Stroma (24%), with the top tile (tile_183) scoring 0.87, indicating a Dense tumor-infiltrating lymphocyte cluster.
+**RNA Evidence:** Transcriptomics signal was unavailable, and no transcriptomics input was detected for this case.
+**Clinical Context:** Clinical data contributed 38.6% and includes stage=III, smoker=current, and age=48.
+**Uncertainty/Limitations:** The fusion score remained provisional due to unavailable transcriptomics data, resulting in a fusion delta score of 0.0. The reported scores are research-only proxy scores and not for clinical use.","**Patient-Specific Immunotherapy Readiness:**
+
+This patient has a research-only multimodal provisional fusion score of 0.665. Pathology evidence, contributing 61.4% to this score, indicates a ""Dense tumor-infiltrating lymphocyte cluster"" (top tile score 0.87) within a tumor (61%) and stroma (24%) composition. Clinical factors, contributing 38.6%, include stage III disease, current smoker status, and age 48. Transcriptomics data, including cytolytic activity (cyt_score), T-cell inflamed gene expression profile (gep_score), and Tumor Immune Dysfunction and Exclusion (tide_score), were unavailable, meaning the fusion score could not be refined.
+
+**Relevant Literature Context:**
+
+Tumor-infiltrating lymphocytes (TILs) are a key component of the immune response. Literature indicates that TILs can be successfully expanded from patients, with one study reporting 74.1% feasibility in locally advanced cervical cancer (PMID:35727633). Efficacy of TIL-based therapies varies by cancer type and treatment specifics; for instance, complete response rates of 75.0% have been observed in locally advanced cervical cancer (PMID:35727633), while objective response rates in metastatic melanoma ranged from 5.9% (low dose) to 63% (high dose) with NFAT.IL12-transduced TILs (PMID:25695689). Regarding safety, severe toxicity (Grade 3 hypersensitivity) was reported in 8.3% of patients in a cervical cancer study, with no autoimmune adverse events or treatment-related mortalities (PMID:35727633).",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 

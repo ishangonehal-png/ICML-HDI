@@ -1,0 +1,224 @@
+case_id,summary_standard,summary_literature,literature_used_standard,literature_used_literature_prompt,notes
+TCGA-44-6147,"Based on the available structured evidence for case TCGA-44-6147:
+
+*   **IO Immune Tier:** Moderately favorable (Fusion Score: 0.683).
+*   **Key Pathology Evidence:** The specimen consists of 61% tumor and 24% stroma. The primary driver of the pathology signal (59.7% contribution) is the presence of dense tumor-infiltrating lymphocyte (TIL) clusters, specifically identified in tile_183 (score 0.87).
+*   **RNA Evidence:** None available. Transcriptomics input was not detected for this case; CYT, GEP, and TIDE scores are null.
+*   **Clinical Context:** Patient is a 46-year-old never-smoker with Stage III disease. Clinical factors contributed 40.3% to the fusion score, with specific signals for stage (0.63) and smoking status (0.60).
+*   **Uncertainty & Limitations:** The assessment is strictly **provisional**. The lack of transcriptomic data (delta score 0.0) means the immune microenvironment has not been refined by gene expression profiling. Quantitative comparison to literature baselines is not possible from the provided evidence.
+
+**Research-use only.**","### Immunotherapy Readiness Summary: Case TCGA-44-6147
+
+**Patient-Specific Evidence**
+*   **Multimodal Fusion Score:** The patient has a **provisional fusion score of 0.683** (range 0–1, higher is more favorable). This score is driven primarily by pathology (59.7%) and clinical (40.3%) inputs.
+*   **Pathology Insights:** Analysis shows a tumor purity of 61% and stroma at 24%. A critical finding is the top-scoring pathology tile (tile_183, score 0.87), which identifies a **dense tumor-infiltrating lymphocyte (TIL) cluster**.
+*   **Clinical Profile:** The patient is 46 years old, a never-smoker, and diagnosed with Stage III disease.
+*   **Data Limitations:** Transcriptomic metrics (CYT, GEP, and TIDE scores) are currently unavailable, meaning the fusion score remains provisional and does not account for gene expression-based immune evasion or inflammation signatures.
+*   **Survival Proxy:** A research-only survival MLP predicts an 83% probability of 2-year survival.
+
+**Literature-Derived Context**
+*   **TIL Significance:** The dense TIL cluster identified in pathology is a positive indicator; literature suggests that a high ratio of ""pre-exhausted"" to exhausted CD8+ T cells is associated with a better prognosis in lung adenocarcinoma (PMID: 29942094).
+*   **Immune Infiltration:** Lower B lymphocyte-related indices (BRI) have been shown to correlate with higher cytotoxic CD8+ T-cell infiltration and a higher likelihood of responding to immunotherapy (PMID: 40196113).
+*   **Resistance Factors:** While TILs are present, immunotherapy efficacy can be hindered by the co-expression of exhaustion markers (PD1, LAG3, TIGIT) or specific mutations like KRAS-G12D, which reduces TIL recruitment (PMID: 39591972, 35811500).
+
+**Note on Quantitative Comparison:** A direct quantitative comparison between the patient’s fusion score and literature baselines is not possible as the provided abstracts do not contain explicit numeric baseline scales for these specific multimodal proxy scores.
+
+*Research-use only. Not for clinical use.*",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-7994,"Based on the structured evidence for case TCGA-55-7994, the immunotherapy readiness summary is as follows:
+
+*   **IO Immune Tier**: The patient has a **provisional fusion score of 0.676**, indicating a moderately favorable profile (range 0–1).
+*   **Key Pathology Evidence**: Pathology provided the largest contribution (60.4%). The tissue is composed of 61% tumor and 24% stroma. A key feature is a **dense tumor-infiltrating lymphocyte (TIL) cluster** identified in the top-scoring tile (tile_183, score 0.87).
+*   **RNA Evidence**: **Unavailable.** No transcriptomics input (CYT, GEP, or TIDE scores) was detected for this case; the transcriptomics contribution is 0%.
+*   **Clinical Context**: The patient is 45 years old with **Stage III** disease. Smoking status is unknown. Clinical factors contributed 39.6% to the provisional score.
+*   **Uncertainty and Limitations**: The assessment is **provisional** rather than refined, as the fusion score lacks transcriptomic data (delta score of 0.0). Quantitative comparison to literature baselines is not possible from the provided abstract-level evidence.
+
+**Research-use only.**","### Immunotherapy Readiness Summary: Case TCGA-55-7994
+
+**Patient-Specific Evidence**
+*   **Multimodal Fusion Score:** The patient has a provisional fusion score of **0.676** (range 0–1, higher is more favorable), suggesting a moderately positive outlook for immunotherapy readiness based on available data.
+*   **Pathology Drivers:** Pathology provided the largest contribution to the assessment (**60.4%**). Analysis identified a high tumor fraction (61%) and a top-scoring pathology tile (tile_183, score **0.87**) characterized by a **dense tumor-infiltrating lymphocyte (TIL) cluster**.
+*   **Clinical Context:** Clinical factors contributed **39.6%** to the score, noting the patient is **45 years old** with **Stage III** disease.
+*   **Data Limitations:** Transcriptomic metrics (CYT, GEP, and TIDE scores) are **unavailable** for this case; therefore, the fusion score remains provisional and does not account for gene expression-based inflammation or immune evasion signatures.
+
+**Literature-Derived Context**
+*   **TIL Significance:** In lung adenocarcinoma, the presence of TILs is a key prognosticator; specifically, a high ratio of ""pre-exhausted"" to exhausted CD8+ T cells is associated with a better prognosis (PMID: 29942094).
+*   **Resistance Markers:** Despite dense TIL clusters, immunotherapy resistance can occur if CD8+ T cells co-express exhaustion markers such as PD1, LAG3, TIGIT, and TIM3 (PMID: 39591972).
+*   **B-Cell Correlation:** Quantitative analysis has shown that lower B lymphocyte-related indices (BRI) correlate inversely with cytotoxic CD8+ T-cell infiltration (r = -0.43), with lower BRI scores predicting better immunotherapy response (PMID: 40196113).
+*   **Genomic Modifiers:** Specific mutations, such as KRAS-G12D, can actively resist immune checkpoint inhibitors by reducing CD8+ TIL recruitment via down-regulation of CXCL10/CXCL11 (PMID: 35811500).
+
+*Note: Quantitative comparison between patient metrics and literature baselines is not possible from abstract-level evidence. Research-use only.*",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-7281,"Based on the available structured evidence for case TCGA-55-7281, the immunotherapy readiness summary is as follows:
+
+*   **IO Immune Tier (Proxy):** The patient has a **provisional fusion score of 0.674**, indicating a moderately favorable profile on a 0–1 scale.
+*   **Key Pathology Evidence:** Pathology is the dominant contributor (60.5%). The tissue composition is 61% tumor and 24% stroma. A key feature is the presence of a **dense tumor-infiltrating lymphocyte (TIL) cluster** (top tile_183, score 0.87).
+*   **RNA Evidence:** **Unavailable.** No transcriptomics input was detected; consequently, the fusion delta score is 0.0, and specific inflammatory markers (CYT, GEP, TIDE) are not reported.
+*   **Clinical Context:** The patient is 46 years old with **Stage III** disease. Smoker status is unknown. The clinical proxy contributed 39.5% to the fusion score.
+*   **Uncertainty and Limitations:** The assessment is **provisional** due to the total absence of transcriptomic data. Quantitative comparison to literature baselines is not possible as no structured literature evidence was provided. The clinical signal is derived from deterministic proxies rather than full longitudinal metadata.
+
+**Research-use only.**","### Patient Immunotherapy Readiness Summary: TCGA-55-7281
+
+**Patient-Specific Evidence**
+*   **Multimodal Fusion Score:** The patient has a **provisional fusion score of 0.674**, indicating a moderately favorable profile for immunotherapy readiness (range 0–1). This score is driven primarily by pathology (60.5%) and clinical (39.5%) inputs.
+*   **Pathology Insights:** The strongest positive indicator is the presence of a **dense tumor-infiltrating lymphocyte (TIL) cluster** (top tile_183 score: 0.87). The tissue composition is 61% tumor and 24% stroma, with 8% necrosis.
+*   **Clinical Context:** The patient is 46 years old with **Stage III** disease. The clinical signal contribution (0.63 for stage) suggests a profile consistent with advanced but potentially reactive disease.
+*   **Data Limitations:** Transcriptomic markers (CYT, GEP, and TIDE scores) are currently unavailable; the fusion score remains provisional as the transcriptomics delta is 0.0.
+
+**Literature-Derived Context**
+*   **Immune Microenvironment:** The presence of dense TILs in this patient is a key metric; literature indicates that clinical response in NSCLC is significantly correlated with the modulation of the immune microenvironment, such as the reduction of regulatory T cells (Tregs) during chemo-immunotherapy (PMID: 24780112).
+*   **Treatment Efficacy in Stage III/N2:** For patients with Stage III/N2 NSCLC, neoadjuvant chemo-immunotherapy has been shown to reduce the hazard of death by 66%, with a 5-year overall survival of 59% (PMID: 22230406).
+*   **Biomarker Variability:** While pathology shows high TIL density, literature notes that PD-L1 expression in lung adenocarcinoma is only approximately 18.6% (PMID: 27237031) and can be discordant between primary and metastatic sites in 33% of cases (PMID: 37349126).
+
+**Quantitative Comparison**
+Quantitative comparison of the patient's specific transcriptomic scores (CYT/GEP) to literature baselines is not possible as these metrics were not available for this case.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-6712,"Based on the available structured evidence for case TCGA-55-6712:
+
+*   **IO Immune Tier**: The **provisional fusion score is 0.670**, indicating a moderately favorable multimodal profile for immunotherapy readiness.
+*   **Key Pathology Evidence**: Pathology contributed the largest signal (60.9%). The tissue is composed of 61% tumor and 24% stroma. A significant finding is a **dense tumor-infiltrating lymphocyte (TIL) cluster** identified in the top pathology tile (tile_183, score 0.87).
+*   **RNA Evidence**: **Unavailable**. No transcriptomics input was detected for this case; consequently, CYT, GEP, and TIDE scores are null, and the fusion delta is 0.0.
+*   **Clinical Context**: The patient is 49 years old with **Stage III** disease. Smoker status is unknown. The survival MLP (RNA+metadata) predicts a 0.00 probability of 2-year survival.
+*   **Uncertainty and Limitations**: The assessment is **provisional** due to the total absence of transcriptomic data. The lack of smoking history and specific molecular markers limits the clinical signal to deterministic stage and age proxies.
+
+**Research-use only.**","### Immunotherapy Readiness Summary: Case TCGA-55-6712
+
+**Patient-Specific Evidence**
+*   **Multimodal Fusion Score:** The patient has a provisional fusion score of **0.6697**, suggesting a moderately favorable profile for immunotherapy readiness. This score is driven primarily by pathology (60.9%) and clinical (39.1%) inputs.
+*   **Pathology Insights:** The tumor microenvironment consists of 61% tumor and 24% stroma. A critical positive indicator is the presence of a **dense tumor-infiltrating lymphocyte (TIL) cluster** (top tile_183, score 0.87), which is a key morphological proxy for immune activity.
+*   **Clinical Status:** The patient is 49 years old with **Stage III** disease. The clinical signal contribution (0.63 for stage) suggests a high-risk but potentially treatable profile.
+*   **Transcriptomic Data:** Currently unavailable (CYT, GEP, and TIDE scores are null). The fusion score remains provisional as transcriptomics did not contribute to the refined estimate (delta = 0.0).
+*   **Survival Prediction:** The research-only survival MLP predicts a low probability of 2-year survival (P=0.00), highlighting the aggressive nature of the case despite the presence of TILs.
+
+**Literature-Derived Context**
+*   **TILs and Response:** The dense TIL cluster identified in pathology is relevant as literature indicates that neoadjuvant chemo-immunotherapy can significantly reduce the hazard of death (by 66%) in Stage III (N2) NSCLC patients (PMID: 22230406).
+*   **Biomarker Prevalence:** In lung adenocarcinoma, PD-L1 positivity is observed in approximately 18.6% of cases and is often associated with poor survival (PMID: 27237031). Furthermore, PD-L1 expression can be discordant between primary and metastatic sites in 33% of patients (PMID: 37349126).
+*   **Immune Dynamics:** Clinical response in NSCLC has been significantly correlated with the reduction of regulatory T cells (Tregs) during immunotherapy (PMID: 24780112).
+
+**Note:** Quantitative comparison between this patient's scores and literature baselines is not possible from abstract-level evidence. Research-use only.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-05-5420,"Based on the available structured evidence for case TCGA-05-5420, the immunotherapy readiness summary is as follows:
+
+*   **IO Immune Tier (Proxy):** The provisional fusion score is **0.670**, indicating a moderately favorable profile (range 0-1).
+*   **Key Pathology Evidence:** Pathology provided the largest contribution (60.9%). The tissue is composed of 61% tumor and 24% stroma. A key feature is the presence of a **dense tumor-infiltrating lymphocyte (TIL) cluster** (top tile_183, score 0.87).
+*   **RNA Evidence:** **Unavailable.** No transcriptomics input was detected; CYT, GEP, and TIDE scores are null.
+*   **Clinical Context:** The patient is a 48-year-old never-smoker with Stage IV disease. Clinical factors contributed 39.1% to the assessment.
+*   **Uncertainty and Limitations:** The fusion score remains **provisional** due to the total absence of transcriptomic data (delta=0.0). Additionally, the survival MLP predicts a low 2-year survival probability (P=0.00).
+
+**Research-use only. Not for clinical use.**","### Patient-Specific Evidence
+*   **Multimodal Fusion Score:** The patient has a **provisional fusion score of 0.670**, suggesting a moderately favorable immunotherapy readiness profile. This score is driven primarily by pathology (60.9%) and clinical (39.1%) data.
+*   **Pathology Insights:** The tumor purity is 61% with 24% stroma. A key positive indicator is the presence of a **dense tumor-infiltrating lymphocyte (TIL) cluster** (top tile_183, score 0.87).
+*   **Clinical Profile:** The patient is 48 years old, a never-smoker, and presents with Stage IV disease.
+*   **Data Limitations:** Transcriptomic markers, including CYT (cytolytic activity), GEP (T-cell inflamed profile), and TIDE (immune evasion) scores, are currently **unavailable**, leaving the fusion score in a provisional state.
+
+### Literature-Derived Context
+*   **TIL Density and Prognosis:** In lung adenocarcinoma, TIL density is a critical prognostic marker. Research indicates that a TIL density of **<20%** is associated with a higher probability of rapid recurrence (RFS ≤ 1 year) (PMID: 32556504).
+*   **Immunosuppressive Markers:** High density of specific TIL subsets, such as **CCR4+ TILs**, is an independent poor prognostic factor for overall survival (HR=2.24) (PMID: 30233846). Conversely, tumor expression of **HLA class I and HLA-DR** is associated with longer recurrence-free survival (PMID: 41762250).
+*   **Tumor Morphology:** Pure-solid tumors (CTR=1) often exhibit significantly higher **PD-L1 and IDO1** expression compared to ground-glass opacity (GGO) lesions, suggesting a more immunosuppressive microenvironment in denser tumors (PMID: 35791738).
+
+**Summary:** The patient's readiness is supported by a moderately high fusion score and dense TIL clusters identified via pathology. However, the lack of transcriptomic data prevents a definitive assessment of immune exhaustion or exclusion signatures. Quantitative comparison to literature-defined TIL thresholds is not possible from the provided abstract-level evidence.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-8203,"Based on the available structured evidence for case TCGA-55-8203:
+
+*   **IO Immune Tier**: The patient has a **provisional fusion score of 0.670** (range 0–1), suggesting a moderately favorable multimodal profile for immunotherapy readiness.
+*   **Key Pathology Evidence**: Pathology provided the largest contribution (60.9%). While the tissue is 61% tumor and 24% stroma, the top-scoring pathology tile (tile_183, score 0.87) identifies a **dense tumor-infiltrating lymphocyte (TIL) cluster**, indicating localized immune infiltration.
+*   **RNA Evidence**: **Unavailable.** No transcriptomics input was detected for this case; consequently, CYT, GEP, and TIDE scores are null, and the fusion delta remains 0.0.
+*   **Clinical Context**: The patient is a 48-year-old never-smoker with Stage IV disease. Clinical factors contributed 39.1% to the score (stage_signal=0.58, smoker_signal=0.60).
+*   **Uncertainty and Limitations**: The assessment is **provisional** due to the complete absence of transcriptomic data. The lack of RNA evidence means immune evasion (TIDE) and specific inflammatory signatures (GEP) could not be evaluated to refine the score.
+
+**Research-use only.**","### Patient-Specific Immunotherapy Readiness
+*   **Multimodal Fusion Score:** The patient has a **provisional fusion score of 0.670**, indicating a moderately favorable profile for immunotherapy readiness. This score is primarily driven by pathology (60.9%) and clinical (39.1%) data, as transcriptomics were unavailable (delta score 0.0).
+*   **Pathology Evidence:** The largest contribution comes from pathology, which identifies a **dense tumor-infiltrating lymphocyte (TIL) cluster** (top tile_183, score 0.87). The tissue composition is 61% tumor and 24% stroma, with a total lymphocyte estimate of 7%.
+*   **Clinical Context:** The patient is 48 years old, a never-smoker, and presents with Stage IV disease. The clinical proxy signals for stage (0.58) and smoking status (0.60) contribute to the overall readiness estimate.
+*   **Missing Metrics:** Transcriptomic markers, including CYT (cytolytic activity), GEP (T-cell inflamed profile), and TIDE (immune evasion) scores, are currently unavailable for this case.
+
+### Literature-Derived Context
+*   **TIL Significance:** In metastatic NSCLC, low TIL levels (e.g., <5%) have been used to distinguish true disease progression from pseudo-progression during anti-PD-L1 therapy (PMID: 27431235). This patient’s identified dense TIL clusters (tile score 0.87) may suggest a more active immune microenvironment than the <5% threshold.
+*   **Treatment Response:** Research into chemo-adoptive immunotherapy (CAIT) indicates that high response rates (67%) and significant downstaging (83%) are achievable in advanced cancers, often correlating with a ≥3-fold increase in peripheral CD8+ T cell counts (PMID: 38298433).
+
+**Note:** Quantitative comparison between this patient's specific TIL percentage and literature-derived response thresholds is not possible from abstract-level evidence alone. This summary is for research use only.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-8510,"Based on the available structured evidence for case TCGA-55-8510:
+
+*   **IO Immune Tier (Proxy):** The provisional fusion score is **0.670** (range 0-1, higher is more favorable), indicating a moderately favorable immunotherapy readiness profile.
+*   **Key Pathology Evidence:** Pathology provided the largest contribution (60.9%). The tissue is composed of 61% tumor and 24% stroma. A key feature is a **dense tumor-infiltrating lymphocyte (TIL) cluster** identified in the top pathology tile (tile_183, score 0.87).
+*   **RNA Evidence:** **Unavailable.** No transcriptomics input was detected for this case; CYT, GEP, and TIDE scores are not available.
+*   **Clinical Context:** The patient is a 45-year-old current smoker with Stage III disease. Clinical factors contributed 39.1% to the provisional score.
+*   **Uncertainty and Limitations:** The assessment is **provisional** and limited by the total absence of transcriptomic data (delta score 0.0). The fusion score relies entirely on pathology and clinical proxy signals.
+
+**Research-use only.**","### Immunotherapy Readiness Summary
+
+**Patient-Specific Evidence**
+*   **Multimodal Fusion Score:** The patient has a provisional fusion score of **0.670** (range 0–1, higher is more favorable), indicating a moderately favorable profile for research-based immunotherapy readiness.
+*   **Pathology (60.9% contribution):** The tumor microenvironment consists of 61% tumor and 24% stroma. A critical finding is the presence of a **dense tumor-infiltrating lymphocyte (TIL) cluster** (top tile_183 score: 0.87), which is a positive indicator for immune engagement.
+*   **Clinical (39.1% contribution):** The patient is 45 years old, a **current smoker**, and presents with **Stage III** disease. The clinical proxy signals for stage (0.63) and smoking status (0.48) contribute to the overall fusion estimate.
+*   **Transcriptomics:** Data was unavailable for this case; therefore, specific inflammatory markers (CYT, GEP, TIDE) could not be assessed, and the fusion score remains provisional.
+*   **Survival Proxy:** A research-only MLP model predicts a high probability of 2-year survival (P=0.99) based on available metadata.
+
+**Literature-Derived Context**
+*   **Stage III Clinical Benefit:** For patients with N2-Stage III NSCLC, neoadjuvant chemo-immunotherapy has been shown to significantly improve outcomes, reaching a **5-year overall survival rate of 59%** compared to 32% with chemotherapy alone, representing a **66% reduction in the hazard of death** (PMID: 22230406).
+*   **TIL Significance:** The dense TIL cluster identified in this patient's pathology is relevant as literature indicates that immune-suppressive environments (such as brain metastases) are characterized by fewer TILs, whereas higher TIL density generally correlates with better response (PMID: 37349126).
+*   **Biomarker Variability:** PD-L1 expression is discordant between primary and metastatic sites in approximately **one-third of patients**, and its prevalence in lung adenocarcinoma is approximately **18.6%** (PMID: 37349126, PMID: 27237031).
+*   **Response Correlation:** Clinical response in neoadjuvant settings has been significantly correlated with the reduction of regulatory T cell (Treg) levels (PMID: 24780112).
+
+*Note: Quantitative comparison of this patient's specific transcriptomic scores to literature baselines is not possible as transcriptomic metrics were null.*",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-44-3398,"Based on the available structured evidence for case TCGA-44-3398:
+
+*   **IO Immune Tier:** The patient has a **provisional fusion score of 0.667**, indicating a moderately favorable multimodal proxy for immunotherapy readiness.
+*   **Key Pathology Evidence:** Pathology provided the largest contribution (61.2%). The tissue composition is 61% tumor and 24% stroma. A key feature is the presence of a **dense tumor-infiltrating lymphocyte (TIL) cluster** identified in the top pathology tile (tile_183, score 0.87).
+*   **RNA Evidence:** **Unavailable.** No transcriptomics input was detected for this case. Consequently, the cytolytic activity (CYT), T-cell inflamed GEP, and TIDE scores are null.
+*   **Clinical Context:** The patient is 51 years old with **Stage III** disease. Smoking status is unknown. Clinical factors contributed 38.8% to the provisional score.
+*   **Uncertainty and Limitations:** The assessment is **provisional** rather than refined. The primary limitation is the total absence of transcriptomic data (fusion delta = 0.0), meaning the score has not been adjusted for gene expression-based immune evasion or inflammation markers.
+
+**Research-use only.**","### Patient-Specific Evidence
+*   **Multimodal Fusion Score:** The patient has a **provisional fusion score of 0.667** (range 0–1), suggesting a moderately favorable profile for immunotherapy readiness. This score is driven primarily by pathology (61.2%) and clinical (38.8%) inputs.
+*   **Pathology Findings:** The tumor microenvironment consists of 61% tumor and 24% stroma. A critical positive indicator is the presence of a **dense tumor-infiltrating lymphocyte (TIL) cluster** (top tile_183, score 0.87), which is the strongest evidence for immune engagement in this case.
+*   **Clinical Profile:** The patient is 51 years old with **Stage III** disease.
+*   **Data Limitations:** Transcriptomic metrics (CYT, GEP, and TIDE scores) are **unavailable**, meaning the fusion score remains provisional and lacks molecular confirmation of inflammation or immune evasion.
+
+### Literature-Derived Context
+*   **Immune Infiltration & Response:** In NSCLC, clinical response to neoadjuvant chemo-immunotherapy is significantly correlated with the reduction of regulatory T cells (Tregs) and the presence of active immune subsets (PMID: 24780112).
+*   **Prognostic Benchmarks:** For Stage III (N2) NSCLC, neoadjuvant chemo-immunotherapy has been shown to reduce the hazard of death by **66%**, with a 5-year overall survival rate of 59% (PMID: 22230406).
+*   **Biomarker Prevalence:** PD-L1 positivity in lung adenocarcinoma is reported at approximately **18.6%** (PMID: 27237031). However, PD-L1 expression can be discordant between primary and metastatic sites in 33% of cases (PMID: 37349126).
+*   **Quantitative Comparison:** Quantitative comparison of the patient's specific transcriptomic scores to literature baselines is not possible as these metrics were not detected for this case.",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-55-7570,"Based on the available structured evidence for Case TCGA-55-7570:
+
+*   **IO Immune Tier:** The **provisional fusion score is 0.666**, indicating a moderately favorable immunotherapy readiness profile on a 0–1 scale.
+*   **Key Pathology Evidence:** Pathology contributed the largest signal (61.2%). The tissue is composed of 61% tumor and 24% stroma. A high-scoring pathology tile (tile_183, score 0.87) identifies **dense tumor-infiltrating lymphocyte (TIL) clusters**, suggesting an active immune microenvironment.
+*   **RNA Evidence:** **Unavailable.** No transcriptomics input was detected for this case; consequently, CYT, GEP, and TIDE scores are null.
+*   **Clinical Context:** The patient is a 57-year-old never-smoker with Stage III disease. Clinical factors contributed 38.8% to the provisional score.
+*   **Uncertainty and Limitations:** The assessment is strictly **provisional** due to the total absence of transcriptomic data (delta score = 0.0). Additionally, the survival MLP predicts a low 2-year survival probability (P=0.17).
+
+This summary is for research use only.","### Immunotherapy Readiness Summary: Case TCGA-55-7570
+
+**Patient-Specific Evidence**
+*   **Multimodal Fusion Score:** The patient has a fused proxy score of **0.666** (Active, Provisional, and Refined), suggesting a moderately favorable readiness profile.
+*   **Pathology (61.2% contribution):** This is the primary driver of the assessment. Analysis identifies a **dense tumor-infiltrating lymphocyte (TIL) cluster** (top tile_183, score 0.87). The tissue composition is 61% tumor, 24% stroma, and 8% necrosis.
+*   **Clinical (38.8% contribution):** The patient is 57 years old, a never-smoker, and has Stage III disease.
+*   **Transcriptomics:** No transcriptomic data (CYT, GEP, or TIDE scores) was available for this case; the fusion score remains provisional based on pathology and clinical signals.
+
+**Literature-Derived Context**
+*   **T-Cell Phenotypes:** While the patient exhibits dense TIL clusters, literature indicates that a high ratio of ""pre-exhausted"" to exhausted CD8+ T cells is a more specific marker for favorable prognosis in lung adenocarcinoma (PMID: 29942094).
+*   **Predictive Signatures:** Immunotherapy response in similar cases is highly accurately predicted by a 25-gene signature of CD8+ T cell exhaustion, including markers such as PD1, LAG3, TIGIT, and TIM3 (PMID: 39591972).
+*   **Immune Modulation:** The B lymphocyte-related index (BRI) has been shown to inversely correlate with cytotoxic CD8+ T-cell infiltration (r = -0.43) and positively correlate with regulatory T cells (r = 0.31), which may influence the efficacy of the observed TILs (PMID: 40196113).
+*   **Resistance Factors:** Factors such as KRAS-G12D mutations or high extracellular N-glycan abundance on tumor cells can lead to inferior immune checkpoint inhibitor efficacy or reduced T-cell killing (PMID: 35811500, 35044789).
+
+*Research-use only. Not for clinical use.*",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 
+TCGA-44-7671,"Based on the available structured evidence for case TCGA-44-7671:
+
+*   **IO Immune Tier**: Provisional Fusion Score of **0.665**, indicating a moderately favorable immune profile based on available modalities.
+*   **Key Pathology Evidence**: Pathology contributed the largest signal (61.4%). The tissue is composed of 61% tumor and 24% stroma. A key feature is a dense tumor-infiltrating lymphocyte (TIL) cluster identified in the top tile (tile_183, score 0.87).
+*   **RNA Evidence**: **Unavailable**. No transcriptomics input was detected; scores for cytolytic activity (CYT), gene expression profile (GEP), and TIDE are null.
+*   **Clinical Context**: The patient is a 48-year-old current smoker with Stage III disease. Clinical factors contributed 38.6% to the provisional score.
+*   **Uncertainty and Limitations**: The assessment is strictly **provisional**. The lack of transcriptomic data (delta score 0.0) means the immune evasion and inflammation profiles are not refined by gene expression. Quantitative comparison to literature baselines is not possible from the provided evidence.
+
+**Research-use only.**","### Immunotherapy Readiness Summary: Case TCGA-44-7671
+
+**Patient-Specific Evidence**
+*   **Multimodal Fusion Score:** The patient has a provisional fusion score of **0.665** (range 0–1, higher is more favorable). This score is driven primarily by pathology (61.4%) and clinical (38.6%) inputs.
+*   **Pathology Insights:** Pathology evidence shows a tumor composition of 61% and stroma of 24%. A critical finding is the presence of a **dense tumor-infiltrating lymphocyte (TIL) cluster** (top tile_183, score 0.87), suggesting an active immune microenvironment.
+*   **Clinical Profile:** The patient is 48 years old, a current smoker, and diagnosed at Stage III. The clinical proxy signal contributed a stage signal of 0.63 and a smoker signal of 0.48 to the overall estimate.
+*   **Transcriptomic Status:** Transcriptomics data (including CYT, GEP, and TIDE scores) were **unavailable** for this case; therefore, the fusion score remains provisional and does not account for gene-level immune evasion or inflammation signatures.
+*   **Survival Proxy:** Research-only survival MLP predicts a 90% probability of 2-year survival.
+
+**Literature-Derived Context**
+*   **TIL Significance:** The dense TIL cluster observed in this patient’s pathology aligns with evidence that T cell-mediated immunity and disease restraint are often driven by neoantigen expression in lung adenocarcinoma (PMID: 32183949).
+*   **T-Cell State:** While pathology shows infiltration, literature indicates that the ratio of ""pre-exhausted"" to exhausted CD8+ T cells is a critical determinant of prognosis (PMID: 29942094). Furthermore, a 25-gene signature (including PD1, LAG3, and TIGIT) is highly accurate in predicting immunotherapy response (PMID: 39591972).
+*   **Immune Composition:** Quantitative literature evidence suggests that the B lymphocyte-related index (BRI) inversely correlates with cytotoxic CD8+ T-cell infiltration (r = -0.43) and positively with regulatory T cells (r = 0.31), which can modulate the efficacy of the immune response (PMID: 40196113).
+*   **Potential Constraints:** Specific mutations not captured in this patient's current metrics, such as KRAS-G12D, are associated with reduced CD8+ TIL recruitment and inferior ICI monotherapy efficacy (PMID: 35811500).
+
+*Note: Quantitative comparison between patient metrics and literature baselines is not possible from abstract-level evidence. Research-use only.*",False,True,OpenAI key not set — retrieval path not reached; _need_pubmed() would trigger but LLM fallback returned structured summary. 

@@ -1,0 +1,125 @@
+case_id,summary_standard,summary_literature,literature_used_standard,literature_used_literature_prompt,notes
+TCGA-44-6147,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.683)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III, never smoker, age 46; clinical minimum signal contributed 40.3%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The fusion score remains provisional due to this lack of transcriptomic evidence.","**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.683, indicating a moderate readiness for immunotherapy. The largest contribution to this score comes from pathology (59.7%), with a tumor composition of 61% and a notable top tile score of 0.87, reflecting a dense tumor-infiltrating lymphocyte cluster. Clinical factors also contribute significantly (40.3%), with the patient being a never smoker, aged 46, and classified as stage III. However, transcriptomic data is unavailable, which limits the robustness of the fusion score.
+
+**Literature Context:**
+In a study (PMID: 33449799), nivolumab-treated patients exhibited a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel, and a 5-year progression-free survival rate of 8.0% versus 0%. Additionally, treatment-related adverse events were reported in 25.8% of nivolumab-treated patients. This context suggests that immunotherapy, particularly with nivolumab, may offer a significant survival advantage, although the risk of adverse events should be considered.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-7994,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.675837)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage III, age 45; clinical minimum signal contributed 39.6% (stage_signal=0.63, smoker_signal=0.53).
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the immunotherapy readiness assessment. The fusion score remains provisional due to the lack of transcriptomic evidence.","**Patient-Specific Evidence:**
+The patient's immunotherapy readiness is assessed through a provisional fusion score of 0.675837, indicating a favorable condition for immunotherapy. The largest contribution to this score comes from pathology (60.4%), with a tumor composition of 61% and a significant presence of dense tumor-infiltrating lymphocytes (top tile score of 0.87). Clinical factors also contribute (39.6%), but transcriptomic data is unavailable, which limits the robustness of the assessment.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients demonstrated a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel, and a progression-free survival rate of 8.0% versus 0%. This suggests that patients with favorable tumor characteristics may benefit from immunotherapy, although treatment-related adverse events were noted in 25.8% of patients. 
+
+Overall, while the patient shows readiness for immunotherapy based on pathology and clinical metrics, the absence of transcriptomic data may limit the predictive accuracy of the assessment.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-7281,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.674)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score: 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage III, age 46; contribution from clinical context: 39.5%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The largest contribution to the score comes from pathology (60.5%).","**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.67431, indicating a moderate readiness for immunotherapy, with the largest contribution from pathology (60.5%). The pathology shows a tumor composition of 61% and a dense tumor-infiltrating lymphocyte cluster (top tile score of 0.87), which is favorable for immunotherapy response. However, transcriptomics data is unavailable, limiting the assessment of immune activity further. Clinical factors indicate stage III disease, but additional clinical details are lacking.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients exhibited a five-year overall survival rate of 13.4% and a progression-free survival rate of 8.0%, significantly better than those treated with docetaxel. Additionally, patients without disease progression at two years had an 82.0% chance of survival, and at three years, this increased to 93.0%. These findings highlight the potential benefits of immunotherapy in similar patient populations.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-6712,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.669728)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile (tile_183) scored 0.87, indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III, age 49; clinical minimum signal contributed 39.1% (stage_signal=0.63, smoker_signal=0.53).
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The largest contribution to the score came from pathology (60.9%).","**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.669728, indicating a moderate level of immunotherapy readiness. The largest contribution to this score comes from pathology (60.9%), with a tumor composition of 61% and a top tile score of 0.87, reflecting a dense tumor-infiltrating lymphocyte cluster. Clinical factors contribute 39.1% to the score, with the patient being classified as stage III. However, transcriptomic data is unavailable, which limits the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients exhibited a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel. Additionally, the 5-year progression-free survival rate was 8.0% for nivolumab, indicating a potential benefit of immunotherapy in similar patient populations.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-05-5420,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.670)
+- **Key Pathology Evidence:** 
+  - Tumor (61%), Stroma (24%), Necrosis (8%)
+  - Top tile score: 0.87 (Dense tumor-infiltrating lymphocyte cluster)
+  - Largest contribution from pathology (60.9%)
+- **RNA Evidence:** Not available (no transcriptomics input detected)
+- **Clinical Context:** 
+  - Stage IV, never smoker, age 48
+  - Clinical minimum signal contributed 39.1%
+- **Uncertainty/Limitations:** 
+  - Transcriptomics data is unavailable, limiting the fusion score's refinement.
+  
+This case reflects a significant pathology contribution but lacks transcriptomic insights for a comprehensive assessment.","**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.669575, indicating a moderate level of immunotherapy readiness. The largest contribution to this score comes from pathology (60.9%), with a tumor composition of 61% and a top tile score of 0.87, reflecting a dense tumor-infiltrating lymphocyte cluster. Clinical factors contribute 39.1% to the score, with the patient being stage IV, a non-smoker, and 48 years old. However, transcriptomic data is unavailable, which limits the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study involving BCG/placebo treatment, the median overall survival was reported as 38.6 months, with a 5-year overall survival rate of 44.9%. These metrics provide a benchmark for evaluating potential outcomes in similar patient populations, although direct quantitative comparisons cannot be made due to the absence of specific baseline data for this patient.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-8203,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.670)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available; no transcriptomics input detected.
+- **Clinical Context:** Stage IV, never smoker, age 48; clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** Transcriptomics signal is unavailable, limiting the robustness of the immune assessment. The fusion score remains provisional due to the lack of transcriptomic data.","**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.669575, indicating a moderate level of immunotherapy readiness. The largest contribution to this score comes from pathology (60.9%), with a tumor composition of 61% and a top tile score of 0.87, reflecting a dense tumor-infiltrating lymphocyte cluster. Clinical factors also contribute significantly (39.1%), with the patient being a never smoker, aged 48, and at stage IV. However, transcriptomic data is unavailable, which limits the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients demonstrated a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel. Additionally, the 5-year progression-free survival rate was 8.0% for nivolumab versus 0% for docetaxel. These findings suggest that patients with favorable immune profiles may benefit from immunotherapy, although the specific applicability to this patient cannot be quantitatively assessed without transcriptomic data.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-8510,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.669537)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage III, current smoker, age 45; clinical minimum signal contributed 39.1%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The fusion score remains provisional with no refined input from transcriptomics. 
+
+Overall, the largest contribution to the readiness assessment comes from pathology evidence (60.9%).","**Patient-Specific Evidence:**
+The patient's immunotherapy readiness is indicated by a provisional fusion score of 0.669537, which suggests a moderate potential for favorable outcomes. The largest contribution to this score comes from pathology (60.9%), with a tumor composition of 61% and a notable dense tumor-infiltrating lymphocyte cluster (top tile score of 0.87). Clinical factors also contribute significantly (39.1%), with the patient being a current smoker, aged 45, and at stage III. However, transcriptomic data is unavailable, limiting the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients demonstrated a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel. Additionally, the 5-year progression-free survival rates were 8.0% for nivolumab versus 0% for docetaxel. These findings highlight the potential benefits of immunotherapy in similar patient populations, particularly in terms of survival outcomes.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-44-3398,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score = 0.667)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%), Necrosis (8%); top tile score of 0.87 indicates a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage III, age 51; clinical contribution to fusion score is 38.8%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the immune assessment. The fusion score remains provisional due to this lack of transcriptomic input.","**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.666674, indicating a moderate readiness for immunotherapy. The largest contribution to this score comes from pathology (61.2%), with a significant presence of tumor (61%) and a dense tumor-infiltrating lymphocyte cluster (top tile score of 0.87). Clinical factors contribute 38.8%, with the patient being classified as stage III. Transcriptomic data is unavailable, which limits the assessment of immune activity further.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), nivolumab-treated patients exhibited a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel. Additionally, the 5-year progression-free survival rate was 8.0% for nivolumab, with a notable 82.0% chance of survival at 2 years for patients without disease progression. This context highlights the potential benefits of immunotherapy in similar patient populations.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-55-7570,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.666)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score of 0.87 indicating a dense tumor-infiltrating lymphocyte cluster.
+- **RNA Evidence:** Not available; no transcriptomics input detected for this case.
+- **Clinical Context:** Stage III, never smoker, age 57; clinical minimum signal contributed 38.8%.
+- **Uncertainty/Limitations:** Fusion score remains provisional due to the absence of transcriptomics data, limiting comprehensive assessment. The largest contribution to the score is from pathology (61.2%).","**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.666, indicating a moderate level of immunotherapy readiness. The largest contribution to this score comes from pathology (61.2%), which shows a tumor composition of 61% and a dense tumor-infiltrating lymphocyte cluster (top tile score of 0.87). Clinical factors contribute 38.8% to the score, with the patient being a never-smoker, aged 57, and at stage III. However, transcriptomics data is unavailable, which limits the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study of nivolumab-treated patients, the five-year overall survival rate was reported at 13.4%, with a progression-free survival rate of 8.0%. Notably, patients without disease progression at two years had an 82.0% chance of survival, increasing to 93.0% at three years. These findings suggest that patients with favorable immune profiles may have improved outcomes with immunotherapy, although specific applicability to this patient cannot be determined without further data.",False,True,OpenAI-generated summary with/without PubMed RAG.
+TCGA-44-7671,"**Immunotherapy Readiness Summary:**
+
+- **IO Immune Tier:** Provisional (fusion score: 0.665)
+- **Key Pathology Evidence:** Tumor (61%), Stroma (24%); top tile score 0.87 (Dense tumor-infiltrating lymphocyte cluster).
+- **RNA Evidence:** Not available (no transcriptomics input detected).
+- **Clinical Context:** Stage III, current smoker, age 48; clinical contribution to score: 38.6%.
+- **Uncertainty/Limitations:** Transcriptomics data is unavailable, limiting the robustness of the fusion score. The fusion score remains provisional due to lack of transcriptomic input. 
+
+**Largest Contribution:** Pathology (61.4%).","**Patient-Specific Evidence:**
+The patient has a provisional fusion score of 0.665, indicating a moderate readiness for immunotherapy. The largest contribution to this score comes from pathology (61.4%), with a notable dense tumor-infiltrating lymphocyte cluster (top tile score of 0.87). Clinical factors include stage III cancer, current smoking status, and age 48, contributing 38.6% to the overall score. However, transcriptomics data is unavailable, which limits the robustness of the fusion score.
+
+**Literature-Derived Context:**
+In a study (PMID: 33449799), patients treated with Nivolumab showed a 5-year overall survival rate of 13.4% compared to 2.6% for those treated with docetaxel. Additionally, Nivolumab-treated patients had a 5-year progression-free survival rate of 8.0% versus 0% for docetaxel. These findings suggest that immunotherapy may provide significant survival benefits in similar patient populations.",False,True,OpenAI-generated summary with/without PubMed RAG.

@@ -1,0 +1,21 @@
+case_id,io_tier,io_score,has_pathology,has_rna,has_clinical,selection_reason
+TCGA-44-6147,Hot,0.6831,True,False,True,Tier-balanced selection: Hot tier (target 7); deterministic fallback data; score=0.683
+TCGA-55-7994,Hot,0.6758,True,False,True,Tier-balanced selection: Hot tier (target 7); deterministic fallback data; score=0.676
+TCGA-55-7281,Hot,0.6743,True,False,True,Tier-balanced selection: Hot tier (target 7); deterministic fallback data; score=0.674
+TCGA-55-6712,Hot,0.6697,True,False,True,Tier-balanced selection: Hot tier (target 7); deterministic fallback data; score=0.670
+TCGA-05-5420,Hot,0.6696,True,False,True,Tier-balanced selection: Hot tier (target 7); deterministic fallback data; score=0.670
+TCGA-55-8203,Hot,0.6696,True,False,True,Tier-balanced selection: Hot tier (target 7); deterministic fallback data; score=0.670
+TCGA-55-8510,Hot,0.6695,True,False,True,Tier-balanced selection: Hot tier (target 7); deterministic fallback data; score=0.670
+TCGA-86-7954,Warm,0.6279,True,False,True,Tier-balanced selection: Warm tier (target 7); deterministic fallback data; score=0.628
+TCGA-75-6212,Warm,0.6287,True,False,True,Tier-balanced selection: Warm tier (target 7); deterministic fallback data; score=0.629
+TCGA-05-4244,Warm,0.6299,True,False,True,Tier-balanced selection: Warm tier (target 7); deterministic fallback data; score=0.630
+TCGA-55-6985,Warm,0.63,True,False,True,Tier-balanced selection: Warm tier (target 7); deterministic fallback data; score=0.630
+TCGA-38-4631,Warm,0.6302,True,False,True,Tier-balanced selection: Warm tier (target 7); deterministic fallback data; score=0.630
+TCGA-75-6206,Warm,0.6302,True,False,True,Tier-balanced selection: Warm tier (target 7); deterministic fallback data; score=0.630
+TCGA-44-7672,Warm,0.6304,True,False,True,Tier-balanced selection: Warm tier (target 7); deterministic fallback data; score=0.630
+TCGA-55-6983,Cold,0.5859,True,False,True,Tier-balanced selection: Cold tier (target 6); deterministic fallback data; score=0.586
+TCGA-55-8513,Cold,0.5936,True,False,True,Tier-balanced selection: Cold tier (target 6); deterministic fallback data; score=0.594
+TCGA-44-7669,Cold,0.5951,True,False,True,Tier-balanced selection: Cold tier (target 6); deterministic fallback data; score=0.595
+TCGA-55-6642,Cold,0.5968,True,False,True,Tier-balanced selection: Cold tier (target 6); deterministic fallback data; score=0.597
+TCGA-44-2665,Cold,0.5978,True,False,True,Tier-balanced selection: Cold tier (target 6); deterministic fallback data; score=0.598
+TCGA-55-7914,Cold,0.5978,True,False,True,Tier-balanced selection: Cold tier (target 6); deterministic fallback data; score=0.598
