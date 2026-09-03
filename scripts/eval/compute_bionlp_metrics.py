@@ -209,6 +209,16 @@ def compute_retrieval_discipline(retrieval_rows: list[dict], summaries: list[dic
         if _LIT_RE.search(r.get("summary_text", ""))
     ]
 
+    # Provenance note: derive from the generation-time `notes` column recorded in
+    # retrieval_discipline.csv, NOT from the ambient environment. The reduction is a
+    # pure function of committed inputs, so re-running it (e.g. a reviewer verifying the
+    # headline numbers) must not depend on whether OPENAI_API_KEY happens to be exported.
+    csv_notes = sorted({r.get("notes", "").strip() for r in retrieval_rows if r.get("notes", "").strip()})
+    if csv_notes:
+        note = " | ".join(csv_notes)
+    else:
+        note = "No per-case retrieval provenance recorded in retrieval_discipline.csv."
+
     return {
         "retrieval_test_cases": len(retrieval_rows),
         "lit_used_when_requested_count": len(lit_used_when_requested),
@@ -218,11 +228,7 @@ def compute_retrieval_discipline(retrieval_rows: list[dict], summaries: list[dic
         "total_standard_summaries": len(std_summaries),
         "standard_summaries_with_lit_language": len(std_with_lit_language),
         "standard_summaries_with_lit_used_flag": len(std_lit_used),
-        "note": (
-            "With no OPENAI_API_KEY set, the fallback answer path is used and no real "
-            "network PubMed calls are made. _need_pubmed() correctly classifies the prompts. "
-            "Retrieval discipline is evaluated at the keyword-detection level in this run."
-        ) if not __import__("os").environ.get("OPENAI_API_KEY") else "OpenAI LLM path active.",
+        "note": note,
     }
 
 

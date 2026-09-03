@@ -72,7 +72,7 @@
     "total_standard_summaries": 80,
     "standard_summaries_with_lit_language": 0,
     "standard_summaries_with_lit_used_flag": 0,
-    "note": "With no OPENAI_API_KEY set, the fallback answer path is used and no real network PubMed calls are made. _need_pubmed() correctly classifies the prompts. Retrieval discipline is evaluated at the keyword-detection level in this run."
+    "note": "OpenAI-generated summary with/without PubMed RAG."
   },
   "judge_faithfulness": {
     "total_claims_judged": 311,
