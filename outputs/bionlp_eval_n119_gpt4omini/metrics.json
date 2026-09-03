@@ -72,7 +72,7 @@
     "total_standard_summaries": 476,
     "standard_summaries_with_lit_language": 1,
     "standard_summaries_with_lit_used_flag": 0,
-    "note": "OpenAI LLM path active."
+    "note": "OpenAI-generated summary with/without PubMed RAG."
   },
   "judge_faithfulness": {
     "total_claims_judged": 1767,

@@ -67,16 +67,42 @@ python3 scripts/eval/run_bionlp_eval.py --model gemini-2.5-flash --output-dir ou
 python3 scripts/eval/run_bionlp_eval.py --model gemini-3-flash-preview --output-dir outputs/bionlp_eval_gemini/
 
 # 4. Compute paper metrics from the four runs
-python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval/
-python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gpt54mini/
-python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gemini25flash/
-python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gemini/
+#    (the run directory is passed with --out-dir, not positionally)
+python3 scripts/eval/compute_bionlp_metrics.py --out-dir outputs/bionlp_eval/
+python3 scripts/eval/compute_bionlp_metrics.py --out-dir outputs/bionlp_eval_gpt54mini/
+python3 scripts/eval/compute_bionlp_metrics.py --out-dir outputs/bionlp_eval_gemini25flash/
+python3 scripts/eval/compute_bionlp_metrics.py --out-dir outputs/bionlp_eval_gemini/
 
 # 5. (Optional) re-validate the human anchor
 python3 adjudicate.py
 ```
 
 The released `outputs/*/metrics.json` already contain the values used in the paper, so a reviewer can skip steps 1–4 and verify the numbers directly. Steps 1–4 are needed only to regenerate the data on different model versions or to extend the factorial.
+
+## Verify the reduction is reproducible (no API keys needed)
+
+`scripts/eval/compute_bionlp_metrics.py` is a *pure reduction*: it reads only the committed per-claim CSVs (`claim_review.csv`, `summaries.csv`, `retrieval_discipline.csv`, `evidence_bundles/`) and writes `metrics.json`. Re-running it must reproduce the released `metrics.json` byte-for-byte, independent of the ambient environment. `scripts/eval/verify_metrics_reproducible.py` checks exactly this across every released run, with and without `OPENAI_API_KEY` set:
+
+```bash
+python3 scripts/eval/verify_metrics_reproducible.py   # or: make metrics-verify
+```
+
+Actual output on the released tree:
+
+```
+Verifying 6 released run(s) reproduce their committed metrics.json
+
+  OK        outputs/bionlp_eval
+  OK        outputs/bionlp_eval_gemini
+  OK        outputs/bionlp_eval_gemini25flash
+  OK        outputs/bionlp_eval_gpt54mini
+  OK        outputs/bionlp_eval_n119_gpt4omini
+  OK        outputs/bionlp_eval_n20_backup
+
+PASS: all 6 runs reproduce byte-identical metrics.json (deterministic across OPENAI_API_KEY presence).
+```
+
+The `retrieval_discipline.note` field is derived from the generation-time `notes` column in each run's `retrieval_discipline.csv`, not from whether a key is exported when the reduction runs — so the verification step no longer mutates committed provenance as a side effect.
 
 ## Approximate runtime and cost (April 2026 list price)
 

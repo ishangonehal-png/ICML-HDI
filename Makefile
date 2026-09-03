@@ -5,12 +5,13 @@ SHELL := /usr/bin/env bash
 PYTHON ?= python3
 DOCKER_ENV_FILE ?= $(if $(wildcard .env.docker),.env.docker,.env.docker.example)
 
-.PHONY: help ci test-ci test-api test-web lint-shell backend-smoke frontend-smoke format-check dev-bootstrap dev-check infra-up infra-down infra-logs docker-config docker-up docker-down docker-logs
+.PHONY: help ci test-ci test-api test-web lint-shell backend-smoke frontend-smoke format-check dev-bootstrap dev-check infra-up infra-down infra-logs docker-config docker-up docker-down docker-logs metrics-verify
 
 help:
 	@echo "Common developer commands"
 	@echo "  make ci             # full local CI-equivalent checks"
 	@echo "  make test-ci        # pytest guardrails + architecture + data-contract checks"
+	@echo "  make metrics-verify # re-run the reduction and check released metrics.json reproduce"
 	@echo "  make test-api       # backend smoke checks"
 	@echo "  make test-web       # frontend npm/type/build checks"
 	@echo "  make lint-shell     # bash -n (+ shellcheck if installed)"
@@ -31,6 +32,9 @@ test-ci:
 	$(PYTHON) -m pytest tests/ci -q
 	$(PYTHON) scripts/ci/check_architecture_coherence.py
 	$(PYTHON) scripts/ci/check_data_contract_tooling.py
+
+metrics-verify:
+	$(PYTHON) scripts/eval/verify_metrics_reproducible.py
 
 test-api: backend-smoke
 
