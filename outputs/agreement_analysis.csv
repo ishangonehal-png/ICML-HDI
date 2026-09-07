@@ -1,0 +1,9 @@
+pair,n,raw_agreement,cohen_kappa,kappa_ci_low,kappa_ci_high,kappa_binary_supported
+human_vs_judge,239,0.7448,0.5134,0.426,0.6027,0.6416
+rule_vs_human,300,0.38,0.0052,-0.0717,0.075,0.071
+rule_vs_judge,239,0.364,0.0652,0.004,0.1185,0.2329
+human_vs_judge::gemini-2.5-flash::grounded,52,0.8462,0.0,,,
+human_vs_judge::gemini-3-flash-preview::ungrounded,59,0.5593,0.1797,,,
+human_vs_judge::gpt-4o-mini::grounded,51,0.902,0.7619,,,
+human_vs_judge::gpt-5.4-mini::grounded,32,0.5938,0.0545,,,
+human_vs_judge::gpt-5.4-mini::ungrounded,45,0.8,-0.0202,,,

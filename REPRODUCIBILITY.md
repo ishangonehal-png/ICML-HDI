@@ -32,7 +32,7 @@ Every numeric headline in the paper traces to one of the per-model `outputs/bion
 - **Table 5 (secondary metrics: numeric fidelity, modality attribution, retrieval discipline, completeness)** — `metrics.json` `secondary_metrics` block.
 - **Table 6 (depth-of-grounding ablation)** — `metrics.json` `completeness_by_config` × per-config supported-claim aggregation.
 - **Table 7 (per-claim-type unsupported rates)** — known caveat: the paper's six-class typed-claim taxonomy (`numeric/modality-tag/tier/uncertainty/literature/other`) is an abstract grouping over the modality-based `claim_type` column in `claim_review.csv` (`pathology/RNA/clinical/fusion/tier/uncertainty/literature/other`). The mapping is currently maintained out-of-tree.
-- **κ values (Table tab:agreement, κ=0.71 inter-annotator)** — computed from `adjudication_input.csv` + `adjudication_key.csv` + the four per-model `claim_review.csv` files via `adjudicate.py`.
+- **κ values (Table tab:agreement)** — reduced by `scripts/eval/compute_agreement.py`, which joins `adjudication_input.csv` (`human_label`) to `adjudication_key.csv` (`rule_label`, `judge_label`) on `row_id` and computes Cohen's κ, raw agreement, bootstrap CIs, confusion matrices, and per-bucket κ (output: `outputs/agreement_analysis.csv`, `outputs/agreement_confusion.md`). This supersedes the earlier claim that `adjudicate.py` produced these numbers — `adjudicate.py` is a rule-based *label generator* that hardcodes an absolute path and computes no agreement statistic. **Partial-reproduction caveat:** from the released label columns, human-vs-judge κ reproduces the paper's 0.64 only under a binary supported-vs-rest collapse (native ternary κ = 0.513, raw = 0.745 vs the paper's raw 0.72); rule-vs-human (paper κ = 0.43 → measured 0.005) and rule-vs-judge (paper κ = 0.42 → measured 0.065) do **not** reproduce, because the released `rule_label` column is dominated by `partial`/`unknown` where the human anchor is mostly `supported`. See "Known caveats" #5.
 
 ## Hard pins (April 2026 runs)
 
@@ -74,6 +74,9 @@ python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gemini/
 
 # 5. (Optional) re-validate the human anchor
 python3 adjudicate.py
+
+# 6. (Optional, offline) recompute the inter-rater agreement table (tab:agreement)
+python3 scripts/eval/compute_agreement.py
 ```
 
 The released `outputs/*/metrics.json` already contain the values used in the paper, so a reviewer can skip steps 1–4 and verify the numbers directly. Steps 1–4 are needed only to regenerate the data on different model versions or to extend the factorial.
@@ -91,3 +94,4 @@ The released `outputs/*/metrics.json` already contain the values used in the pap
 2. The per-claim-type taxonomy in Table 7 is an abstract grouping over the modality-based `claim_type` values in `claim_review.csv`; the mapping is not yet committed in this repo.
 3. `gemini-3-flash-preview` is a preview endpoint; the within-Google generational divergence in §6.2 is a snapshot observation and is hedged accordingly.
 4. The two-expert human anchor was provided by computational biologists with oncology-informatics training, not board-certified oncologists. The κ=0.64 / κ=0.71 numbers calibrate the judge but do not constitute a clinical-safety audit.
+5. Table `tab:agreement` only partially reproduces from the released label columns (`scripts/eval/compute_agreement.py`). The human-vs-judge κ=0.64 reproduces under a binary supported-vs-rest collapse (native ternary κ=0.513); the rule-vs-human κ=0.43 and rule-vs-judge κ=0.42 do **not** — the released `rule_label` column disagrees with the human anchor on 62% of claims (κ≈0.005), because it routes most boundary claims to `partial`/`unknown` while the human labels are mostly `supported` (see `outputs/agreement_confusion.md`). The per-bucket appendix figure (gemini-3-flash-preview ungrounded κ=0.71) also does not reproduce (measured 0.18). Either the paper's κ values were computed on a label normalization not captured by these columns, or on a pre-release version of `rule_label`; this is unresolved and flagged for the next release.
