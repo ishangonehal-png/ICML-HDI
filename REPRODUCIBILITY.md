@@ -28,7 +28,7 @@ Every numeric headline in the paper traces to one of the per-model `outputs/bion
 
 - **Table 1 / Table 2 (factorial)** — `metrics.json` → `baseline_comparison` block, which calls `scripts/eval/compute_bionlp_metrics.py:compute_baseline_vs_grounded()` over the `llm_judge_final` column with `prompt_type=standard` and `conflict` rows excluded.
 - **Table 3 (diagnostic panel HDI / Δu / overlap@0.80 / max-sim)** — HDI = `(u_b - u_g) / u_b` where $u_b$, $u_g$ come from the same `baseline_comparison` reduction; overlap from `scripts/eval/embedding_overlap.py` over OpenAI `text-embedding-3-small`.
-- **Table 4 (patient-paired bootstrap CIs)** — 2000-resample paired bootstrap, seed 42; computed per the script in this repo (a reviewer-supplied snippet using `numpy` / `scipy.stats` over the four `claim_review.csv` files).
+- **Table 4 / `tab:cis` (patient-paired bootstrap HDI CIs) and Appendix `tab:pairs` (pairwise ΔHDI significance)** — `scripts/eval/compute_hdi_bootstrap.py`, a stdlib, offline, 2000-resample paired bootstrap (seed 42) over the four `claim_review.csv` files. Writes `outputs/hdi_bootstrap_ci.csv` and `outputs/hdi_bootstrap_pairs.csv`. It re-derives HDI end-to-end on each patient resample (same reduction as `compute_baseline_vs_grounded`) and reproduces the paper's per-model HDI CIs to within rounding and the six-pair Holm-corrected significance (all pairs `p_Holm ≤ 0.009`). **Correction:** the appendix prints four pairs at `p_Holm < 10⁻³`, but a percentile two-sided p floors at `1/B = 5×10⁻⁴` and Holm over six pairs multiplies the smallest by 6, so the attainable floor at `B=2000` is `3×10⁻³`, not `<10⁻³`; the significance conclusion is unchanged. The **Overlap@0.80 CI** column of `tab:cis` is *not* reproduced here — it needs `text-embedding-3-small` embeddings and an `embedding_overlap.py` that is not committed (see caveat 5).
 - **Table 5 (secondary metrics: numeric fidelity, modality attribution, retrieval discipline, completeness)** — `metrics.json` `secondary_metrics` block.
 - **Table 6 (depth-of-grounding ablation)** — `metrics.json` `completeness_by_config` × per-config supported-claim aggregation.
 - **Table 7 (per-claim-type unsupported rates)** — known caveat: the paper's six-class typed-claim taxonomy (`numeric/modality-tag/tier/uncertainty/literature/other`) is an abstract grouping over the modality-based `claim_type` column in `claim_review.csv` (`pathology/RNA/clinical/fusion/tier/uncertainty/literature/other`). The mapping is currently maintained out-of-tree.
@@ -74,6 +74,9 @@ python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gemini/
 
 # 5. (Optional) re-validate the human anchor
 python3 adjudicate.py
+
+# 6. (Optional) regenerate the bootstrap CIs / pairwise significance (offline, stdlib)
+python3 scripts/eval/compute_hdi_bootstrap.py
 ```
 
 The released `outputs/*/metrics.json` already contain the values used in the paper, so a reviewer can skip steps 1–4 and verify the numbers directly. Steps 1–4 are needed only to regenerate the data on different model versions or to extend the factorial.
@@ -91,3 +94,4 @@ The released `outputs/*/metrics.json` already contain the values used in the pap
 2. The per-claim-type taxonomy in Table 7 is an abstract grouping over the modality-based `claim_type` values in `claim_review.csv`; the mapping is not yet committed in this repo.
 3. `gemini-3-flash-preview` is a preview endpoint; the within-Google generational divergence in §6.2 is a snapshot observation and is hedged accordingly.
 4. The two-expert human anchor was provided by computational biologists with oncology-informatics training, not board-certified oncologists. The κ=0.64 / κ=0.71 numbers calibrate the judge but do not constitute a clinical-safety audit.
+5. The **HDI** bootstrap CIs (`tab:cis`) and pairwise ΔHDI significance (`tab:pairs`) are reproducible offline via `scripts/eval/compute_hdi_bootstrap.py`. The **overlap@0.80 / max-sim** columns are not: they depend on `text-embedding-3-small` embeddings of every claim, and neither `embedding_overlap.py` nor any embedding/overlap artifact is committed. Those columns cannot be verified from the released artifacts alone.
