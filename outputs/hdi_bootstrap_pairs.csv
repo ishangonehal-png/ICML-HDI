@@ -1,0 +1,7 @@
+pair,delta_hdi_ci_lo,delta_hdi_ci_hi,p_raw,p_holm,n_paired
+gpt-4o-mini vs gpt-5.4-mini,0.3129,1.1257,0.0005,0.003,2000
+gpt-4o-mini vs gemini-2.5-flash,0.0213,0.1003,0.009,0.009,2000
+gpt-4o-mini vs gemini-3-flash-preview,0.1012,0.1646,0.0005,0.003,2000
+gpt-5.4-mini vs gemini-2.5-flash,-1.0723,-0.2519,0.0005,0.003,2000
+gpt-5.4-mini vs gemini-3-flash-preview,-1.0005,-0.1809,0.0005,0.003,2000
+gemini-2.5-flash vs gemini-3-flash-preview,0.0443,0.0985,0.0005,0.003,2000
