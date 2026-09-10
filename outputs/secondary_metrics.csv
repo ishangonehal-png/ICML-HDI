@@ -1,0 +1,25 @@
+model,metric,computed,paper,abs_delta,reproduces,note
+gpt-4o-mini,avg_sent,5.41,5.4,0.01,True,
+gpt-4o-mini,numeric_fid,0.3806,0.381,0.0004,True,
+gpt-4o-mini,mod_attr,0.7901,0.976,0.1859,False,"no config slice reproduces: baseline=0.9423, full_multimodal=0.748, pathology_only=0.7149, pathology_rna=0.719"
+gpt-4o-mini,ret_onreq,1.0,1.0,0.0,True,
+gpt-4o-mini,ret_fp,0.0,0.0,0.0,True,
+gpt-4o-mini,completeness,0.7563,0.89,0.1337,False,caption 4-signal reduction = 0.9454
+gpt-5.4-mini,avg_sent,5.51,5.5,0.01,True,
+gpt-5.4-mini,numeric_fid,0.6318,0.632,0.0002,True,
+gpt-5.4-mini,mod_attr,0.9822,0.982,0.0002,True,
+gpt-5.4-mini,ret_onreq,1.0,1.0,0.0,True,
+gpt-5.4-mini,ret_fp,0.0,0.0,0.0,True,
+gpt-5.4-mini,completeness,0.8,0.92,0.12,False,caption 4-signal reduction = 1.0
+gemini-2.5-flash,avg_sent,8.49,8.5,0.01,True,
+gemini-2.5-flash,numeric_fid,0.5779,0.578,0.0001,True,
+gemini-2.5-flash,mod_attr,0.8777,0.878,0.0003,True,
+gemini-2.5-flash,ret_onreq,1.0,1.0,0.0,True,
+gemini-2.5-flash,ret_fp,0.0,0.0,0.0,True,
+gemini-2.5-flash,completeness,0.8,0.8,0.0,True,caption 4-signal reduction = 1.0
+gemini-3-flash-preview,avg_sent,11.11,11.1,0.01,True,
+gemini-3-flash-preview,numeric_fid,0.4548,0.455,0.0002,True,
+gemini-3-flash-preview,mod_attr,0.8763,0.876,0.0003,True,
+gemini-3-flash-preview,ret_onreq,1.0,1.0,0.0,True,
+gemini-3-flash-preview,ret_fp,0.0,0.0,0.0,True,
+gemini-3-flash-preview,completeness,0.7916,0.79,0.0016,True,caption 4-signal reduction = 0.9895
