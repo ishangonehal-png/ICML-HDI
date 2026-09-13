@@ -1,0 +1,13 @@
+model,regime,u_b,u_g,hdi,mode,n_baseline,n_grounded
+gpt-4o-mini,judge,0.1598,0.0025,0.985,A,607,405
+gpt-4o-mini,auto,0.0000,0.0017,NA,undefined,806,599
+gpt-4o-mini,gated,0.0000,0.0000,NA,undefined,15,197
+gpt-5.4-mini,judge,0.0595,0.0395,0.336,B?,454,481
+gpt-5.4-mini,auto,0.0000,0.0000,NA,undefined,611,673
+gpt-5.4-mini,gated,0.0000,0.0000,NA,undefined,32,327
+gemini-2.5-flash,judge,0.6484,0.0524,0.919,A,1220,916
+gemini-2.5-flash,auto,0.0032,0.0000,1.000,A,1254,940
+gemini-2.5-flash,gated,0.0385,0.0000,1.000,A,52,604
+gemini-3-flash-preview,judge,0.9148,0.1403,0.847,A,1502,1005
+gemini-3-flash-preview,auto,0.0064,0.0298,-3.632,B?,1556,1243
+gemini-3-flash-preview,gated,0.1154,0.0000,1.000,A,26,410
