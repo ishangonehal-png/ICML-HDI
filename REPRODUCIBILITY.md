@@ -16,9 +16,10 @@ This document describes how to reproduce the headline numbers from the ICML 2026
 | `outputs/bionlp_eval_gemini25flash/` | gemini-2.5-flash run |
 | `outputs/bionlp_eval_gemini/` | gemini-3-flash-preview run |
 | `outputs/bionlp_eval_n20_backup/` | Pilot 20-case run (development) |
-| `adjudication_input.csv` | 300 stratified claims for the human anchor |
-| `adjudication_key.csv` | Two-expert consensus labels |
-| `adjudication_output.csv` | Per-claim audit trail |
+| `adjudication_input.csv` | 300 stratified claims + the two-expert consensus `human_label` (the actual human anchor) |
+| `adjudication_key.csv` | Per-claim `rule_label` + agreement-gated `judge_label` + `claim_type` |
+| `adjudication_output.csv` | `adjudicate.py`'s rule labels, written into a `human_label`-named column (rule audit trail, **not** the human anchor) |
+| `adjudicate.py` | Rule-based label *generator* that produces `adjudication_output.csv`; regenerable via `scripts/eval/verify_adjudicator.py` |
 | `scripts/eval/` | Evaluation harness (`run_bionlp_eval.py`, `compute_bionlp_metrics.py`, `llm_judge.py`, etc.) |
 | `apps/api/` | Provider-agnostic chat layer + tooling stack (FastAPI service) |
 
@@ -72,8 +73,12 @@ python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gpt54mini/
 python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gemini25flash/
 python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gemini/
 
-# 5. (Optional) re-validate the human anchor
+# 5. (Optional, offline) regenerate the rule label and characterize it
+#    adjudicate.py is a RULE-BASED label generator, not a human-anchor validator.
+#    It now defaults to repo-relative paths and writes to
+#    outputs/adjudication_regenerated.csv (it never overwrites adjudication_output.csv).
 python3 adjudicate.py
+python3 scripts/eval/verify_adjudicator.py   # compares the rule label to the anchor
 ```
 
 The released `outputs/*/metrics.json` already contain the values used in the paper, so a reviewer can skip steps 1–4 and verify the numbers directly. Steps 1–4 are needed only to regenerate the data on different model versions or to extend the factorial.
@@ -91,3 +96,4 @@ The released `outputs/*/metrics.json` already contain the values used in the pap
 2. The per-claim-type taxonomy in Table 7 is an abstract grouping over the modality-based `claim_type` values in `claim_review.csv`; the mapping is not yet committed in this repo.
 3. `gemini-3-flash-preview` is a preview endpoint; the within-Google generational divergence in §6.2 is a snapshot observation and is hedged accordingly.
 4. The two-expert human anchor was provided by computational biologists with oncology-informatics training, not board-certified oncologists. The κ=0.64 / κ=0.71 numbers calibrate the judge but do not constitute a clinical-safety audit.
+5. `adjudicate.py` is a rule-based label *generator*, not the "human-anchor re-validator" the old step 5 implied. Verified offline by `scripts/eval/verify_adjudicator.py` (`outputs/adjudicator_verification.{csv,md}`): pointed at `adjudication_input.csv` it reproduces the committed `adjudication_output.csv` `human_label` column **exactly** (300/300), confirming it produced that file. But that column is a rule label — against the two-expert anchor in `adjudication_input.csv` it agrees only raw=0.59 / κ=0.26 (binary supported-vs-rest κ=0.34). Crucially, the repo carries **two different rule labelings**: `adjudicate.py`'s output and the `rule_label` column in `adjudication_key.csv` agree on only 119/300 (39.7%, κ=0.09). Neither reproduces the paper's rule-vs-human κ=0.43, but `adjudicate.py`'s (κ=0.26) is far closer than the released `rule_label` column (κ=0.005) — partially resolving the "unresolved" rule-vs-human discrepancy flagged by the inter-rater agreement reduction (PR#3, `scripts/eval/compute_agreement.py`, if merged): the paper's rule κ was not computed on the released `adjudication_key.csv` `rule_label`.

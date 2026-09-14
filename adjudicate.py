@@ -722,8 +722,33 @@ def adjudicate(claim, bundle):
 
 
 def main():
-    input_path = '/Users/ishangonehal/Downloads/yc-aixbio-hackathon-main/adjudication_input.csv'
-    output_path = '/Users/ishangonehal/Downloads/yc-aixbio-hackathon-main/adjudication_output.csv'
+    import argparse
+    import os
+
+    repo_root = os.path.dirname(os.path.abspath(__file__))
+    ap = argparse.ArgumentParser(
+        description=(
+            'Rule-based claim label generator. Reads adjudication_input.csv and '
+            'writes the rule label into the human_label column of the output CSV. '
+            'This is NOT a human-anchor validator: the two-expert anchor is the '
+            'human_label already present in adjudication_input.csv. Pointed at the '
+            'released input, this reproduces adjudication_output.csv exactly.'
+        )
+    )
+    ap.add_argument(
+        '--input', default=os.path.join(repo_root, 'adjudication_input.csv'),
+        help='Input CSV with claim + bundle_excerpt (default: repo adjudication_input.csv)',
+    )
+    ap.add_argument(
+        '--output',
+        default=os.path.join(repo_root, 'outputs', 'adjudication_regenerated.csv'),
+        help=('Output CSV path. Defaults to outputs/adjudication_regenerated.csv so a '
+              'run never overwrites the committed adjudication_output.csv.'),
+    )
+    args = ap.parse_args()
+    input_path = args.input
+    output_path = args.output
+    os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
 
     with open(input_path) as f:
         reader = csv.DictReader(f)
