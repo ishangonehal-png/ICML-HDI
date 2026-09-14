@@ -1,0 +1,5 @@
+comparison,n,raw_agreement,cohen_kappa,kappa_binary_supported,note
+regenerated_vs_committed_output,300,1.0,,,expected 1.0 -> adjudicate.py is the generator of adjudication_output.csv
+regenerated_rule_vs_human_anchor,300,0.5933,0.2581,0.3392,rule label vs the two-expert anchor in adjudication_input.csv
+regenerated_rule_vs_key_rule_label,300,0.3967,0.0852,,adjudicate.py's rule label vs adjudication_key.csv rule_label
+key_rule_label_vs_human_anchor,300,0.38,0.0052,,reference: the released rule_label column vs the human anchor
