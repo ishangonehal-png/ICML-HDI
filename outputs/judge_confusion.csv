@@ -1,0 +1,7 @@
+bucket,n,kappa_ternary,kappa_binary,paper_kappa
+gpt-4o-mini::grounded,52,+0.41,+0.47,+0.57
+gpt-5.4-mini::grounded,51,+0.05,+0.14,+0.62
+gpt-5.4-mini::ungrounded,60,+0.03,+0.07,+0.61
+gemini-2.5-flash::grounded,53,+0.00,+0.00,+0.66
+gemini-3-flash-preview::ungrounded,60,+0.21,+0.52,+0.71
+overall,276,+0.44,+0.57,+0.64
