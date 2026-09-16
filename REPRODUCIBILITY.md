@@ -19,7 +19,8 @@ This document describes how to reproduce the headline numbers from the ICML 2026
 | `adjudication_input.csv` | 300 stratified claims for the human anchor |
 | `adjudication_key.csv` | Two-expert consensus labels |
 | `adjudication_output.csv` | Per-claim audit trail |
-| `scripts/eval/` | Evaluation harness (`run_bionlp_eval.py`, `compute_bionlp_metrics.py`, `llm_judge.py`, etc.) |
+| `scripts/eval/` | Evaluation harness (`run_bionlp_eval.py`, `compute_bionlp_metrics.py`, `llm_judge.py`, `verify_cohort_bundles.py`, etc.) |
+| `outputs/cohort_bundle_integrity.{csv,md}` | Input-side cohort / evidence-bundle audit (see caveat 5) |
 | `apps/api/` | Provider-agnostic chat layer + tooling stack (FastAPI service) |
 
 ## Headline-number provenance
@@ -45,7 +46,7 @@ Every numeric headline in the paper traces to one of the per-model `outputs/bion
 | Judge decoding | `T=0`, `max_tokens=200` |
 | Per-request timeout | 120s on both providers |
 | Retry policy | Exponential backoff on HTTP 429, 5xx, ConnectionError, ReadTimeout; 3 attempts |
-| Cohort seed | Fixed in `scripts/cohort/select_cohort.py` |
+| Cohort seed | Fixed in `scripts/eval/run_bionlp_eval.py` (writes `case_selection.csv`; the `scripts/cohort/select_cohort.py` path named in the paper is not in this repo) |
 | Bootstrap seed | 42 |
 
 Provider-side sampling at `T=0.2` is not deterministic across providers; per-call variance is not reported. Re-running the harness on the pinned model versions reproduces cohort-level numbers within bootstrap CI width.
@@ -72,7 +73,11 @@ python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gpt54mini/
 python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gemini25flash/
 python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gemini/
 
-# 5. (Optional) re-validate the human anchor
+# 5. (Optional) audit the cohort split and evidence bundles against the paper's
+#    cohort / four-condition definitions (offline; writes outputs/cohort_bundle_integrity.*)
+python3 scripts/eval/verify_cohort_bundles.py
+
+# 6. (Optional) re-validate the human anchor
 python3 adjudicate.py
 ```
 
@@ -91,3 +96,4 @@ The released `outputs/*/metrics.json` already contain the values used in the pap
 2. The per-claim-type taxonomy in Table 7 is an abstract grouping over the modality-based `claim_type` values in `claim_review.csv`; the mapping is not yet committed in this repo.
 3. `gemini-3-flash-preview` is a preview endpoint; the within-Google generational divergence in §6.2 is a snapshot observation and is hedged accordingly.
 4. The two-expert human anchor was provided by computational biologists with oncology-informatics training, not board-certified oncologists. The κ=0.64 / κ=0.71 numbers calibrate the judge but do not constitute a clinical-safety audit.
+5. **The released evidence bundles are pathology-only; the RNA and clinical layers are absent, and the three grounded configs are byte-identical.** `scripts/eval/verify_cohort_bundles.py` audits `case_selection.csv` and all four runs' `evidence_bundles/` against the paper's cohort and four-condition definitions (writes `outputs/cohort_bundle_integrity.{csv,md}`). What reproduces: N=119, the 40 Hot / 40 Warm / 39 Cold tertile counts (paper Appendix), `io_tier` as a strict tertile cut of `io_score`, the cohort being identical across all four model runs, and the `baseline` bundle being genuinely evidence-free (so HDI's ungrounded leg is legitimate). What does not: every `full_multimodal` bundle has `rna_available:false`, all `transcriptomics` values null, and no clinical block (0/119 for both), even though `case_selection.csv` hardcodes `has_clinical=True` and the paper (§Methods, Appendix) defines the cohort as having "complete pathology and RNA layers" and `full_multimodal` as "pathology, RNA, clinical, and tier all present." Consequently `pathology_only`, `pathology_rna`, and `full_multimodal` present the *same* pathology-only bundle to the model in all 119 cases (0 content difference), so the depth-of-grounding ablation (Table 6 / `tab:gradient`) has no evidence-content gradient to ablate: its per-config differences are generation stochasticity plus the config label announced in the prompt, not evidence depth. The fusion blocks carry `data_source: deterministic`/`deterministic_proxy`, indicating the released cohort was built from a synthetic fallback path rather than real TCGA multimodal measurements. The grounded-vs-ungrounded HDI contrast itself is unaffected (baseline is empty, grounded carries real pathology); only the RNA/clinical multimodality and the *depth* gradient are.

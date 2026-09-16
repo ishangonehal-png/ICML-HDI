@@ -1,0 +1,5 @@
+model,n_cases,C1_N119,tier_counts,C2_tiers_40_40_39,C3_tertile_partition,C4_cohort_shared,full_has_rna,C5_B3_B4_rna_present,full_has_clinical,B4_clinical_present,baseline_empty,B1_baseline_evidence_free,grounded_identical,B_depth_gradient_present
+gpt-4o-mini,119,PASS,"Hot=40,Warm=40,Cold=39",PASS,PASS,PASS,0/119,FAIL,0/119,FAIL,119/119,PASS,119/119,FAIL
+gpt-5.4-mini,119,PASS,"Hot=40,Warm=40,Cold=39",PASS,PASS,PASS,0/119,FAIL,0/119,FAIL,119/119,PASS,119/119,FAIL
+gemini-2.5-flash,119,PASS,"Hot=40,Warm=40,Cold=39",PASS,PASS,PASS,0/119,FAIL,0/119,FAIL,119/119,PASS,119/119,FAIL
+gemini-3-flash-preview,119,PASS,"Hot=40,Warm=40,Cold=39",PASS,PASS,PASS,0/119,FAIL,0/119,FAIL,119/119,PASS,119/119,FAIL
