@@ -1,0 +1,5 @@
+model,modality_attribution_accuracy,identifiable,correct,bundle_absent_modalities,correct_to_absent_modality,correct_to_absent_share,absent_correct_supported,absent_supported_via_unavailable,absent_supported_via_value_match,absent_correct_partial,absent_correct_unsupported
+gpt-4o-mini,0.7901,2020,1596,RNA|clinical|literature,994,0.6228,306,306,0,687,1
+gpt-5.4-mini,0.9822,1233,1211,RNA|clinical|literature,597,0.493,66,66,0,531,0
+gemini-2.5-flash,0.8777,2518,2210,RNA|clinical|literature,931,0.4213,33,33,0,893,5
+gemini-3-flash-preview,0.8763,3896,3414,RNA|clinical|literature,1566,0.4587,29,29,0,1412,125

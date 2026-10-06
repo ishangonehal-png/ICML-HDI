@@ -19,7 +19,8 @@ This document describes how to reproduce the headline numbers from the ICML 2026
 | `adjudication_input.csv` | 300 stratified claims for the human anchor |
 | `adjudication_key.csv` | Two-expert consensus labels |
 | `adjudication_output.csv` | Per-claim audit trail |
-| `scripts/eval/` | Evaluation harness (`run_bionlp_eval.py`, `compute_bionlp_metrics.py`, `llm_judge.py`, etc.) |
+| `scripts/eval/` | Evaluation harness (`run_bionlp_eval.py`, `compute_bionlp_metrics.py`, `llm_judge.py`, `audit_modality_attribution.py`, etc.) |
+| `outputs/modality_attribution_validity.{csv,md}` | Validity audit of the modality-attribution metric (see caveat 5) |
 | `apps/api/` | Provider-agnostic chat layer + tooling stack (FastAPI service) |
 
 ## Headline-number provenance
@@ -29,7 +30,7 @@ Every numeric headline in the paper traces to one of the per-model `outputs/bion
 - **Table 1 / Table 2 (factorial)** — `metrics.json` → `baseline_comparison` block, which calls `scripts/eval/compute_bionlp_metrics.py:compute_baseline_vs_grounded()` over the `llm_judge_final` column with `prompt_type=standard` and `conflict` rows excluded.
 - **Table 3 (diagnostic panel HDI / Δu / overlap@0.80 / max-sim)** — HDI = `(u_b - u_g) / u_b` where $u_b$, $u_g$ come from the same `baseline_comparison` reduction; overlap from `scripts/eval/embedding_overlap.py` over OpenAI `text-embedding-3-small`.
 - **Table 4 (patient-paired bootstrap CIs)** — 2000-resample paired bootstrap, seed 42; computed per the script in this repo (a reviewer-supplied snippet using `numpy` / `scipy.stats` over the four `claim_review.csv` files).
-- **Table 5 (secondary metrics: numeric fidelity, modality attribution, retrieval discipline, completeness)** — `metrics.json` `secondary_metrics` block.
+- **Table 5 (secondary metrics: numeric fidelity, modality attribution, retrieval discipline, completeness)** — `metrics.json` `secondary_metrics` block. Note: the "modality attribution accuracy" cell is a tagger self-agreement rate, not a grounding signal — see caveat 5 and `scripts/eval/audit_modality_attribution.py`.
 - **Table 6 (depth-of-grounding ablation)** — `metrics.json` `completeness_by_config` × per-config supported-claim aggregation.
 - **Table 7 (per-claim-type unsupported rates)** — known caveat: the paper's six-class typed-claim taxonomy (`numeric/modality-tag/tier/uncertainty/literature/other`) is an abstract grouping over the modality-based `claim_type` column in `claim_review.csv` (`pathology/RNA/clinical/fusion/tier/uncertainty/literature/other`). The mapping is currently maintained out-of-tree.
 - **κ values (Table tab:agreement, κ=0.71 inter-annotator)** — computed from `adjudication_input.csv` + `adjudication_key.csv` + the four per-model `claim_review.csv` files via `adjudicate.py`.
@@ -72,7 +73,11 @@ python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gpt54mini/
 python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gemini25flash/
 python3 scripts/eval/compute_bionlp_metrics.py outputs/bionlp_eval_gemini/
 
-# 5. (Optional) re-validate the human anchor
+# 5. (Optional) audit the modality-attribution metric's validity
+#    (offline; writes outputs/modality_attribution_validity.{csv,md})
+python3 scripts/eval/audit_modality_attribution.py
+
+# 6. (Optional) re-validate the human anchor
 python3 adjudicate.py
 ```
 
@@ -91,3 +96,4 @@ The released `outputs/*/metrics.json` already contain the values used in the pap
 2. The per-claim-type taxonomy in Table 7 is an abstract grouping over the modality-based `claim_type` values in `claim_review.csv`; the mapping is not yet committed in this repo.
 3. `gemini-3-flash-preview` is a preview endpoint; the within-Google generational divergence in §6.2 is a snapshot observation and is hedged accordingly.
 4. The two-expert human anchor was provided by computational biologists with oncology-informatics training, not board-certified oncologists. The κ=0.64 / κ=0.71 numbers calibrate the judge but do not constitute a clinical-safety audit.
+5. The "modality attribution accuracy" cell in Table 5 is not a grounding metric. `build_claim_review.py:check_modality_match()` sets `modality_match_auto` by comparing two regex taggers run on the *same sentence* (`claim_type` vs `predicted_modality`) and never reads the evidence bundle, despite its docstring. `scripts/eval/audit_modality_attribution.py` reproduces the headline values (0.790 / 0.982 / 0.878 / 0.876) and shows that 42–62% of each model's "correct" attributions are credited to RNA / clinical / literature claims — modalities that carry zero evidence in *any* bundle config (RNA `cyt/gep/tide` is absent even in `pathology_rna` and `full_multimodal`; clinical values come from an out-of-bundle proxy; literature retrieval is never invoked). Of those bundle-absent "correct" claims, none are supported by a real value match; the only "supported" ones use the "RNA reported as unavailable" escape hatch. The metric measures tagger self-consistency, not grounded attribution. This is the output-side consequence of the input-side bundle gap audited separately (RNA/clinical absent across configs).
