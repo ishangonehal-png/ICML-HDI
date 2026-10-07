@@ -1,0 +1,5 @@
+model,n_identifiable,paper_mod_attr,shipped_mod_attr,reproduces_metrics_json,rna_corrected,bundle_aware,grounded_only_shipped,grounded_only_bundle_aware,credits_revoked_bundle_aware
+gpt-4o-mini,2020,0.976,0.7901,match,0.5094,0.4535,0.7275,0.5108,680
+gpt-5.4-mini,1233,0.982,0.9822,match,0.6748,0.5669,0.9741,0.7383,512
+gemini-2.5-flash,2518,0.878,0.8777,match,0.7057,0.6501,0.8637,0.7816,573
+gemini-3-flash-preview,3896,0.876,0.8763,match,0.6817,0.5919,0.849,0.6787,1108
